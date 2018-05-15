@@ -1,0 +1,23 @@
+//
+//  ProfileViewController.h
+//  MobbieApp
+//
+//  Created by Pablo Vieira on 12/5/18.
+//  Copyright © 2018 Pablo Vieira. All rights reserved.
+//
+
+#import "../ViewController.h"
+
+#import "../Customs/CustomTextField.h"
+
+@interface ProfileViewController : ViewController
+
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+
+- (IBAction)changePasswordButton:(id)sender;
+- (IBAction)updateProfileButton:(id)sender;
+
+@end

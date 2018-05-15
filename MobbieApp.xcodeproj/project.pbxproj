@@ -1,0 +1,646 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E4FEE5420A9925800E0E70A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FEE5320A9925800E0E70A /* MapViewController.m */; };
+		6E4FEE5720A9B54000E0E70A /* MyCarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FEE5620A9B54000E0E70A /* MyCarsViewController.m */; };
+		6E4FEE5A20A9B59400E0E70A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FEE5920A9B59400E0E70A /* AboutViewController.m */; };
+		6E6BD06420A42ACD00A13E8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD06320A42ACD00A13E8E /* AppDelegate.m */; };
+		6E6BD06720A42ACD00A13E8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD06620A42ACD00A13E8E /* ViewController.m */; };
+		6E6BD06A20A42ACD00A13E8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6BD06820A42ACD00A13E8E /* Main.storyboard */; };
+		6E6BD06C20A42ADC00A13E8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6BD06B20A42ADC00A13E8E /* Assets.xcassets */; };
+		6E6BD06F20A42ADC00A13E8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6BD06D20A42ADC00A13E8E /* LaunchScreen.storyboard */; };
+		6E6BD07220A42ADD00A13E8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD07120A42ADD00A13E8E /* main.m */; };
+		6E6BD07C20A42ADD00A13E8E /* MobbieAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD07B20A42ADD00A13E8E /* MobbieAppTests.m */; };
+		6E6BD08720A42ADD00A13E8E /* MobbieAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD08620A42ADD00A13E8E /* MobbieAppUITests.m */; };
+		6E6BD09920A43C9100A13E8E /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD09820A43C9100A13E8E /* CustomTextField.m */; };
+		6E6F253120AA5682009EBBEE /* MyCarsManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6F253020AA5682009EBBEE /* MyCarsManagementViewController.m */; };
+		6E7041C220A66B9E00FE77A0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7041C120A66B9E00FE77A0 /* SignUpViewController.m */; };
+		6E7041C920A69F4400FE77A0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7041C820A69F4400FE77A0 /* ProfileViewController.m */; };
+		6E8C609320AADEBC00562EF8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C609220AADEBC00562EF8 /* HomeViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6E6BD07820A42ADD00A13E8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E6BD05720A42ACD00A13E8E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E6BD05E20A42ACD00A13E8E;
+			remoteInfo = MobbieApp;
+		};
+		6E6BD08320A42ADD00A13E8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E6BD05720A42ACD00A13E8E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E6BD05E20A42ACD00A13E8E;
+			remoteInfo = MobbieApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6E4FEE5220A9925800E0E70A /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		6E4FEE5320A9925800E0E70A /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		6E4FEE5520A9B54000E0E70A /* MyCarsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCarsViewController.h; sourceTree = "<group>"; };
+		6E4FEE5620A9B54000E0E70A /* MyCarsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCarsViewController.m; sourceTree = "<group>"; };
+		6E4FEE5820A9B59400E0E70A /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		6E4FEE5920A9B59400E0E70A /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		6E6BD05F20A42ACD00A13E8E /* MobbieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobbieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E6BD06220A42ACD00A13E8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6E6BD06320A42ACD00A13E8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6E6BD06520A42ACD00A13E8E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6E6BD06620A42ACD00A13E8E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6E6BD06920A42ACD00A13E8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6E6BD06B20A42ADC00A13E8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E6BD06E20A42ADC00A13E8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6E6BD07020A42ADC00A13E8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E6BD07120A42ADD00A13E8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6E6BD07720A42ADD00A13E8E /* MobbieAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobbieAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E6BD07B20A42ADD00A13E8E /* MobbieAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobbieAppTests.m; sourceTree = "<group>"; };
+		6E6BD07D20A42ADD00A13E8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E6BD08220A42ADD00A13E8E /* MobbieAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobbieAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E6BD08620A42ADD00A13E8E /* MobbieAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobbieAppUITests.m; sourceTree = "<group>"; };
+		6E6BD08820A42ADD00A13E8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E6BD09720A43C9100A13E8E /* CustomTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
+		6E6BD09820A43C9100A13E8E /* CustomTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
+		6E6F252F20AA5682009EBBEE /* MyCarsManagementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCarsManagementViewController.h; sourceTree = "<group>"; };
+		6E6F253020AA5682009EBBEE /* MyCarsManagementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCarsManagementViewController.m; sourceTree = "<group>"; };
+		6E7041C020A66B9E00FE77A0 /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		6E7041C120A66B9E00FE77A0 /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		6E7041C720A69F4400FE77A0 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		6E7041C820A69F4400FE77A0 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		6E8C609120AADEBC00562EF8 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		6E8C609220AADEBC00562EF8 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E6BD05C20A42ACD00A13E8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E6BD07420A42ADD00A13E8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E6BD07F20A42ADD00A13E8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E6BD05620A42ACD00A13E8E = {
+			isa = PBXGroup;
+			children = (
+				6E6BD06120A42ACD00A13E8E /* MobbieApp */,
+				6E6BD07A20A42ADD00A13E8E /* MobbieAppTests */,
+				6E6BD08520A42ADD00A13E8E /* MobbieAppUITests */,
+				6E6BD06020A42ACD00A13E8E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6E6BD06020A42ACD00A13E8E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E6BD05F20A42ACD00A13E8E /* MobbieApp.app */,
+				6E6BD07720A42ADD00A13E8E /* MobbieAppTests.xctest */,
+				6E6BD08220A42ADD00A13E8E /* MobbieAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E6BD06120A42ACD00A13E8E /* MobbieApp */ = {
+			isa = PBXGroup;
+			children = (
+				6E7041C320A6924500FE77A0 /* Customs */,
+				6E7041BC20A66AFF00FE77A0 /* Controllers */,
+				6E6BD06220A42ACD00A13E8E /* AppDelegate.h */,
+				6E6BD06320A42ACD00A13E8E /* AppDelegate.m */,
+				6E6BD06520A42ACD00A13E8E /* ViewController.h */,
+				6E6BD06620A42ACD00A13E8E /* ViewController.m */,
+				6E6BD06820A42ACD00A13E8E /* Main.storyboard */,
+				6E6BD06B20A42ADC00A13E8E /* Assets.xcassets */,
+				6E6BD06D20A42ADC00A13E8E /* LaunchScreen.storyboard */,
+				6E6BD07020A42ADC00A13E8E /* Info.plist */,
+				6E6BD07120A42ADD00A13E8E /* main.m */,
+			);
+			path = MobbieApp;
+			sourceTree = "<group>";
+		};
+		6E6BD07A20A42ADD00A13E8E /* MobbieAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E6BD07B20A42ADD00A13E8E /* MobbieAppTests.m */,
+				6E6BD07D20A42ADD00A13E8E /* Info.plist */,
+			);
+			path = MobbieAppTests;
+			sourceTree = "<group>";
+		};
+		6E6BD08520A42ADD00A13E8E /* MobbieAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6E6BD08620A42ADD00A13E8E /* MobbieAppUITests.m */,
+				6E6BD08820A42ADD00A13E8E /* Info.plist */,
+			);
+			path = MobbieAppUITests;
+			sourceTree = "<group>";
+		};
+		6E7041BC20A66AFF00FE77A0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E7041C020A66B9E00FE77A0 /* SignUpViewController.h */,
+				6E7041C120A66B9E00FE77A0 /* SignUpViewController.m */,
+				6E7041C720A69F4400FE77A0 /* ProfileViewController.h */,
+				6E7041C820A69F4400FE77A0 /* ProfileViewController.m */,
+				6E4FEE5220A9925800E0E70A /* MapViewController.h */,
+				6E4FEE5320A9925800E0E70A /* MapViewController.m */,
+				6E4FEE5520A9B54000E0E70A /* MyCarsViewController.h */,
+				6E4FEE5620A9B54000E0E70A /* MyCarsViewController.m */,
+				6E4FEE5820A9B59400E0E70A /* AboutViewController.h */,
+				6E4FEE5920A9B59400E0E70A /* AboutViewController.m */,
+				6E6F252F20AA5682009EBBEE /* MyCarsManagementViewController.h */,
+				6E6F253020AA5682009EBBEE /* MyCarsManagementViewController.m */,
+				6E8C609120AADEBC00562EF8 /* HomeViewController.h */,
+				6E8C609220AADEBC00562EF8 /* HomeViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6E7041C320A6924500FE77A0 /* Customs */ = {
+			isa = PBXGroup;
+			children = (
+				6E6BD09720A43C9100A13E8E /* CustomTextField.h */,
+				6E6BD09820A43C9100A13E8E /* CustomTextField.m */,
+			);
+			path = Customs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E6BD05E20A42ACD00A13E8E /* MobbieApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E6BD08B20A42ADD00A13E8E /* Build configuration list for PBXNativeTarget "MobbieApp" */;
+			buildPhases = (
+				6E6BD05B20A42ACD00A13E8E /* Sources */,
+				6E6BD05C20A42ACD00A13E8E /* Frameworks */,
+				6E6BD05D20A42ACD00A13E8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobbieApp;
+			productName = MobbieApp;
+			productReference = 6E6BD05F20A42ACD00A13E8E /* MobbieApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6E6BD07620A42ADD00A13E8E /* MobbieAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E6BD08E20A42ADD00A13E8E /* Build configuration list for PBXNativeTarget "MobbieAppTests" */;
+			buildPhases = (
+				6E6BD07320A42ADD00A13E8E /* Sources */,
+				6E6BD07420A42ADD00A13E8E /* Frameworks */,
+				6E6BD07520A42ADD00A13E8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E6BD07920A42ADD00A13E8E /* PBXTargetDependency */,
+			);
+			name = MobbieAppTests;
+			productName = MobbieAppTests;
+			productReference = 6E6BD07720A42ADD00A13E8E /* MobbieAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6E6BD08120A42ADD00A13E8E /* MobbieAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E6BD09120A42ADD00A13E8E /* Build configuration list for PBXNativeTarget "MobbieAppUITests" */;
+			buildPhases = (
+				6E6BD07E20A42ADD00A13E8E /* Sources */,
+				6E6BD07F20A42ADD00A13E8E /* Frameworks */,
+				6E6BD08020A42ADD00A13E8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E6BD08420A42ADD00A13E8E /* PBXTargetDependency */,
+			);
+			name = MobbieAppUITests;
+			productName = MobbieAppUITests;
+			productReference = 6E6BD08220A42ADD00A13E8E /* MobbieAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E6BD05720A42ACD00A13E8E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Pablo Vieira";
+				TargetAttributes = {
+					6E6BD05E20A42ACD00A13E8E = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					6E6BD07620A42ADD00A13E8E = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 6E6BD05E20A42ACD00A13E8E;
+					};
+					6E6BD08120A42ADD00A13E8E = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 6E6BD05E20A42ACD00A13E8E;
+					};
+				};
+			};
+			buildConfigurationList = 6E6BD05A20A42ACD00A13E8E /* Build configuration list for PBXProject "MobbieApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6E6BD05620A42ACD00A13E8E;
+			productRefGroup = 6E6BD06020A42ACD00A13E8E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E6BD05E20A42ACD00A13E8E /* MobbieApp */,
+				6E6BD07620A42ADD00A13E8E /* MobbieAppTests */,
+				6E6BD08120A42ADD00A13E8E /* MobbieAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E6BD05D20A42ACD00A13E8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E6BD06F20A42ADC00A13E8E /* LaunchScreen.storyboard in Resources */,
+				6E6BD06C20A42ADC00A13E8E /* Assets.xcassets in Resources */,
+				6E6BD06A20A42ACD00A13E8E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E6BD07520A42ADD00A13E8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E6BD08020A42ADD00A13E8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E6BD05B20A42ACD00A13E8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E6BD09920A43C9100A13E8E /* CustomTextField.m in Sources */,
+				6E6BD06720A42ACD00A13E8E /* ViewController.m in Sources */,
+				6E7041C920A69F4400FE77A0 /* ProfileViewController.m in Sources */,
+				6E4FEE5420A9925800E0E70A /* MapViewController.m in Sources */,
+				6E7041C220A66B9E00FE77A0 /* SignUpViewController.m in Sources */,
+				6E4FEE5720A9B54000E0E70A /* MyCarsViewController.m in Sources */,
+				6E8C609320AADEBC00562EF8 /* HomeViewController.m in Sources */,
+				6E6F253120AA5682009EBBEE /* MyCarsManagementViewController.m in Sources */,
+				6E4FEE5A20A9B59400E0E70A /* AboutViewController.m in Sources */,
+				6E6BD07220A42ADD00A13E8E /* main.m in Sources */,
+				6E6BD06420A42ACD00A13E8E /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E6BD07320A42ADD00A13E8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E6BD07C20A42ADD00A13E8E /* MobbieAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E6BD07E20A42ADD00A13E8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E6BD08720A42ADD00A13E8E /* MobbieAppUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6E6BD07920A42ADD00A13E8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E6BD05E20A42ACD00A13E8E /* MobbieApp */;
+			targetProxy = 6E6BD07820A42ADD00A13E8E /* PBXContainerItemProxy */;
+		};
+		6E6BD08420A42ADD00A13E8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E6BD05E20A42ACD00A13E8E /* MobbieApp */;
+			targetProxy = 6E6BD08320A42ADD00A13E8E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6E6BD06820A42ACD00A13E8E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E6BD06920A42ACD00A13E8E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6E6BD06D20A42ADC00A13E8E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E6BD06E20A42ADC00A13E8E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6E6BD08920A42ADD00A13E8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6E6BD08A20A42ADD00A13E8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E6BD08C20A42ADD00A13E8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2JM7XLS3M;
+				INFOPLIST_FILE = MobbieApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablovieira.MobbieApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6E6BD08D20A42ADD00A13E8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2JM7XLS3M;
+				INFOPLIST_FILE = MobbieApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablovieira.MobbieApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6E6BD08F20A42ADD00A13E8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2JM7XLS3M;
+				INFOPLIST_FILE = MobbieAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablovieira.MobbieAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobbieApp.app/MobbieApp";
+			};
+			name = Debug;
+		};
+		6E6BD09020A42ADD00A13E8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2JM7XLS3M;
+				INFOPLIST_FILE = MobbieAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablovieira.MobbieAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobbieApp.app/MobbieApp";
+			};
+			name = Release;
+		};
+		6E6BD09220A42ADD00A13E8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2JM7XLS3M;
+				INFOPLIST_FILE = MobbieAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablovieira.MobbieAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MobbieApp;
+			};
+			name = Debug;
+		};
+		6E6BD09320A42ADD00A13E8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2JM7XLS3M;
+				INFOPLIST_FILE = MobbieAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pablovieira.MobbieAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MobbieApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E6BD05A20A42ACD00A13E8E /* Build configuration list for PBXProject "MobbieApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E6BD08920A42ADD00A13E8E /* Debug */,
+				6E6BD08A20A42ADD00A13E8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E6BD08B20A42ADD00A13E8E /* Build configuration list for PBXNativeTarget "MobbieApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E6BD08C20A42ADD00A13E8E /* Debug */,
+				6E6BD08D20A42ADD00A13E8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E6BD08E20A42ADD00A13E8E /* Build configuration list for PBXNativeTarget "MobbieAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E6BD08F20A42ADD00A13E8E /* Debug */,
+				6E6BD09020A42ADD00A13E8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E6BD09120A42ADD00A13E8E /* Build configuration list for PBXNativeTarget "MobbieAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E6BD09220A42ADD00A13E8E /* Debug */,
+				6E6BD09320A42ADD00A13E8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6E6BD05720A42ACD00A13E8E /* Project object */;
+}
