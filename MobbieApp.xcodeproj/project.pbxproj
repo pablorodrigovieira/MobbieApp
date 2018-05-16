@@ -23,6 +23,8 @@
 		6E7041C220A66B9E00FE77A0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7041C120A66B9E00FE77A0 /* SignUpViewController.m */; };
 		6E7041C920A69F4400FE77A0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7041C820A69F4400FE77A0 /* ProfileViewController.m */; };
 		6E8C609320AADEBC00562EF8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C609220AADEBC00562EF8 /* HomeViewController.m */; };
+		6E8C609720AAE1B900562EF8 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C609520AAE1B900562EF8 /* CustomTableViewCell.m */; };
+		6E8C609820AAE1B900562EF8 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8C609620AAE1B900562EF8 /* CustomTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,9 @@
 		6E7041C820A69F4400FE77A0 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		6E8C609120AADEBC00562EF8 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6E8C609220AADEBC00562EF8 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		6E8C609420AAE1B900562EF8 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		6E8C609520AAE1B900562EF8 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		6E8C609620AAE1B900562EF8 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +189,9 @@
 			children = (
 				6E6BD09720A43C9100A13E8E /* CustomTextField.h */,
 				6E6BD09820A43C9100A13E8E /* CustomTextField.m */,
+				6E8C609420AAE1B900562EF8 /* CustomTableViewCell.h */,
+				6E8C609520AAE1B900562EF8 /* CustomTableViewCell.m */,
+				6E8C609620AAE1B900562EF8 /* CustomTableViewCell.xib */,
 			);
 			path = Customs;
 			sourceTree = "<group>";
@@ -293,6 +301,7 @@
 			files = (
 				6E6BD06F20A42ADC00A13E8E /* LaunchScreen.storyboard in Resources */,
 				6E6BD06C20A42ADC00A13E8E /* Assets.xcassets in Resources */,
+				6E8C609820AAE1B900562EF8 /* CustomTableViewCell.xib in Resources */,
 				6E6BD06A20A42ACD00A13E8E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +329,7 @@
 			files = (
 				6E6BD09920A43C9100A13E8E /* CustomTextField.m in Sources */,
 				6E6BD06720A42ACD00A13E8E /* ViewController.m in Sources */,
+				6E8C609720AAE1B900562EF8 /* CustomTableViewCell.m in Sources */,
 				6E7041C920A69F4400FE77A0 /* ProfileViewController.m in Sources */,
 				6E4FEE5420A9925800E0E70A /* MapViewController.m in Sources */,
 				6E7041C220A66B9E00FE77A0 /* SignUpViewController.m in Sources */,
