@@ -25,7 +25,9 @@
 }
 
 - (IBAction)takePhoto:(id)sender {
+    
 }
 - (IBAction)saveCar:(id)sender {
+    
 }
 @end

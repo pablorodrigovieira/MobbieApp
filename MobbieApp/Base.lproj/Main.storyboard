@@ -602,49 +602,39 @@
             <point key="canvasLocation" x="2085.5999999999999" y="571.66416791604206"/>
         </scene>
         <!--My Cars-->
-        <scene sceneID="rUw-hc-LHe">
+        <scene sceneID="hcU-vR-rFl">
             <objects>
-                <viewController id="tVY-qt-PEq" customClass="MyCarsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qII-YN-Vf2">
+                <tableViewController id="u2R-Nu-roM" customClass="MyCarsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="w6W-Ay-uak">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iOL-aQ-1dr">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="250" id="8us-58-fHj">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="250"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8us-58-fHj" id="Pcg-a3-GH5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="uMV-uC-tQY" firstAttribute="bottom" secondItem="iOL-aQ-1dr" secondAttribute="bottom" id="OEX-eY-mhx"/>
-                            <constraint firstItem="iOL-aQ-1dr" firstAttribute="leading" secondItem="uMV-uC-tQY" secondAttribute="leading" id="duM-FN-rOb"/>
-                            <constraint firstItem="iOL-aQ-1dr" firstAttribute="top" secondItem="uMV-uC-tQY" secondAttribute="top" id="gDf-1I-OPG"/>
-                            <constraint firstItem="uMV-uC-tQY" firstAttribute="trailing" secondItem="iOL-aQ-1dr" secondAttribute="trailing" id="zlM-vD-TzV"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="uMV-uC-tQY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="My Cars" id="HHr-G8-i2i">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Snj-kf-pZd">
-                            <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="carCell" id="BTI-sN-oHU">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BTI-sN-oHU" id="lJh-0L-RMx">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="u2R-Nu-roM" id="gHK-wd-T7v"/>
+                            <outlet property="delegate" destination="u2R-Nu-roM" id="Jxn-nj-qYQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Cars" id="Cjf-9I-KpA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gEA-1Q-ZXF">
                             <connections>
-                                <segue destination="Vm8-FN-hSN" kind="show" id="Pl6-xf-c0W"/>
+                                <segue destination="Vm8-FN-hSN" kind="show" id="ljF-rs-A6D"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pT4-Ox-0dT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cJJ-ae-6Da" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="1329"/>
+            <point key="canvasLocation" x="1148" y="1365"/>
         </scene>
         <!--New Car-->
         <scene sceneID="QQX-ov-uUy">
@@ -1026,7 +1016,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="tVY-qt-PEq" kind="relationship" relationship="rootViewController" id="xMM-Vb-IL5"/>
+                        <segue destination="u2R-Nu-roM" kind="relationship" relationship="rootViewController" id="AVa-b0-ttF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsN-fG-Ntd" userLabel="First Responder" sceneMemberID="firstResponder"/>

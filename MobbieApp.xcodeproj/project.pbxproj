@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6E4FEE5420A9925800E0E70A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FEE5320A9925800E0E70A /* MapViewController.m */; };
-		6E4FEE5720A9B54000E0E70A /* MyCarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FEE5620A9B54000E0E70A /* MyCarsViewController.m */; };
 		6E4FEE5A20A9B59400E0E70A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FEE5920A9B59400E0E70A /* AboutViewController.m */; };
+		6E6AC5DF20AD5F5E00CC49F2 /* MyCarsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6AC5DE20AD5F5E00CC49F2 /* MyCarsTableViewController.m */; };
+		6E6AC5E320AD607B00CC49F2 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6AC5E220AD607B00CC49F2 /* Car.m */; };
 		6E6BD06420A42ACD00A13E8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD06320A42ACD00A13E8E /* AppDelegate.m */; };
 		6E6BD06720A42ACD00A13E8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD06620A42ACD00A13E8E /* ViewController.m */; };
 		6E6BD06A20A42ACD00A13E8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6BD06820A42ACD00A13E8E /* Main.storyboard */; };
@@ -47,10 +48,12 @@
 /* Begin PBXFileReference section */
 		6E4FEE5220A9925800E0E70A /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		6E4FEE5320A9925800E0E70A /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		6E4FEE5520A9B54000E0E70A /* MyCarsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCarsViewController.h; sourceTree = "<group>"; };
-		6E4FEE5620A9B54000E0E70A /* MyCarsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCarsViewController.m; sourceTree = "<group>"; };
 		6E4FEE5820A9B59400E0E70A /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		6E4FEE5920A9B59400E0E70A /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		6E6AC5DD20AD5F5E00CC49F2 /* MyCarsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCarsTableViewController.h; sourceTree = "<group>"; };
+		6E6AC5DE20AD5F5E00CC49F2 /* MyCarsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCarsTableViewController.m; sourceTree = "<group>"; };
+		6E6AC5E120AD607B00CC49F2 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		6E6AC5E220AD607B00CC49F2 /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		6E6BD05F20A42ACD00A13E8E /* MobbieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobbieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6BD06220A42ACD00A13E8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6E6BD06320A42ACD00A13E8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -107,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E6AC5E020AD605000CC49F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E6AC5E120AD607B00CC49F2 /* Car.h */,
+				6E6AC5E220AD607B00CC49F2 /* Car.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		6E6BD05620A42ACD00A13E8E = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +142,7 @@
 		6E6BD06120A42ACD00A13E8E /* MobbieApp */ = {
 			isa = PBXGroup;
 			children = (
+				6E6AC5E020AD605000CC49F2 /* Models */,
 				6E7041C320A6924500FE77A0 /* Customs */,
 				6E7041BC20A66AFF00FE77A0 /* Controllers */,
 				6E6BD06220A42ACD00A13E8E /* AppDelegate.h */,
@@ -172,14 +185,14 @@
 				6E7041C820A69F4400FE77A0 /* ProfileViewController.m */,
 				6E4FEE5220A9925800E0E70A /* MapViewController.h */,
 				6E4FEE5320A9925800E0E70A /* MapViewController.m */,
-				6E4FEE5520A9B54000E0E70A /* MyCarsViewController.h */,
-				6E4FEE5620A9B54000E0E70A /* MyCarsViewController.m */,
-				6E4FEE5820A9B59400E0E70A /* AboutViewController.h */,
 				6E4FEE5920A9B59400E0E70A /* AboutViewController.m */,
+				6E4FEE5820A9B59400E0E70A /* AboutViewController.h */,
 				6E6F252F20AA5682009EBBEE /* MyCarsManagementViewController.h */,
 				6E6F253020AA5682009EBBEE /* MyCarsManagementViewController.m */,
 				6E8C609120AADEBC00562EF8 /* HomeViewController.h */,
 				6E8C609220AADEBC00562EF8 /* HomeViewController.m */,
+				6E6AC5DD20AD5F5E00CC49F2 /* MyCarsTableViewController.h */,
+				6E6AC5DE20AD5F5E00CC49F2 /* MyCarsTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -331,13 +344,14 @@
 				6E6BD06720A42ACD00A13E8E /* ViewController.m in Sources */,
 				6E8C609720AAE1B900562EF8 /* CustomTableViewCell.m in Sources */,
 				6E7041C920A69F4400FE77A0 /* ProfileViewController.m in Sources */,
+				6E6AC5E320AD607B00CC49F2 /* Car.m in Sources */,
 				6E4FEE5420A9925800E0E70A /* MapViewController.m in Sources */,
 				6E7041C220A66B9E00FE77A0 /* SignUpViewController.m in Sources */,
-				6E4FEE5720A9B54000E0E70A /* MyCarsViewController.m in Sources */,
 				6E8C609320AADEBC00562EF8 /* HomeViewController.m in Sources */,
 				6E6F253120AA5682009EBBEE /* MyCarsManagementViewController.m in Sources */,
 				6E4FEE5A20A9B59400E0E70A /* AboutViewController.m in Sources */,
 				6E6BD07220A42ADD00A13E8E /* main.m in Sources */,
+				6E6AC5DF20AD5F5E00CC49F2 /* MyCarsTableViewController.m in Sources */,
 				6E6BD06420A42ACD00A13E8E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
