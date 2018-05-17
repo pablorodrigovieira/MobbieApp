@@ -16,6 +16,10 @@
 
 @synthesize usernameTextField, passwordTextField;
 
+NSString *const const_alert_message = @"Perform Sign Up or Login to access the features that Mobbie App allows the users..";
+NSString *const const_alert_title = @"About Mobbie";
+NSString *const const_alert_button = @"Ok";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -34,4 +38,25 @@
 }
 
 
+- (IBAction)aboutButton:(id)sender {
+    
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle: const_alert_title
+                                message:const_alert_message
+                                preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okButton = [UIAlertAction actionWithTitle: const_alert_button
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * _Nonnull action)
+                               {
+                                   [alert dismissViewControllerAnimated:YES completion:nil];
+                               }];
+    
+    //Add ok button
+    [alert addAction: okButton];
+    
+    //Display Aler
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 @end

@@ -71,6 +71,9 @@
                                                 </constraints>
                                                 <color key="tintColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="help"/>
+                                                <connections>
+                                                    <action selector="aboutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OGZ-Io-FDR"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozS-BA-tDs">
                                                 <rect key="frame" x="88.5" y="386" width="150" height="30"/>
@@ -137,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2424.8000000000002" y="183.95802098950526"/>
+            <point key="canvasLocation" x="-2427" y="-210"/>
         </scene>
         <!--Profile-->
         <scene sceneID="GFf-hx-IwY">
@@ -288,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SnB-Xb-ypb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-479.19999999999999" y="571.66416791604206"/>
+            <point key="canvasLocation" x="-591" y="706"/>
         </scene>
         <!--About-->
         <scene sceneID="K8I-y5-6Ui">
@@ -301,13 +304,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGC-tV-Ynt">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qfe-Zk-qou">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="qfe-Zk-qou">
                                         <rect key="frame" x="8" y="29" width="359" height="243"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="243" id="Skn-J0-Qal"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <string key="text">Mobbie rental is an App that will have two segments, as the car owner, he/she will have to list a car for leasing, and when a customer requests a vehicle, this car owner is responsible for drop off and pick up the car on the client's home. Consequently, as a customer, it will allow users to rent a vehicle without leaving their home. This is the main goal of this service, thus potential customers can save time and money as there is no needed to catch a bus to go to pick up the vehicle. </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -349,7 +352,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hq6-Zk-SK2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="356" y="571.66416791604206"/>
+            <point key="canvasLocation" x="341.60000000000002" y="705.69715142428788"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="rCY-6T-Il0">
@@ -527,7 +530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRM-4B-B2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2426" y="1786"/>
+            <point key="canvasLocation" x="-2428" y="1560"/>
         </scene>
         <!--Map-->
         <scene sceneID="6eS-mr-5lK">
@@ -599,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qNi-c8-o8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2085.5999999999999" y="571.66416791604206"/>
+            <point key="canvasLocation" x="2105" y="706"/>
         </scene>
         <!--My Cars-->
         <scene sceneID="hcU-vR-rFl">
@@ -634,7 +637,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJJ-ae-6Da" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="1365"/>
+            <point key="canvasLocation" x="1129" y="1560"/>
         </scene>
         <!--New Car-->
         <scene sceneID="QQX-ov-uUy">
@@ -890,7 +893,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ij8-6S-dxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="2090.1049475262371"/>
+            <point key="canvasLocation" x="1643" y="1560"/>
         </scene>
         <!--Mobbie-->
         <scene sceneID="JO8-vL-TNm">
@@ -930,7 +933,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FqI-Mc-sGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="598" y="-209"/>
+            <point key="canvasLocation" x="342" y="-211"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mfa-1h-JNB">
@@ -953,7 +956,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dz-AV-5si" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1375" y="-209"/>
+            <point key="canvasLocation" x="-1573" y="-210"/>
         </scene>
         <!--Sign Up Navigation Controller-->
         <scene sceneID="Odq-QB-dMS">
@@ -975,7 +978,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSh-fc-yVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2425" y="996"/>
+            <point key="canvasLocation" x="-2427" y="706"/>
         </scene>
         <!--Home-->
         <scene sceneID="jeo-QK-hGS">
@@ -998,7 +1001,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Le-HL-BK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-348" y="-209"/>
+            <point key="canvasLocation" x="-592" y="-210"/>
         </scene>
         <!--My Cars-->
         <scene sceneID="xxN-ts-zyn">
@@ -1021,7 +1024,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsN-fG-Ntd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="571.66416791604206"/>
+            <point key="canvasLocation" x="1129" y="706"/>
         </scene>
     </scenes>
     <resources>

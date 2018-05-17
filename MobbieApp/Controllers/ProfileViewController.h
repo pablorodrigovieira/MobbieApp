@@ -12,6 +12,11 @@
 
 @interface ProfileViewController : ViewController
 
+extern NSString *const const_profile_alert_message;
+extern NSString *const const_profile_alert_title;
+extern NSString *const const_profile_alert_button;
+extern NSString *const const_profile_alert_cancel_button;
+
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;

@@ -14,6 +14,11 @@
 
 @implementation ProfileViewController
 
+NSString *const const_profile_alert_message = @"Enter a new password";
+NSString *const const_profile_alert_title = @"Change Password";
+NSString *const const_profile_alert_button = @"Confirm";
+NSString *const const_profile_alert_cancel_button = @"Cancel";
+
 @synthesize firstNameTextField, lastNameTextField, emailTextField, phoneNumberTextField;
 
 - (void)viewDidLoad {
@@ -42,6 +47,42 @@
 
 - (IBAction)changePasswordButton:(id)sender {
     //TODO
+    
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle: const_profile_alert_title
+                                message:const_profile_alert_message
+                                preferredStyle:UIAlertControllerStyleAlert];
+    
+    //Add textfield
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *newPassword) {
+        [newPassword setPlaceholder:@"New Password"];
+        [newPassword setSecureTextEntry:YES];
+        
+    }];
+    
+    //Buttons
+    UIAlertAction *cancelButton = [UIAlertAction
+                                   actionWithTitle: const_profile_alert_cancel_button
+                                   style:UIAlertActionStyleCancel
+                                    handler:^(UIAlertAction * _Nonnull action)
+                               {
+                                   [alert dismissViewControllerAnimated:YES completion:nil];
+                               }];
+    
+    UIAlertAction *confirmButton = [UIAlertAction
+                                    actionWithTitle: const_profile_alert_button
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * _Nonnull action)
+                                    {
+                                        //TODO change password
+                                        //[alert dismissViewControllerAnimated:YES completion:nil];
+                                    }];
+    //Add Confirm button
+    [alert addAction: confirmButton];
+    [alert addAction: cancelButton];
+    
+    //Display Aler
+    [self presentViewController:alert animated:YES completion:nil];
     
 }
 
