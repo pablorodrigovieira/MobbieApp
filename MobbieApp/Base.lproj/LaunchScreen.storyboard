@@ -19,28 +19,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Zwe-jp-Vlh">
-                                <rect key="frame" x="67" y="287" width="240" height="113"/>
+                                <rect key="frame" x="67" y="277" width="240" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="113" id="9j9-gT-nHK"/>
                                     <constraint firstAttribute="width" constant="240" id="nQq-hA-1Pk"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2018. All rights reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eM9-hi-qsG">
-                                <rect key="frame" x="16" y="626" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="eM9-hi-qsG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="7mq-1j-1Tc"/>
-                            <constraint firstItem="Zwe-jp-Vlh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="E9P-Kc-u2B"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eM9-hi-qsG" secondAttribute="bottom" constant="20" id="HsX-58-t12"/>
+                            <constraint firstItem="Zwe-jp-Vlh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-10" id="E9P-Kc-u2B"/>
                             <constraint firstItem="Zwe-jp-Vlh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PL8-gt-75Z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eM9-hi-qsG" secondAttribute="trailing" constant="16" id="qas-V8-ACw"/>
-                            <constraint firstItem="eM9-hi-qsG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="606" id="w2l-Bh-fM0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

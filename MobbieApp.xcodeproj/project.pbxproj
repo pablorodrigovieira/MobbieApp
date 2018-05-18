@@ -23,6 +23,7 @@
 		6E6F253120AA5682009EBBEE /* MyCarsManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6F253020AA5682009EBBEE /* MyCarsManagementViewController.m */; };
 		6E7041C220A66B9E00FE77A0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7041C120A66B9E00FE77A0 /* SignUpViewController.m */; };
 		6E7041C920A69F4400FE77A0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7041C820A69F4400FE77A0 /* ProfileViewController.m */; };
+		6E7809C320AEC892000FCAA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7809C220AEC892000FCAA4 /* MapKit.framework */; };
 		6E8C609320AADEBC00562EF8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C609220AADEBC00562EF8 /* HomeViewController.m */; };
 		6E8C609720AAE1B900562EF8 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C609520AAE1B900562EF8 /* CustomTableViewCell.m */; };
 		6E8C609820AAE1B900562EF8 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8C609620AAE1B900562EF8 /* CustomTableViewCell.xib */; };
@@ -78,6 +79,7 @@
 		6E7041C120A66B9E00FE77A0 /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		6E7041C720A69F4400FE77A0 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		6E7041C820A69F4400FE77A0 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		6E7809C220AEC892000FCAA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6E8C609120AADEBC00562EF8 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6E8C609220AADEBC00562EF8 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		6E8C609420AAE1B900562EF8 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E7809C320AEC892000FCAA4 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +129,7 @@
 				6E6BD07A20A42ADD00A13E8E /* MobbieAppTests */,
 				6E6BD08520A42ADD00A13E8E /* MobbieAppUITests */,
 				6E6BD06020A42ACD00A13E8E /* Products */,
+				6E7809C120AEC892000FCAA4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +211,14 @@
 				6E8C609620AAE1B900562EF8 /* CustomTableViewCell.xib */,
 			);
 			path = Customs;
+			sourceTree = "<group>";
+		};
+		6E7809C120AEC892000FCAA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E7809C220AEC892000FCAA4 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -43,7 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -51,7 +50,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [carData count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -72,11 +70,12 @@
     cell.contentView.layer.cornerRadius = 10.0;
     [cell.contentView setClipsToBounds:YES];
     
+    /*
     [cell.layer setShadowColor:[[UIColor blackColor] CGColor]];
     [cell.layer setShadowOffset:CGSizeMake(-4.0, 4.0)];
     [cell.layer setShadowRadius:4.75];
     [cell.layer setShadowOpacity:0.4];
-    
+    */
     return cell;
 }
 
