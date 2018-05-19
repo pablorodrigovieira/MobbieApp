@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>805515341263-29j8j4i1a4lofe9tkaosiq538a0qq54b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.805515341263-29j8j4i1a4lofe9tkaosiq538a0qq54b</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBoCAax0jgWnSguUncb28ApzlQwxa4Z6uc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>805515341263</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.pablovieira.MobbieApp</string>
+	<key>PROJECT_ID</key>
+	<string>mobbieapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mobbieapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:805515341263:ios:168d7ef2fac3a196</string>
+	<key>DATABASE_URL</key>
+	<string>https://mobbieapp.firebaseio.com</string>
+</dict>
+</plist>
