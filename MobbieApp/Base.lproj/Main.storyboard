@@ -90,6 +90,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="5"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6cQ-V3-VBC"/>
                                                     <segue destination="D7o-Kh-5gG" kind="show" identifier="login_identifier_segue" id="kQ3-Rx-ZSf"/>
                                                 </connections>
                                             </button>
@@ -445,6 +446,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="5"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="confirmButton:" destination="mjo-MZ-Nra" eventType="touchUpInside" id="xoS-Qo-3FM"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I accept the Terms and Conditions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhS-Oh-8uN">
                                                 <rect key="frame" x="89" y="377" width="278" height="17"/>
@@ -528,6 +532,7 @@
                         <outlet property="lastNameTextField" destination="MHa-zG-9K7" id="6VY-Va-6CQ"/>
                         <outlet property="passwordTextField" destination="ZGB-dK-6Ew" id="S2I-pa-xoc"/>
                         <outlet property="phoneTextField" destination="ujK-7u-7TG" id="sQb-jh-ko3"/>
+                        <segue destination="D7o-Kh-5gG" kind="show" identifier="signup_identifier_segue" id="g2z-nu-CBc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRM-4B-B2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1041,4 +1046,7 @@
         <image name="logout" width="24" height="24"/>
         <image name="username-menu" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="kQ3-Rx-ZSf"/>
+    </inferredMetricsTieBreakers>
 </document>

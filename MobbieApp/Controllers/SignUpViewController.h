@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
 
+- (IBAction)confirmButton:(id)sender;
 
 
 @end

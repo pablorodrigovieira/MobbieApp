@@ -21,6 +21,8 @@
 		6E6BD07C20A42ADD00A13E8E /* MobbieAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD07B20A42ADD00A13E8E /* MobbieAppTests.m */; };
 		6E6BD08720A42ADD00A13E8E /* MobbieAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD08620A42ADD00A13E8E /* MobbieAppUITests.m */; };
 		6E6BD09920A43C9100A13E8E /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD09820A43C9100A13E8E /* CustomTextField.m */; };
+		6E6E8ADF20B2DD2900F8E36A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E6E8ADE20B2DD2900F8E36A /* GoogleService-Info.plist */; };
+		6E6E8AE320B2DDFF00F8E36A /* AlertsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E8AE220B2DDFF00F8E36A /* AlertsViewController.m */; };
 		6E6F253120AA5682009EBBEE /* MyCarsManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6F253020AA5682009EBBEE /* MyCarsManagementViewController.m */; };
 		6E7041C220A66B9E00FE77A0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7041C120A66B9E00FE77A0 /* SignUpViewController.m */; };
 		6E7041C920A69F4400FE77A0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7041C820A69F4400FE77A0 /* ProfileViewController.m */; };
@@ -28,7 +30,6 @@
 		6E8C609320AADEBC00562EF8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C609220AADEBC00562EF8 /* HomeViewController.m */; };
 		6E8C609720AAE1B900562EF8 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C609520AAE1B900562EF8 /* CustomTableViewCell.m */; };
 		6E8C609820AAE1B900562EF8 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8C609620AAE1B900562EF8 /* CustomTableViewCell.xib */; };
-		6E9B67A720AFA8970055CCD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E9B67A620AFA8970055CCD8 /* GoogleService-Info.plist */; };
 		BD676089EB4E981AE6F98D25 /* libPods-MobbieAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5716326B5F7236B0A84FAE30 /* libPods-MobbieAppTests.a */; };
 		D1E01B3E7517145A1174546D /* libPods-MobbieAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE154541B85496DC55D36A16 /* libPods-MobbieAppUITests.a */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,9 @@
 		6E6BD08820A42ADD00A13E8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E6BD09720A43C9100A13E8E /* CustomTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
 		6E6BD09820A43C9100A13E8E /* CustomTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
+		6E6E8ADE20B2DD2900F8E36A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6E6E8AE120B2DDFF00F8E36A /* AlertsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertsViewController.h; sourceTree = "<group>"; };
+		6E6E8AE220B2DDFF00F8E36A /* AlertsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertsViewController.m; sourceTree = "<group>"; };
 		6E6F252F20AA5682009EBBEE /* MyCarsManagementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCarsManagementViewController.h; sourceTree = "<group>"; };
 		6E6F253020AA5682009EBBEE /* MyCarsManagementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCarsManagementViewController.m; sourceTree = "<group>"; };
 		6E7041C020A66B9E00FE77A0 /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -93,7 +97,6 @@
 		6E8C609420AAE1B900562EF8 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		6E8C609520AAE1B900562EF8 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		6E8C609620AAE1B900562EF8 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
-		6E9B67A620AFA8970055CCD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6E9B67A820AFA89C0055CCD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		727318E6D2AEFA24B9BBF90A /* Pods-MobbieAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobbieAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobbieAppUITests/Pods-MobbieAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A3741220027E14EC76209D93 /* Pods-MobbieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobbieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobbieApp/Pods-MobbieApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 		6E6BD06120A42ACD00A13E8E /* MobbieApp */ = {
 			isa = PBXGroup;
 			children = (
+				6E6E8AE020B2DD8B00F8E36A /* Alerts */,
 				6E6AC5E020AD605000CC49F2 /* Models */,
 				6E7041C320A6924500FE77A0 /* Customs */,
 				6E7041BC20A66AFF00FE77A0 /* Controllers */,
@@ -175,8 +179,8 @@
 				6E6BD06820A42ACD00A13E8E /* Main.storyboard */,
 				6E6BD06B20A42ADC00A13E8E /* Assets.xcassets */,
 				6E6BD06D20A42ADC00A13E8E /* LaunchScreen.storyboard */,
-				6E6BD07020A42ADC00A13E8E /* Info.plist */,
 				6E9B67A820AFA89C0055CCD8 /* GoogleService-Info.plist */,
+				6E6BD07020A42ADC00A13E8E /* Info.plist */,
 				6E6BD07120A42ADD00A13E8E /* main.m */,
 			);
 			path = MobbieApp;
@@ -200,10 +204,19 @@
 			path = MobbieAppUITests;
 			sourceTree = "<group>";
 		};
+		6E6E8AE020B2DD8B00F8E36A /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				6E6E8AE120B2DDFF00F8E36A /* AlertsViewController.h */,
+				6E6E8AE220B2DDFF00F8E36A /* AlertsViewController.m */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
 		6E7041BC20A66AFF00FE77A0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6E9B67A620AFA8970055CCD8 /* GoogleService-Info.plist */,
+				6E6E8ADE20B2DD2900F8E36A /* GoogleService-Info.plist */,
 				6E7041C020A66B9E00FE77A0 /* SignUpViewController.h */,
 				6E7041C120A66B9E00FE77A0 /* SignUpViewController.m */,
 				6E7041C720A69F4400FE77A0 /* ProfileViewController.h */,
@@ -366,7 +379,7 @@
 			files = (
 				6E6BD06F20A42ADC00A13E8E /* LaunchScreen.storyboard in Resources */,
 				6E6BD06C20A42ADC00A13E8E /* Assets.xcassets in Resources */,
-				6E9B67A720AFA8970055CCD8 /* GoogleService-Info.plist in Resources */,
+				6E6E8ADF20B2DD2900F8E36A /* GoogleService-Info.plist in Resources */,
 				6E8C609820AAE1B900562EF8 /* CustomTableViewCell.xib in Resources */,
 				6E6BD06A20A42ACD00A13E8E /* Main.storyboard in Resources */,
 			);
@@ -455,6 +468,7 @@
 				6E8C609720AAE1B900562EF8 /* CustomTableViewCell.m in Sources */,
 				6E7041C920A69F4400FE77A0 /* ProfileViewController.m in Sources */,
 				6E6AC5E320AD607B00CC49F2 /* Car.m in Sources */,
+				6E6E8AE320B2DDFF00F8E36A /* AlertsViewController.m in Sources */,
 				6E4FEE5420A9925800E0E70A /* MapViewController.m in Sources */,
 				6E7041C220A66B9E00FE77A0 /* SignUpViewController.m in Sources */,
 				6E8C609320AADEBC00562EF8 /* HomeViewController.m in Sources */,

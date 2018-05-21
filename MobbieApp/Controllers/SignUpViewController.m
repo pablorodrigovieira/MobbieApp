@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+@import Firebase;
 
 @interface SignUpViewController ()
 
@@ -47,5 +48,41 @@
 - (IBAction)cancelButton:(id)sender {
     //Dismiss current view
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)confirmButton:(id)sender {
+    
+    //TODO Form validation
+    if(emailTextField.text != nil && passwordTextField.text != nil){
+        
+        NSString *email = emailTextField.text;
+        NSString *password = confirmPasswordTextField.text;
+        
+        [[FIRAuth auth]
+         createUserWithEmail: email
+         password: password
+         completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+             
+             //TODO
+             //Error or Result
+             if(authResult != nil){
+                 
+                 //TODO check how to push
+                 //Go to Home screen
+                 
+                 
+                 [self performSegueWithIdentifier:@"signup_identifier_segue" sender:self];
+             }
+             else{
+                 //error
+             }
+             
+         }];
+    }
+    else{
+        //TODO
+        //Display error input MSGs
+    }
+    
+
 }
 @end
