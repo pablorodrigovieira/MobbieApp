@@ -14,6 +14,7 @@
 
 @implementation AlertsViewController
 
+//Constants for Alerts
 NSString *const const_alert_message = @"DEFAULT..";
 NSString *const const_alert_title = @"Mobbie";
 NSString *const const_alert_button = @"Ok";
@@ -23,6 +24,8 @@ NSString *const const_about_alert_title = @"About Mobbie";
 
 NSString *const const_input_alert_message = @"Please fill up the Information at: ";
 NSString *const const_input_alert_title = @"Empty Field";
+NSString *const const_no_input_alert_message = @"Please fill information in all fields";
+NSString *const const_passwords_not_matching_alert_message = @"Passwords did not match, try again";
 
 - (void)viewDidLoad {
     [super viewDidLoad];

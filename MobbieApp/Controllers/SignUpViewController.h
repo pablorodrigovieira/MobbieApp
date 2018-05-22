@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "../Customs/CustomTextField.h"
+#import "../Providers/DatabaseProvider.h"
+#import "../Alerts/AlertsViewController.h"
 
 @interface SignUpViewController : UIViewController
 
 - (IBAction)cancelButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UISwitch *termsAndConditionsSwitch;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivityIndicator;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;

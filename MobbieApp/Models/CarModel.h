@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Car : NSObject
+@interface CarModel : NSObject
 
 //@property (weak,nonatomic) NSString *vinChassis;
 //@property (weak,nonatomic) NSString *regoExpiry;

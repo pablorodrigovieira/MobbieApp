@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		325698600A80217BABF4DDCB /* libPods-MobbieApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C90F4CE065E28FF273DAAD /* libPods-MobbieApp.a */; };
+		6E2C1ACF20B4124A009BB828 /* DatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C1ACE20B4124A009BB828 /* DatabaseProvider.m */; };
 		6E4FEE5420A9925800E0E70A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FEE5320A9925800E0E70A /* MapViewController.m */; };
 		6E4FEE5A20A9B59400E0E70A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FEE5920A9B59400E0E70A /* AboutViewController.m */; };
 		6E6AC5DF20AD5F5E00CC49F2 /* MyCarsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6AC5DE20AD5F5E00CC49F2 /* MyCarsTableViewController.m */; };
-		6E6AC5E320AD607B00CC49F2 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6AC5E220AD607B00CC49F2 /* Car.m */; };
+		6E6AC5E320AD607B00CC49F2 /* CarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6AC5E220AD607B00CC49F2 /* CarModel.m */; };
 		6E6BD06420A42ACD00A13E8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD06320A42ACD00A13E8E /* AppDelegate.m */; };
 		6E6BD06720A42ACD00A13E8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD06620A42ACD00A13E8E /* ViewController.m */; };
 		6E6BD06A20A42ACD00A13E8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6BD06820A42ACD00A13E8E /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		6E8C609320AADEBC00562EF8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C609220AADEBC00562EF8 /* HomeViewController.m */; };
 		6E8C609720AAE1B900562EF8 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C609520AAE1B900562EF8 /* CustomTableViewCell.m */; };
 		6E8C609820AAE1B900562EF8 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8C609620AAE1B900562EF8 /* CustomTableViewCell.xib */; };
+		6EB59D3920B424E900D220A4 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB59D3820B424E900D220A4 /* UserModel.m */; };
 		BD676089EB4E981AE6F98D25 /* libPods-MobbieAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5716326B5F7236B0A84FAE30 /* libPods-MobbieAppTests.a */; };
 		D1E01B3E7517145A1174546D /* libPods-MobbieAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE154541B85496DC55D36A16 /* libPods-MobbieAppUITests.a */; };
 /* End PBXBuildFile section */
@@ -56,14 +58,16 @@
 		5716326B5F7236B0A84FAE30 /* libPods-MobbieAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MobbieAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0291924C1398258C5C8935 /* Pods-MobbieAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobbieAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobbieAppUITests/Pods-MobbieAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		69C90F4CE065E28FF273DAAD /* libPods-MobbieApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MobbieApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E2C1ACD20B4124A009BB828 /* DatabaseProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseProvider.h; sourceTree = "<group>"; };
+		6E2C1ACE20B4124A009BB828 /* DatabaseProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseProvider.m; sourceTree = "<group>"; };
 		6E4FEE5220A9925800E0E70A /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		6E4FEE5320A9925800E0E70A /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6E4FEE5820A9B59400E0E70A /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		6E4FEE5920A9B59400E0E70A /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		6E6AC5DD20AD5F5E00CC49F2 /* MyCarsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCarsTableViewController.h; sourceTree = "<group>"; };
 		6E6AC5DE20AD5F5E00CC49F2 /* MyCarsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCarsTableViewController.m; sourceTree = "<group>"; };
-		6E6AC5E120AD607B00CC49F2 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
-		6E6AC5E220AD607B00CC49F2 /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		6E6AC5E120AD607B00CC49F2 /* CarModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarModel.h; sourceTree = "<group>"; };
+		6E6AC5E220AD607B00CC49F2 /* CarModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarModel.m; sourceTree = "<group>"; };
 		6E6BD05F20A42ACD00A13E8E /* MobbieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobbieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6BD06220A42ACD00A13E8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6E6BD06320A42ACD00A13E8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 		6E8C609520AAE1B900562EF8 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		6E8C609620AAE1B900562EF8 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		6E9B67A820AFA89C0055CCD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6EB59D3720B424E900D220A4 /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		6EB59D3820B424E900D220A4 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		727318E6D2AEFA24B9BBF90A /* Pods-MobbieAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobbieAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobbieAppUITests/Pods-MobbieAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A3741220027E14EC76209D93 /* Pods-MobbieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobbieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobbieApp/Pods-MobbieApp.release.xcconfig"; sourceTree = "<group>"; };
 		C5B555CE1C03FA334D651040 /* Pods-MobbieAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobbieAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobbieAppTests/Pods-MobbieAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,11 +140,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E2C1ACC20B4121F009BB828 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				6E2C1ACD20B4124A009BB828 /* DatabaseProvider.h */,
+				6E2C1ACE20B4124A009BB828 /* DatabaseProvider.m */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
 		6E6AC5E020AD605000CC49F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6E6AC5E120AD607B00CC49F2 /* Car.h */,
-				6E6AC5E220AD607B00CC49F2 /* Car.m */,
+				6E6AC5E120AD607B00CC49F2 /* CarModel.h */,
+				6E6AC5E220AD607B00CC49F2 /* CarModel.m */,
+				6EB59D3720B424E900D220A4 /* UserModel.h */,
+				6EB59D3820B424E900D220A4 /* UserModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,6 +185,7 @@
 		6E6BD06120A42ACD00A13E8E /* MobbieApp */ = {
 			isa = PBXGroup;
 			children = (
+				6E2C1ACC20B4121F009BB828 /* Providers */,
 				6E6E8AE020B2DD8B00F8E36A /* Alerts */,
 				6E6AC5E020AD605000CC49F2 /* Models */,
 				6E7041C320A6924500FE77A0 /* Customs */,
@@ -467,10 +485,12 @@
 				6E6BD06720A42ACD00A13E8E /* ViewController.m in Sources */,
 				6E8C609720AAE1B900562EF8 /* CustomTableViewCell.m in Sources */,
 				6E7041C920A69F4400FE77A0 /* ProfileViewController.m in Sources */,
-				6E6AC5E320AD607B00CC49F2 /* Car.m in Sources */,
+				6E6AC5E320AD607B00CC49F2 /* CarModel.m in Sources */,
 				6E6E8AE320B2DDFF00F8E36A /* AlertsViewController.m in Sources */,
+				6EB59D3920B424E900D220A4 /* UserModel.m in Sources */,
 				6E4FEE5420A9925800E0E70A /* MapViewController.m in Sources */,
 				6E7041C220A66B9E00FE77A0 /* SignUpViewController.m in Sources */,
+				6E2C1ACF20B4124A009BB828 /* DatabaseProvider.m in Sources */,
 				6E8C609320AADEBC00562EF8 /* HomeViewController.m in Sources */,
 				6E6F253120AA5682009EBBEE /* MyCarsManagementViewController.m in Sources */,
 				6E4FEE5A20A9B59400E0E70A /* AboutViewController.m in Sources */,

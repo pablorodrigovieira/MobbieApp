@@ -9,6 +9,7 @@ target 'MobbieApp' do
   # Pods for MobbieApp
   pod 'Firebase/Core'
   pod 'Firebase/Auth' 
+  pod 'Firebase/Database'
 
   target 'MobbieAppTests' do
     inherit! :search_paths

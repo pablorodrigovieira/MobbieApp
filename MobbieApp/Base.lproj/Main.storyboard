@@ -448,7 +448,7 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yva-7m-Dtm">
-                                                <rect key="frame" x="112.5" y="428" width="150" height="30"/>
+                                                <rect key="frame" x="113" y="428" width="150" height="30"/>
                                                 <color key="backgroundColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Ieh-b0-E83"/>
@@ -508,11 +508,17 @@
                                             <constraint firstAttribute="bottom" secondItem="Yva-7m-Dtm" secondAttribute="bottom" constant="145" id="xlG-0y-35z"/>
                                         </constraints>
                                     </view>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ckK-Yh-Zgt">
+                                        <rect key="frame" x="169" y="508" width="37" height="37"/>
+                                        <color key="color" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="kC4-e1-Exk" secondAttribute="bottom" id="DNh-Gp-FIs"/>
+                                    <constraint firstAttribute="bottom" secondItem="ckK-Yh-Zgt" secondAttribute="bottom" constant="58" id="HmZ-WD-S6M"/>
                                     <constraint firstAttribute="trailing" secondItem="kC4-e1-Exk" secondAttribute="trailing" id="ODx-6p-8Xh"/>
+                                    <constraint firstItem="ckK-Yh-Zgt" firstAttribute="centerX" secondItem="kC4-e1-Exk" secondAttribute="centerX" id="b5g-ps-DOg"/>
                                     <constraint firstItem="kC4-e1-Exk" firstAttribute="leading" secondItem="KGr-cY-adG" secondAttribute="leading" id="bM9-kK-hWV"/>
                                     <constraint firstItem="kC4-e1-Exk" firstAttribute="centerX" secondItem="KGr-cY-adG" secondAttribute="centerX" id="bP8-a9-hva"/>
                                     <constraint firstItem="kC4-e1-Exk" firstAttribute="top" secondItem="KGr-cY-adG" secondAttribute="top" id="bpz-2P-nY2"/>
@@ -541,8 +547,10 @@
                         <outlet property="emailTextField" destination="FNn-Gm-LT3" id="vWq-sE-m0m"/>
                         <outlet property="firstNameTextField" destination="vo7-bA-F5d" id="Yli-Z6-wtL"/>
                         <outlet property="lastNameTextField" destination="MHa-zG-9K7" id="6VY-Va-6CQ"/>
+                        <outlet property="loadingActivityIndicator" destination="ckK-Yh-Zgt" id="fUD-I6-hUI"/>
                         <outlet property="passwordTextField" destination="ZGB-dK-6Ew" id="S2I-pa-xoc"/>
                         <outlet property="phoneTextField" destination="ujK-7u-7TG" id="sQb-jh-ko3"/>
+                        <outlet property="termsAndConditionsSwitch" destination="mwj-80-WFa" id="4Wu-3Z-MeP"/>
                         <segue destination="D7o-Kh-5gG" kind="presentation" identifier="signup_identifier_segue" id="g2z-nu-CBc"/>
                     </connections>
                 </viewController>

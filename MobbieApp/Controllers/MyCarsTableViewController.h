@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "../Models/Car.h"
+#import "../Models/CarModel.h"
 #import "../Customs/CustomTableViewCell.h"
 
 @interface MyCarsTableViewController : UITableViewController

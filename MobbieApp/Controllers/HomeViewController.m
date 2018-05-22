@@ -27,6 +27,9 @@
 - (IBAction)logoutButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
     
+    //TODO
+    //Check why logout dissmiss view from signup not coming to home page??
+    
     //TODO LOGOUT FIREBASE
 }
 @end

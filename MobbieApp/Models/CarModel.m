@@ -6,9 +6,10 @@
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
 //
 
-#import "Car.h"
+#import "CarModel.h"
 
-@implementation Car
+@implementation CarModel
+
 /*
 @synthesize vinChassis, regoExpiry, plateNumber, year, make, model, bodyType, transmission, colour, fuelType, seats, doors, imageURL, status;
  */

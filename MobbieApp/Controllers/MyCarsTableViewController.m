@@ -27,7 +27,7 @@
     NSInteger numberOfCars = 3;
     
     for(NSUInteger index = 1; index <= numberOfCars; index++){
-        Car *myCar = [[Car alloc]init];
+        CarModel *myCar = [[CarModel alloc]init];
         myCar.model = @"Ford";
         myCar.plateNumber = @"XXX-1111";
         //myCar.status = YES;
@@ -59,7 +59,7 @@
     
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    Car *_car = [carData objectAtIndex:indexPath.row];
+    CarModel *_car = [carData objectAtIndex:indexPath.row];
     cell.labelCarName.text = [_car model];
     cell.labelRegoPlate.text = [_car plateNumber];
     
