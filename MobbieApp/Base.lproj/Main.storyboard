@@ -532,7 +532,7 @@
                         <outlet property="lastNameTextField" destination="MHa-zG-9K7" id="6VY-Va-6CQ"/>
                         <outlet property="passwordTextField" destination="ZGB-dK-6Ew" id="S2I-pa-xoc"/>
                         <outlet property="phoneTextField" destination="ujK-7u-7TG" id="sQb-jh-ko3"/>
-                        <segue destination="D7o-Kh-5gG" kind="show" identifier="signup_identifier_segue" id="g2z-nu-CBc"/>
+                        <segue destination="D7o-Kh-5gG" kind="presentation" identifier="signup_identifier_segue" id="g2z-nu-CBc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRM-4B-B2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -935,6 +935,9 @@
                     <navigationItem key="navigationItem" title="Mobbie" id="EEw-hK-8hi">
                         <barButtonItem key="rightBarButtonItem" title="Logout" image="logout" id="jK7-X1-SwW">
                             <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="logoutButton:" destination="6gZ-35-pN7" id="jbx-KE-Die"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -1047,6 +1050,6 @@
         <image name="username-menu" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kQ3-Rx-ZSf"/>
+        <segue reference="g2z-nu-CBc"/>
     </inferredMetricsTieBreakers>
 </document>

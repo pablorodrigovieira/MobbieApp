@@ -44,8 +44,18 @@
 
 - (IBAction)loginButton:(id)sender {
     
-    AlertsViewController *customAlert = [[AlertsViewController alloc] init];
-    [customAlert displayInputAlert];
+    
+    if([usernameTextField.text isEqualToString:@""]){
+        AlertsViewController *customAlert = [[AlertsViewController alloc] init];
+        [customAlert displayInputAlert: [usernameTextField placeholder]];
+    }
+    else if([passwordTextField.text isEqualToString:@""]){
+        AlertsViewController *customAlert = [[AlertsViewController alloc] init];
+        [customAlert displayInputAlert: [passwordTextField placeholder]];
+    }
+    else{
+        //TODO - Perform login
+    }
     
 }
 @end

@@ -21,6 +21,9 @@ NSString *const const_alert_button = @"Ok";
 NSString *const const_about_alert_message = @"Perform Sign Up or Login to access the features that Mobbie App allows the users..";
 NSString *const const_about_alert_title = @"About Mobbie";
 
+NSString *const const_input_alert_message = @"Please fill up the Information at: ";
+NSString *const const_input_alert_title = @"Empty Field";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -52,11 +55,11 @@ NSString *const const_about_alert_title = @"About Mobbie";
 }
 
 
--(void)displayInputAlert{
+-(void)displayInputAlert: (NSString *) fieldName{
     
     UIAlertController *alert = [UIAlertController
-                                alertControllerWithTitle: const_alert_title
-                                message:const_alert_message
+                                alertControllerWithTitle: const_input_alert_title
+                                message: [const_input_alert_message stringByAppendingString: fieldName]
                                 preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okButton = [UIAlertAction actionWithTitle: const_alert_button

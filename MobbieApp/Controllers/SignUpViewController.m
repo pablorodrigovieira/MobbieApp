@@ -53,7 +53,6 @@
     
     //TODO Form validation
     if(emailTextField.text != nil && passwordTextField.text != nil){
-        
         NSString *email = emailTextField.text;
         NSString *password = confirmPasswordTextField.text;
         
@@ -68,8 +67,6 @@
                  
                  //TODO check how to push
                  //Go to Home screen
-                 
-                 
                  [self performSegueWithIdentifier:@"signup_identifier_segue" sender:self];
              }
              else{
@@ -83,6 +80,6 @@
         //Display error input MSGs
     }
     
-
+    
 }
 @end
