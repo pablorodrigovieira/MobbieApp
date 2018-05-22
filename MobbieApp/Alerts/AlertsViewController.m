@@ -98,4 +98,27 @@ NSString *const const_input_alert_title = @"Empty Field";
     UIViewController *rootViewController = self.topViewController;
     [rootViewController presentViewController:alert animated:YES completion:nil];
 }
+
+-(void)displayAlertMessage: (NSString *) message{
+    
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle: const_alert_title
+                                message: message
+                                preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okButton = [UIAlertAction actionWithTitle: const_alert_button
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action)
+                               {
+                                   [alert dismissViewControllerAnimated:YES completion:nil];
+                               }];
+    
+    //Add ok button
+    [alert addAction: okButton];
+    
+    //Display Alert
+    UIViewController *rootViewController = self.topViewController;
+    [rootViewController presentViewController:alert animated:YES completion:nil];
+}
+
 @end

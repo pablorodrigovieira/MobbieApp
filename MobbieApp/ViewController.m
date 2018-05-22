@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+@import Firebase;
 
 @interface ViewController ()
 
@@ -14,7 +15,17 @@
 
 @implementation ViewController
 
-@synthesize usernameTextField, passwordTextField;
+@synthesize usernameTextField, passwordTextField, loadingActivity;
+
+- (void)viewWillAppear:(BOOL)animated{
+    //Hide Activity Indicator
+    loadingActivity.hidden = YES;
+    
+    //Clean textfields
+    [usernameTextField setText:@""];
+    [passwordTextField setText:@""];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,17 +55,50 @@
 
 - (IBAction)loginButton:(id)sender {
     
+    @try{
     
-    if([usernameTextField.text isEqualToString:@""]){
-        AlertsViewController *customAlert = [[AlertsViewController alloc] init];
-        [customAlert displayInputAlert: [usernameTextField placeholder]];
+        if([usernameTextField.text isEqualToString:@""]){
+            AlertsViewController *customAlert = [[AlertsViewController alloc] init];
+            [customAlert displayInputAlert: [usernameTextField placeholder]];
+        }
+        else if([passwordTextField.text isEqualToString:@""]){
+            AlertsViewController *customAlert = [[AlertsViewController alloc] init];
+            [customAlert displayInputAlert: [passwordTextField placeholder]];
+        }
+        else{
+            //Show Activity Indicator
+            loadingActivity.hidden = NO;
+            [loadingActivity startAnimating];
+            
+            //Perform login
+            
+            [[FIRAuth auth]
+             signInWithEmail:usernameTextField.text
+             password:passwordTextField.text
+             completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+                 
+                 //Stop and hide Activity Indicator
+                 self.loadingActivity.hidden = YES;
+                 [self.loadingActivity stopAnimating];
+                 
+                 if(authResult){
+                    [self performSegueWithIdentifier:@"login_identifier_segue" sender:self];
+                 }
+                 else{
+                     AlertsViewController *alertError = [[AlertsViewController alloc] init];
+                     [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
+                 }
+                 
+             }];
+        }
     }
-    else if([passwordTextField.text isEqualToString:@""]){
-        AlertsViewController *customAlert = [[AlertsViewController alloc] init];
-        [customAlert displayInputAlert: [passwordTextField placeholder]];
-    }
-    else{
-        //TODO - Perform login
+    @catch(NSException *ex){
+        //Stop and hide Activity Indicator
+        loadingActivity.hidden = YES;
+        [loadingActivity stopAnimating];
+        
+        AlertsViewController *alertError = [[AlertsViewController alloc] init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
     
 }

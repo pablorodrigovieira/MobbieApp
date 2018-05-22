@@ -25,7 +25,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CzG-ou-aEC">
                                         <rect key="frame" x="8" y="8" width="327" height="596"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ei5-eP-JSJ">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ei5-eP-JSJ">
                                                 <rect key="frame" x="0.0" y="262" width="327" height="35"/>
                                                 <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -45,7 +45,7 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFr-U8-MTj">
                                                 <rect key="frame" x="0.0" y="443" width="327" height="30"/>
@@ -91,9 +91,16 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6cQ-V3-VBC"/>
-                                                    <segue destination="D7o-Kh-5gG" kind="show" identifier="login_identifier_segue" id="kQ3-Rx-ZSf"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="TUj-Hx-OIN">
+                                                <rect key="frame" x="145" y="504" width="37" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="37" id="ZOf-y9-CFh"/>
+                                                    <constraint firstAttribute="height" constant="37" id="hXr-bb-Ndr"/>
+                                                </constraints>
+                                                <color key="color" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -102,6 +109,7 @@
                                             <constraint firstAttribute="trailing" secondItem="Hsk-ne-Ocw" secondAttribute="trailing" id="94N-Di-7ts"/>
                                             <constraint firstItem="Ei5-eP-JSJ" firstAttribute="top" secondItem="llN-rf-ZrO" secondAttribute="bottom" constant="46" id="Dly-6q-9W0"/>
                                             <constraint firstAttribute="trailing" secondItem="dFr-U8-MTj" secondAttribute="trailing" id="GQM-sL-8yx"/>
+                                            <constraint firstItem="TUj-Hx-OIN" firstAttribute="centerX" secondItem="CzG-ou-aEC" secondAttribute="centerX" id="KHA-Y0-mno"/>
                                             <constraint firstItem="wTs-d1-h4M" firstAttribute="top" secondItem="Ei5-eP-JSJ" secondAttribute="bottom" constant="27" id="QIZ-Py-Dr5"/>
                                             <constraint firstAttribute="trailing" secondItem="Ei5-eP-JSJ" secondAttribute="trailing" id="X04-gz-Fcf"/>
                                             <constraint firstItem="Hsk-ne-Ocw" firstAttribute="top" secondItem="CzG-ou-aEC" secondAttribute="top" id="X1h-CS-w8r"/>
@@ -121,6 +129,7 @@
                                     <constraint firstItem="CzG-ou-aEC" firstAttribute="trailing" secondItem="67o-6d-mL9" secondAttribute="trailingMargin" id="Grs-nF-VwI"/>
                                     <constraint firstItem="CzG-ou-aEC" firstAttribute="leading" secondItem="67o-6d-mL9" secondAttribute="leadingMargin" id="LUJ-5w-IhM"/>
                                     <constraint firstItem="CzG-ou-aEC" firstAttribute="top" secondItem="67o-6d-mL9" secondAttribute="topMargin" id="RHm-nz-6c7"/>
+                                    <constraint firstAttribute="bottom" secondItem="TUj-Hx-OIN" secondAttribute="bottom" constant="63" id="TP0-QC-WfN"/>
                                     <constraint firstItem="CzG-ou-aEC" firstAttribute="centerX" secondItem="67o-6d-mL9" secondAttribute="centerX" id="xlP-6c-12u"/>
                                 </constraints>
                             </scrollView>
@@ -135,8 +144,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="loadingActivity" destination="TUj-Hx-OIN" id="DfW-Tw-etT"/>
                         <outlet property="passwordTextField" destination="wTs-d1-h4M" id="sdn-ab-wkY"/>
                         <outlet property="usernameTextField" destination="Ei5-eP-JSJ" id="KO8-gO-PeX"/>
+                        <segue destination="D7o-Kh-5gG" kind="presentation" identifier="login_identifier_segue" id="7ho-tw-kKo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -423,7 +434,7 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cXy-Gp-h3u">
                                                 <rect key="frame" x="8" y="310" width="359" height="35"/>
@@ -434,7 +445,7 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yva-7m-Dtm">
                                                 <rect key="frame" x="112.5" y="428" width="150" height="30"/>

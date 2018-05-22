@@ -51,6 +51,8 @@
 }
 - (IBAction)confirmButton:(id)sender {
     
+    //TODO - Check if switch is checked
+    
     //TODO Form validation
     if(emailTextField.text != nil && passwordTextField.text != nil){
         NSString *email = emailTextField.text;
@@ -65,7 +67,7 @@
              //Error or Result
              if(authResult != nil){
                  
-                 //TODO check how to push
+                 //TODO
                  //Go to Home screen
                  [self performSegueWithIdentifier:@"signup_identifier_segue" sender:self];
              }

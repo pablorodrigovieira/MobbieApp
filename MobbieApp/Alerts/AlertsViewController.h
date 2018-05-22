@@ -14,14 +14,13 @@
 extern NSString *const const_alert_message;
 extern NSString *const const_alert_title;
 extern NSString *const const_alert_button;
-
 extern NSString *const const_about_alert_message;
 extern NSString *const const_about_alert_title;
-
 extern NSString *const const_input_alert_message;
 extern NSString *const const_input_alert_title;
 
 -(void)displayInputAlert: (NSString *) fieldName;
 -(void)displayAboutAlert;
+-(void)displayAlertMessage: (NSString *) message;
 
 @end
