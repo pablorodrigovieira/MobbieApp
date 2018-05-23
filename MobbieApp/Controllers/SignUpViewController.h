@@ -10,8 +10,11 @@
 #import "../Customs/CustomTextField.h"
 #import "../Providers/DatabaseProvider.h"
 #import "../Alerts/AlertsViewController.h"
+@import Firebase;
 
 @interface SignUpViewController : UIViewController
+
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 
 - (IBAction)cancelButton:(id)sender;
 

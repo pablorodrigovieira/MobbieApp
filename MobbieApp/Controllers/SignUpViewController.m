@@ -15,11 +15,13 @@
 
 @implementation SignUpViewController
 
-@synthesize firstNameTextField,lastNameTextField,emailTextField,phoneTextField,passwordTextField,confirmPasswordTextField, loadingActivityIndicator, termsAndConditionsSwitch;
+@synthesize firstNameTextField,lastNameTextField,emailTextField,phoneTextField,passwordTextField,confirmPasswordTextField, loadingActivityIndicator, termsAndConditionsSwitch,ref;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.ref = [[FIRDatabase database] reference];
     
     //Customize textFields
     CustomTextField *firstNameInput = [[CustomTextField alloc] init];
@@ -68,22 +70,18 @@
                 
                 if(passwordTextField.text == confirmPasswordTextField.text)
                 {
-                    NSString *email = emailTextField.text;
-                    NSString *password = confirmPasswordTextField.text;
+                    NSString *userEmail = emailTextField.text;
+                    NSString *userPassword = confirmPasswordTextField.text;
                     
                     //Build up user obj
-                    UserModel *user = [[UserModel alloc] init];
-                    
-                    //TODO parei aqui
-                    //ver pq email ta nil
-                    user.firstName = firstNameTextField.text;
-                    user.lastName = lastNameTextField.text;
-                    user.email = emailTextField.text;
-                    user.phoneNumber = phoneTextField.text;
+                    UserModel *userModel = [[UserModel alloc] init];
+                    userModel.firstName = [firstNameTextField text];
+                    userModel.lastName = [lastNameTextField text];
+                    userModel.phoneNumber = [phoneTextField text];
                     
                     [[FIRAuth auth]
-                     createUserWithEmail: email
-                     password: password
+                     createUserWithEmail: userEmail
+                     password: userPassword
                      completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
                          
                          self.loadingActivityIndicator.hidden = YES;
@@ -92,14 +90,16 @@
                          //Error or Result
                          if(authResult != nil){
                              
-                             //TODO - Get USER ID returned
+                             //Get USER ID returned
                              NSString *userID;
-                             //userID = authResult.additionalUserInfo.username;
+                             userID = [FIRAuth auth].currentUser.uid;
                              
-                             //TODO
-                             //Add User data to storage
+                             //Add User email after create login
+                             userModel.email = userEmail;
+                             
+                             //Insert new User Profile
                              DatabaseProvider *dbProvider = [[DatabaseProvider alloc] init];
-                             [dbProvider InsertUserProfileData:user WithUserID:userID];
+                             [dbProvider InsertUserProfileData:userModel WithUserID:userID];
                              
                              //Go to Home screen
                              [self performSegueWithIdentifier:@"signup_identifier_segue" sender:self];

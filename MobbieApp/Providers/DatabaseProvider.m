@@ -24,8 +24,29 @@
 }
 
 - (void) InsertUserProfileData: (UserModel *) user WithUserID: (NSString *) userID{
-    
-    [[[self.ref child:@"users"] child:userID] setValue:user];
+    @try{
+        //Reference Child Firebase
+        NSString *key = [[ref child:@"users/"] child:userID].key;
+        
+        //Obj to parse into Firebase
+        NSDictionary *postFirebase =
+        @{
+          @"first_name": [user firstName],
+          @"last_name": [user lastName],
+          @"email": [user email],
+          @"phone_number": [user phoneNumber]
+          };
+        
+        //Append User info to Obj
+        NSDictionary *childUpdate = @{[[@"/users/" stringByAppendingString:key] stringByAppendingString:@"/profile"]: postFirebase};
+        
+        //Insert into DB
+        [ref updateChildValues:childUpdate];
+    }
+    @catch(NSException *ex){
+        @throw ex.reason;
+    }
+
 }
 
 @end
