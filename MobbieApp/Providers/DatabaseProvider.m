@@ -10,7 +10,7 @@
 
 @implementation DatabaseProvider
 
-@synthesize rootNode, usersNode;
+@synthesize rootNode, usersNode, USER_ID;
 
 //Constructor
 -(id)init{
@@ -22,6 +22,11 @@
         //Reference to Firebase
         self.rootNode = [[FIRDatabase database] reference];
         self.usersNode = [rootNode child:@"users"];
+        
+        //Get Current User ID
+        if(USER_ID == nil){
+            USER_ID = [FIRAuth auth].currentUser.uid;
+        }
     }
     return self;
 }
@@ -103,6 +108,17 @@
 }
 
 -(void)ChangeUserPassword:(NSString *)userPwd{
-    
+    @try{
+        [[FIRAuth auth].currentUser
+         updatePassword:userPwd
+         completion:^(NSError * _Nullable error) {
+             if(error == nil)
+                 return;
+         }];
+    }
+    @catch(NSException *ex){
+        @throw ex.reason;
+    }
 }
+
 @end

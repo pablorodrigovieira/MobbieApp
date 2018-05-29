@@ -22,8 +22,10 @@ extern NSString *const const_profile_alert_cancel_button;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
+
 - (IBAction)changePasswordButton:(id)sender;
 - (IBAction)updateProfileButton:(id)sender;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
+
 
 @end

@@ -27,7 +27,6 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
     [self loadProfileData];
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -62,7 +61,6 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
 
 -(void)loadProfileData{
     @try{
-        
         //Add loading activity
         [loadingActivity startAnimating];
         [loadingActivity setHidden:NO];
@@ -101,7 +99,8 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
                  }
                  
              } withCancelBlock:^(NSError * _Nonnull error) {
-                 //code
+                 AlertsViewController *alertError = [[AlertsViewController alloc] init];
+                 [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
              }];
         }
     }
@@ -122,50 +121,64 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
 
 
 - (IBAction)changePasswordButton:(id)sender {
-    //TODO
-    
-    UIAlertController *alert = [UIAlertController
-                                alertControllerWithTitle: const_profile_alert_title
-                                message:const_profile_alert_message
-                                preferredStyle:UIAlertControllerStyleAlert];
-    
-    //Add textfield
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *newPassword) {
-        [newPassword setPlaceholder:@"New Password"];
-        [newPassword setSecureTextEntry:YES];
+    @try{
+        UIAlertController *alert = [UIAlertController
+                                    alertControllerWithTitle: const_profile_alert_title
+                                    message:const_profile_alert_message
+                                    preferredStyle:UIAlertControllerStyleAlert];
         
-    }];
-    
-    //Buttons
-    UIAlertAction *cancelButton = [UIAlertAction
-                                   actionWithTitle: const_profile_alert_cancel_button
-                                   style:UIAlertActionStyleCancel
-                                    handler:^(UIAlertAction * _Nonnull action)
-                               {
-                                   [alert dismissViewControllerAnimated:YES completion:nil];
-                               }];
-    
-    UIAlertAction *confirmButton = [UIAlertAction
-                                    actionWithTitle: const_profile_alert_button
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * _Nonnull action)
-                                    {
-                                        //TODO change password
-                                        //[alert dismissViewControllerAnimated:YES completion:nil];
-                                    }];
-    //Add Confirm button
-    [alert addAction: confirmButton];
-    [alert addAction: cancelButton];
-    
-    //Display Aler
-    [self presentViewController:alert animated:YES completion:nil];
-    
+        //Add textfield
+        [alert addTextFieldWithConfigurationHandler:^(UITextField *newPassword) {
+            [newPassword setPlaceholder:@"New Password"];
+            [newPassword setSecureTextEntry:YES];
+            
+        }];
+        
+        //Buttons
+        UIAlertAction *cancelButton = [UIAlertAction
+                                       actionWithTitle: const_profile_alert_cancel_button
+                                       style:UIAlertActionStyleCancel
+                                       handler:^(UIAlertAction * _Nonnull action)
+                                       {
+                                           [alert dismissViewControllerAnimated:YES completion:nil];
+                                       }];
+        
+        UIAlertAction *confirmButton = [UIAlertAction
+                                        actionWithTitle: const_profile_alert_button
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * _Nonnull action){
+                                            
+            UITextField *newPwd = alert.textFields.firstObject;
+                                            
+            if([newPwd.text isEqualToString:@""]){
+                //Display alert
+                AlertsViewController *alertError = [[AlertsViewController alloc]init];
+                [alertError displayAlertMessage: const_no_input_alert_message];
+            }
+            else{
+                //change password
+                DatabaseProvider *db = [[DatabaseProvider alloc ]init];
+                [db ChangeUserPassword: newPwd.text];
+                AlertsViewController *alertError = [[AlertsViewController alloc]init];
+                [alertError displayAlertMessage: const_update_db_alert_message];
+            }
+        }];
+        //Add Confirm button
+        [alert addAction: confirmButton];
+        [alert addAction: cancelButton];
+        
+        //Display Alert
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 
 - (IBAction)updateProfileButton:(id)sender {
     @try{
         //Check if fields are not empty
-        //parei aqui
         if((![firstNameTextField.text isEqualToString:@""]) &&
            (![lastNameTextField.text isEqualToString:@""]) &&
            (![phoneNumberTextField.text isEqualToString:@""]))
@@ -202,6 +215,5 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
-    
 }
 @end
