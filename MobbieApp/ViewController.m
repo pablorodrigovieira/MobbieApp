@@ -21,9 +21,14 @@
     //Hide Activity Indicator
     loadingActivity.hidden = YES;
     
+    //TODO remove it, only for testing
+    usernameTextField.text = @"pablovieira.com@gmail.com";
+    passwordTextField.text = @"123456";
+    /*
     //Clean textfields
     [usernameTextField setText:@""];
     [passwordTextField setText:@""];
+     */
     
 }
 
@@ -77,18 +82,23 @@
              password:passwordTextField.text
              completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
                  
-                 //Stop and hide Activity Indicator
-                 self.loadingActivity.hidden = YES;
-                 [self.loadingActivity stopAnimating];
-                 
-                 if(authResult){
-                    [self performSegueWithIdentifier:@"login_identifier_segue" sender:self];
-                 }
-                 else{
-                     AlertsViewController *alertError = [[AlertsViewController alloc] init];
-                     [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
-                 }
-                 
+                 //Wait .5 seconds to stop loading activity,
+                 //as the result from firebase may take time..
+                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)),
+                                dispatch_get_main_queue(),
+                 ^{
+                     //Stop and hide Activity Indicator
+                     self.loadingActivity.hidden = YES;
+                     [self.loadingActivity stopAnimating];
+                     
+                     if(authResult){
+                         [self performSegueWithIdentifier:@"login_identifier_segue" sender:self];
+                     }
+                     else{
+                         AlertsViewController *alertError = [[AlertsViewController alloc] init];
+                         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
+                     }
+                 });
              }];
         }
     }

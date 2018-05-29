@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "../Models/UserModel.h"
+#import "../Providers/DatabaseProvider.h"
 
 @interface HomeViewController : ViewController
 - (IBAction)logoutButton:(id)sender;

@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserModel : NSObject
+@interface UserModel : NSObject <NSCoding>
 
-@property (weak,nonatomic) NSString *firstName;
-@property (weak,nonatomic) NSString *lastName;
-@property (weak,nonatomic) NSString *email;
-@property (weak,nonatomic) NSString *phoneNumber;
+@property NSString *firstName;
+@property NSString *lastName;
+@property NSString *email;
+@property NSString *phoneNumber;
 
 @end

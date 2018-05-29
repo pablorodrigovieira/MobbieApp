@@ -20,6 +20,7 @@ extern NSString *const const_input_alert_message;
 extern NSString *const const_input_alert_title;
 extern NSString *const const_no_input_alert_message;
 extern NSString *const const_passwords_not_matching_alert_message;
+extern NSString *const const_update_db_alert_message;
 
 -(void)displayInputAlert: (NSString *) fieldName;
 -(void)displayAboutAlert;

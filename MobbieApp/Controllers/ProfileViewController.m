@@ -8,7 +8,9 @@
 
 #import "ProfileViewController.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController (){
+    NSString *userID;
+}
 
 @end
 
@@ -19,7 +21,12 @@ NSString *const const_profile_alert_title = @"Change Password";
 NSString *const const_profile_alert_button = @"Confirm";
 NSString *const const_profile_alert_cancel_button = @"Cancel";
 
-@synthesize firstNameTextField, lastNameTextField, emailTextField, phoneNumberTextField;
+@synthesize firstNameTextField, lastNameTextField, emailTextField, phoneNumberTextField, loadingActivity;
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self loadProfileData];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,8 +42,77 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
     [emailInput setIcon:const_email_icon forUITextField:self.emailTextField];
     
     CustomTextField *phoneNumberInput = [[CustomTextField alloc] init];
-    [phoneNumberInput setIcon:const_phone_icon forUITextField:self.phoneNumberTextField];   
+    [phoneNumberInput setIcon:const_phone_icon forUITextField:self.phoneNumberTextField];
     
+    //Tap gesture to dismiss keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
+}
+
+//Method to dismiss keyboard
+-(void)dismissKeyboard {
+    [firstNameTextField resignFirstResponder];
+    [lastNameTextField resignFirstResponder];
+    [phoneNumberTextField resignFirstResponder];
+}
+
+-(void)loadProfileData{
+    @try{
+        
+        //Add loading activity
+        [loadingActivity startAnimating];
+        [loadingActivity setHidden:NO];
+        
+        UserModel *user = [[UserModel alloc] init];
+        DatabaseProvider *db = [[DatabaseProvider alloc] init];
+        
+        if([FIRAuth auth].currentUser != nil){
+            
+            //Get userID info from Authentication
+            userID = [FIRAuth auth].currentUser.uid;
+            
+            [[[[[db rootNode] child:@"users"] child:userID] child:@"profile"]
+             observeSingleEventOfType:FIRDataEventTypeValue
+             withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                 
+                 if(snapshot != nil){
+                     //Get result and hold in a NSDictinary
+                     NSDictionary *usersDict = snapshot.value;
+                     
+                     //Set UserModel with values
+                     [user setFirstName: [usersDict valueForKey:@"first_name"]];
+                     [user setLastName: [usersDict valueForKey:@"last_name"]];
+                     [user setEmail: [usersDict valueForKey:@"email"]];
+                     [user setPhoneNumber: [usersDict valueForKey:@"phone_number"]];
+                     
+                     //Set textfields with details
+                     self.firstNameTextField.text = user.firstName;
+                     self.lastNameTextField.text = user.lastName;
+                     self.emailTextField.text = user.email;
+                     self.phoneNumberTextField.text = user.phoneNumber;
+                     
+                     //Stop and hide Activity Indicator
+                     self.loadingActivity.hidden = YES;
+                     [self.loadingActivity stopAnimating];
+                 }
+                 
+             } withCancelBlock:^(NSError * _Nonnull error) {
+                 //code
+             }];
+        }
+    }
+    @catch(NSException *ex){
+        //Stop and hide Activity Indicator
+        loadingActivity.hidden = YES;
+        [loadingActivity stopAnimating];
+        
+        AlertsViewController *alertError = [[AlertsViewController alloc] init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,7 +163,45 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
 }
 
 - (IBAction)updateProfileButton:(id)sender {
-    //TODO
+    @try{
+        //Check if fields are not empty
+        //parei aqui
+        if((![firstNameTextField.text isEqualToString:@""]) &&
+           (![lastNameTextField.text isEqualToString:@""]) &&
+           (![phoneNumberTextField.text isEqualToString:@""]))
+        {
+            //Get info from fields
+            NSString *firstName = firstNameTextField.text;
+            NSString *lastName = lastNameTextField.text;
+            NSString *phoneNumber = phoneNumberTextField.text;
+            
+            //Build obj with user input
+            UserModel *user = [[UserModel alloc] init];
+            [user setFirstName:firstName];
+            [user setLastName:lastName];
+            [user setPhoneNumber:phoneNumber];
+            
+            //Get reference to DB
+            if(userID == nil){
+                userID = [FIRAuth auth].currentUser.uid;
+            }
+            
+            //Update DB
+            DatabaseProvider *db = [[DatabaseProvider alloc ] init];
+            [db UpdateUserProfile:user WithUserID:userID];
+            
+            [self dismissKeyboard];
+        }
+        //Display msg to fill up
+        else{
+            AlertsViewController *inputAlert = [[AlertsViewController alloc] init];
+            [inputAlert displayInputAlert:const_no_input_alert_message];
+        }
+        
+    }@catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
     
 }
 @end

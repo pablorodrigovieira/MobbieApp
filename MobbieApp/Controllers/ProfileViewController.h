@@ -7,8 +7,9 @@
 //
 
 #import "../ViewController.h"
-
 #import "../Customs/CustomTextField.h"
+#import "../Models/UserModel.h"
+#import "../Providers/DatabaseProvider.h"
 
 @interface ProfileViewController : ViewController
 
@@ -21,8 +22,8 @@ extern NSString *const const_profile_alert_cancel_button;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
-
 - (IBAction)changePasswordButton:(id)sender;
 - (IBAction)updateProfileButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 
 @end

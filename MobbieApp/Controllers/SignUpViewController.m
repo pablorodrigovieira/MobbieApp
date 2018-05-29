@@ -72,12 +72,15 @@
                 {
                     NSString *userEmail = emailTextField.text;
                     NSString *userPassword = confirmPasswordTextField.text;
+                    NSString *userFirstName = firstNameTextField.text;
+                    NSString *userLastName = lastNameTextField.text;
+                    NSString *userPhone = phoneTextField.text;
                     
                     //Build up user obj
                     UserModel *userModel = [[UserModel alloc] init];
-                    userModel.firstName = [firstNameTextField text];
-                    userModel.lastName = [lastNameTextField text];
-                    userModel.phoneNumber = [phoneTextField text];
+                    userModel.firstName = userFirstName;
+                    userModel.lastName = userLastName;
+                    userModel.phoneNumber = userPhone;
                     
                     [[FIRAuth auth]
                      createUserWithEmail: userEmail
