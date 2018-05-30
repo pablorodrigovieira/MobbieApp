@@ -27,10 +27,10 @@
 		6E6F253120AA5682009EBBEE /* MyCarsManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6F253020AA5682009EBBEE /* MyCarsManagementViewController.m */; };
 		6E7041C220A66B9E00FE77A0 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7041C120A66B9E00FE77A0 /* SignUpViewController.m */; };
 		6E7041C920A69F4400FE77A0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7041C820A69F4400FE77A0 /* ProfileViewController.m */; };
-		6E7809C320AEC892000FCAA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7809C220AEC892000FCAA4 /* MapKit.framework */; };
 		6E8C609320AADEBC00562EF8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C609220AADEBC00562EF8 /* HomeViewController.m */; };
 		6E8C609720AAE1B900562EF8 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C609520AAE1B900562EF8 /* CustomTableViewCell.m */; };
 		6E8C609820AAE1B900562EF8 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8C609620AAE1B900562EF8 /* CustomTableViewCell.xib */; };
+		6EAEA13E20BD63B9007FC5AD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7809C220AEC892000FCAA4 /* MapKit.framework */; };
 		6EB59D3920B424E900D220A4 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB59D3820B424E900D220A4 /* UserModel.m */; };
 		BD676089EB4E981AE6F98D25 /* libPods-MobbieAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5716326B5F7236B0A84FAE30 /* libPods-MobbieAppTests.a */; };
 		D1E01B3E7517145A1174546D /* libPods-MobbieAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE154541B85496DC55D36A16 /* libPods-MobbieAppUITests.a */; };
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E7809C320AEC892000FCAA4 /* MapKit.framework in Frameworks */,
+				6EAEA13E20BD63B9007FC5AD /* MapKit.framework in Frameworks */,
 				325698600A80217BABF4DDCB /* libPods-MobbieApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
