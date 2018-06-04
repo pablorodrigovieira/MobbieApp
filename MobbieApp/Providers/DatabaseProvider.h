@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "../Models/UserModel.h"
+#import "../Models/MapModel.h"
 #import "../Alerts/AlertsViewController.h"
 
 @import Firebase;
@@ -22,6 +23,7 @@
 -(void)InsertUserProfileData: (UserModel *) user WithUserID:(NSString *) userID;
 -(void)UpdateUserProfile:(UserModel *)user WithUserID:(NSString*) userID;
 -(void)ChangeUserPassword:(NSString *)userPwd;
-
+-(void)InsertUserMapSettings:(MapModel *) distance WithUserID:(NSString *)userId;
+-(void)updateMapSettings:(MapModel *) map WithUserID:(NSString *)userId;
 
 @end

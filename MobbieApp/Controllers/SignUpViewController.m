@@ -104,6 +104,11 @@
                              DatabaseProvider *dbProvider = [[DatabaseProvider alloc] init];
                              [dbProvider InsertUserProfileData:userModel WithUserID:userID];
                              
+                             //Insert Map Obj as Default 1km range
+                             MapModel *map = [[MapModel alloc] init];
+                             map.rangeDistance = @"1";
+                             [dbProvider InsertUserMapSettings:map WithUserID:userID];
+                             
                              //Go to Home screen
                              [self performSegueWithIdentifier:@"signup_identifier_segue" sender:self];
                          }

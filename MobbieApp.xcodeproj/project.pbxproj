@@ -11,6 +11,7 @@
 		6E2C1ACF20B4124A009BB828 /* DatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C1ACE20B4124A009BB828 /* DatabaseProvider.m */; };
 		6E4FEE5420A9925800E0E70A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FEE5320A9925800E0E70A /* MapViewController.m */; };
 		6E4FEE5A20A9B59400E0E70A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4FEE5920A9B59400E0E70A /* AboutViewController.m */; };
+		6E54C0E720C3995400B45EC4 /* MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E54C0E620C3995300B45EC4 /* MapModel.m */; };
 		6E6AC5DF20AD5F5E00CC49F2 /* MyCarsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6AC5DE20AD5F5E00CC49F2 /* MyCarsTableViewController.m */; };
 		6E6AC5E320AD607B00CC49F2 /* CarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6AC5E220AD607B00CC49F2 /* CarModel.m */; };
 		6E6BD06420A42ACD00A13E8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BD06320A42ACD00A13E8E /* AppDelegate.m */; };
@@ -64,6 +65,8 @@
 		6E4FEE5320A9925800E0E70A /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6E4FEE5820A9B59400E0E70A /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		6E4FEE5920A9B59400E0E70A /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		6E54C0E520C3995300B45EC4 /* MapModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapModel.h; sourceTree = "<group>"; };
+		6E54C0E620C3995300B45EC4 /* MapModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapModel.m; sourceTree = "<group>"; };
 		6E6AC5DD20AD5F5E00CC49F2 /* MyCarsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCarsTableViewController.h; sourceTree = "<group>"; };
 		6E6AC5DE20AD5F5E00CC49F2 /* MyCarsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCarsTableViewController.m; sourceTree = "<group>"; };
 		6E6AC5E120AD607B00CC49F2 /* CarModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarModel.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				6E6AC5E220AD607B00CC49F2 /* CarModel.m */,
 				6EB59D3720B424E900D220A4 /* UserModel.h */,
 				6EB59D3820B424E900D220A4 /* UserModel.m */,
+				6E54C0E520C3995300B45EC4 /* MapModel.h */,
+				6E54C0E620C3995300B45EC4 /* MapModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				6E8C609720AAE1B900562EF8 /* CustomTableViewCell.m in Sources */,
 				6E7041C920A69F4400FE77A0 /* ProfileViewController.m in Sources */,
 				6E6AC5E320AD607B00CC49F2 /* CarModel.m in Sources */,
+				6E54C0E720C3995400B45EC4 /* MapModel.m in Sources */,
 				6E6E8AE320B2DDFF00F8E36A /* AlertsViewController.m in Sources */,
 				6EB59D3920B424E900D220A4 /* UserModel.m in Sources */,
 				6E4FEE5420A9925800E0E70A /* MapViewController.m in Sources */,
