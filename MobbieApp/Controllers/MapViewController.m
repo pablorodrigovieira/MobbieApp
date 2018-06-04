@@ -54,11 +54,9 @@
                          self->rangeSlider = self->rangeSlider*1000;
                      }
                      //Set Range Label with details
-                     //NSString *kmLabel = @"KM";
                      NSString *rangeLabel = [map rangeDistance];
                      
                      self.kmLabel.text = rangeLabel;
-                     //self.kmLabel.text = [NSString stringWithFormat:@"%@%@", rangeLabel, kmLabel];
                      
                      //Set Slider Value
                      [self.sliderRange setValue:self->rangeSlider animated:YES];

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface MyCarsManagementViewController : ViewController
+@interface MyCarsManagementViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *vinTextField;
 @property (weak, nonatomic) IBOutlet UITextField *regoTextField;
@@ -22,7 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *fuelTypeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *seatsTextField;
 @property (weak, nonatomic) IBOutlet UITextField *doorsTextField;
-@property (weak, nonatomic) IBOutlet UIImageView *carImage;
+
+@property IBOutlet UIImageView *carImage;
 
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)saveCar:(id)sender;

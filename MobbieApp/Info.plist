@@ -36,6 +36,8 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Do you allow the App get your current location?</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Would you allow the App to use the Camera?</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

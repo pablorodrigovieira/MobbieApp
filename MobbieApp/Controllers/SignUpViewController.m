@@ -106,7 +106,7 @@
                              
                              //Insert Map Obj as Default 1km range
                              MapModel *map = [[MapModel alloc] init];
-                             map.rangeDistance = @"1";
+                             map.rangeDistance = @"1KM";
                              [dbProvider InsertUserMapSettings:map WithUserID:userID];
                              
                              //Go to Home screen
