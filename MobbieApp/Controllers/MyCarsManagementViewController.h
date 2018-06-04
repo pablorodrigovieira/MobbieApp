@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "DatabaseProvider.h"
 
 @interface MyCarsManagementViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 
 @property (weak, nonatomic) IBOutlet UITextField *vinTextField;
 @property (weak, nonatomic) IBOutlet UITextField *regoTextField;

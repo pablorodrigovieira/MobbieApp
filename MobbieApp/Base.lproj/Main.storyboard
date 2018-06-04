@@ -855,8 +855,14 @@
                                                     <action selector="takePhoto:" destination="Vm8-FN-hSN" eventType="touchUpInside" id="gf4-KB-4FK"/>
                                                 </connections>
                                             </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brand" translatesAutoresizingMaskIntoConstraints="NO" id="m3P-6h-PIA">
+                                                <rect key="frame" x="8" y="314" width="359" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="9oa-ug-Knr"/>
+                                                </constraints>
+                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXc-MR-hft">
-                                                <rect key="frame" x="100" y="507" width="175" height="30"/>
+                                                <rect key="frame" x="100" y="472" width="175" height="30"/>
                                                 <color key="backgroundColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="M8z-sA-wY3"/>
@@ -873,12 +879,14 @@
                                                     <action selector="updateProfileButton:" destination="88f-RP-eyX" eventType="touchUpInside" id="GMp-My-1Yo"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brand" translatesAutoresizingMaskIntoConstraints="NO" id="m3P-6h-PIA">
-                                                <rect key="frame" x="8" y="314" width="359" height="178"/>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lIs-LI-i1R">
+                                                <rect key="frame" x="177" y="516" width="20" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="178" id="9oa-ug-Knr"/>
+                                                    <constraint firstAttribute="height" constant="20" id="1f1-Jb-YrA"/>
+                                                    <constraint firstAttribute="width" constant="20" id="f4M-NG-9Do"/>
                                                 </constraints>
-                                            </imageView>
+                                                <color key="color" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="NFw-Cb-LI1" firstAttribute="leading" secondItem="7J1-SN-Jff" secondAttribute="leading" constant="8" id="0iv-q3-K94"/>
@@ -901,7 +909,7 @@
                                             <constraint firstItem="tKJ-Z7-6AY" firstAttribute="height" secondItem="71a-hC-q4i" secondAttribute="height" id="Le6-gf-h2X"/>
                                             <constraint firstItem="gly-Tj-hWc" firstAttribute="top" secondItem="TQH-8R-r99" secondAttribute="bottom" constant="8" id="MMl-Mu-u9v"/>
                                             <constraint firstItem="TQH-8R-r99" firstAttribute="leading" secondItem="7J1-SN-Jff" secondAttribute="leading" constant="8" id="MNa-Ey-gp3"/>
-                                            <constraint firstAttribute="bottom" secondItem="PXc-MR-hft" secondAttribute="bottom" constant="7" id="MhB-9K-S6f"/>
+                                            <constraint firstAttribute="bottom" secondItem="PXc-MR-hft" secondAttribute="bottom" constant="42" id="MhB-9K-S6f"/>
                                             <constraint firstItem="A9F-Jd-bbf" firstAttribute="width" secondItem="71a-hC-q4i" secondAttribute="width" id="Nyx-X1-zGZ"/>
                                             <constraint firstItem="PXc-MR-hft" firstAttribute="centerX" secondItem="7J1-SN-Jff" secondAttribute="centerX" id="OV6-MK-7GH"/>
                                             <constraint firstItem="6rH-zA-piP" firstAttribute="leading" secondItem="TQH-8R-r99" secondAttribute="trailing" constant="23" id="Pii-dC-fpT"/>
@@ -918,6 +926,8 @@
                                             <constraint firstItem="4oc-Pf-zoX" firstAttribute="width" secondItem="71a-hC-q4i" secondAttribute="width" id="adP-Hb-9AR"/>
                                             <constraint firstAttribute="trailing" secondItem="A9F-Jd-bbf" secondAttribute="trailing" constant="8" id="cAV-62-2iC"/>
                                             <constraint firstItem="m3P-6h-PIA" firstAttribute="top" secondItem="jkX-tD-2rz" secondAttribute="bottom" constant="18" id="ccS-f3-D7p"/>
+                                            <constraint firstItem="lIs-LI-i1R" firstAttribute="centerX" secondItem="7J1-SN-Jff" secondAttribute="centerX" id="eXk-gv-g4A"/>
+                                            <constraint firstItem="lIs-LI-i1R" firstAttribute="top" secondItem="PXc-MR-hft" secondAttribute="bottom" constant="14" id="f0T-ID-ptQ"/>
                                             <constraint firstItem="gly-Tj-hWc" firstAttribute="width" secondItem="71a-hC-q4i" secondAttribute="width" id="g7g-bc-SUv"/>
                                             <constraint firstItem="71a-hC-q4i" firstAttribute="top" secondItem="7J1-SN-Jff" secondAttribute="top" constant="8" id="gBG-J2-naZ"/>
                                             <constraint firstItem="jkX-tD-2rz" firstAttribute="top" secondItem="grS-Ww-XzL" secondAttribute="bottom" constant="8" id="gYT-YB-hTI"/>
@@ -940,7 +950,7 @@
                                             <constraint firstItem="h1a-eT-tMD" firstAttribute="width" secondItem="71a-hC-q4i" secondAttribute="width" id="xxT-S0-KFx"/>
                                             <constraint firstItem="h1a-eT-tMD" firstAttribute="leading" secondItem="7J1-SN-Jff" secondAttribute="leading" constant="8" id="yJu-TC-53c"/>
                                             <constraint firstItem="NFw-Cb-LI1" firstAttribute="top" secondItem="71a-hC-q4i" secondAttribute="bottom" constant="8" id="yM1-uB-08Y"/>
-                                            <constraint firstItem="PXc-MR-hft" firstAttribute="top" secondItem="m3P-6h-PIA" secondAttribute="bottom" constant="15" id="yZi-Cw-o3N"/>
+                                            <constraint firstItem="PXc-MR-hft" firstAttribute="top" secondItem="m3P-6h-PIA" secondAttribute="bottom" constant="8" id="yZi-Cw-o3N"/>
                                             <constraint firstItem="tKJ-Z7-6AY" firstAttribute="top" secondItem="NFw-Cb-LI1" secondAttribute="bottom" constant="8" id="ykO-d4-7Bn"/>
                                             <constraint firstItem="TQH-8R-r99" firstAttribute="top" secondItem="h1a-eT-tMD" secondAttribute="bottom" constant="8" id="zSs-qc-ooD"/>
                                         </constraints>
@@ -948,10 +958,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="7J1-SN-Jff" firstAttribute="centerX" secondItem="jhR-vZ-Wx1" secondAttribute="centerX" id="dwe-xK-Dgr"/>
+                                    <constraint firstAttribute="bottom" secondItem="lIs-LI-i1R" secondAttribute="bottom" constant="18" id="ifI-cd-srn"/>
                                     <constraint firstItem="7J1-SN-Jff" firstAttribute="top" secondItem="jhR-vZ-Wx1" secondAttribute="top" id="pqk-K5-Obi"/>
                                     <constraint firstAttribute="trailing" secondItem="7J1-SN-Jff" secondAttribute="trailing" id="xJQ-wI-bgm"/>
                                     <constraint firstItem="7J1-SN-Jff" firstAttribute="leading" secondItem="jhR-vZ-Wx1" secondAttribute="leading" id="xkn-vJ-jAy"/>
-                                    <constraint firstAttribute="bottom" secondItem="7J1-SN-Jff" secondAttribute="bottom" id="y2b-YW-cM9"/>
+                                    <constraint firstAttribute="bottom" secondItem="7J1-SN-Jff" secondAttribute="bottom" constant="10" id="y2b-YW-cM9"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -971,6 +982,7 @@
                         <outlet property="colourTextField" destination="TQH-8R-r99" id="i8I-3g-OiW"/>
                         <outlet property="doorsTextField" destination="grS-Ww-XzL" id="R9v-ld-km9"/>
                         <outlet property="fuelTypeTextField" destination="6rH-zA-piP" id="ZJ7-kc-AnS"/>
+                        <outlet property="loadingActivity" destination="lIs-LI-i1R" id="CI0-5X-bje"/>
                         <outlet property="makeTextField" destination="tKJ-Z7-6AY" id="Dd4-ZT-wNc"/>
                         <outlet property="modelTextField" destination="K94-sQ-4Nr" id="seZ-uC-o0U"/>
                         <outlet property="plateNumberTextField" destination="NFw-Cb-LI1" id="sb1-y3-okj"/>
@@ -983,7 +995,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ij8-6S-dxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2105" y="1559"/>
+            <point key="canvasLocation" x="2104.8000000000002" y="1558.4707646176912"/>
         </scene>
         <!--Mobbie-->
         <scene sceneID="JO8-vL-TNm">

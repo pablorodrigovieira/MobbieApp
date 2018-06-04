@@ -10,7 +10,7 @@
 
 @implementation DatabaseProvider
 
-@synthesize rootNode, usersNode, USER_ID;
+@synthesize rootNode, usersNode, USER_ID, storageRef;
 
 //Constructor
 -(id)init{
@@ -155,7 +155,7 @@
     }
 }
 
--(void)updateMapSettings:(MapModel *) map WithUserID:(NSString *)userId{
+-(void)UpdateMapSettings:(MapModel *) map WithUserID:(NSString *)userId{
     @try{
         //Get current UID
         if(userId == nil){
@@ -190,4 +190,58 @@
         @throw ex.reason;
     }
 }
+
+-(void)InsertCarImage:(UIImageView *) image{
+    @try{
+        //
+        CGFloat compressionQuality = 0.8;
+        USER_ID = [FIRAuth auth].currentUser.uid;
+        
+        if(image.image != nil){
+            
+            FIRStorage *storage = [FIRStorage storage];
+            storageRef = [storage referenceForURL:@"gs://mobbieapp.appspot.com"];
+            
+            NSString *imageID = [[NSUUID UUID] UUIDString];
+            NSString *imageName = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%@", USER_ID],[NSString stringWithFormat:@"/%@.jpg",imageID]];
+            
+            FIRStorageReference *imageRef = [storageRef child:imageName];
+            FIRStorageMetadata *metadata = [[FIRStorageMetadata alloc]init];
+            
+            metadata.contentType = @"image/jpeg";
+            NSData *imageData = UIImageJPEGRepresentation(image.image, compressionQuality);
+            
+            [imageRef putData:imageData metadata:metadata
+                   completion:^(FIRStorageMetadata *metadata,
+                                NSError *error)
+            {
+                if(!error){
+                     //Get IMG URL
+                    [imageRef downloadURLWithCompletion:^(NSURL * _Nullable URL, NSError * _Nullable error) {
+                        
+                        //TODO
+                        //Add URL to CarObj
+                        
+                        AlertsViewController *alert = [[AlertsViewController alloc] init];
+                        [alert displayAlertMessage:URL.absoluteString];
+                    }];
+                    //Update successed
+                    AlertsViewController *alert = [[AlertsViewController alloc] init];
+                    [alert displayAlertMessage:const_upload_db_alert_message];
+                }
+                else{
+                    //Error
+                    AlertsViewController *alert = [[AlertsViewController alloc] init];
+                    [alert displayAlertMessage:error.observationInfo];
+                }
+            }];
+            
+            
+        }
+    }
+    @catch(NSException *ex){
+        @throw ex.reason;
+    }
+}
+
 @end

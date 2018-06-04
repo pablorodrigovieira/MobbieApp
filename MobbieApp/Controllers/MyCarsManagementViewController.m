@@ -14,8 +14,11 @@
 
 @implementation MyCarsManagementViewController
 
-@synthesize carImage;
+@synthesize carImage, loadingActivity;
 
+- (void)viewWillAppear:(BOOL)animated{
+    [self.loadingActivity stopAnimating];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -60,6 +63,30 @@
 
 - (IBAction)saveCar:(id)sender {
     //TODO ADD to DB
+    
+    self.loadingActivity.hidden = NO;
+    [self.loadingActivity startAnimating];
+    
+    //Disable button
+    UIButton *saveBtn = (UIButton *)sender;
+    saveBtn.enabled = NO;
+    
+    //Added Image to Firebase
+    DatabaseProvider *db = [[DatabaseProvider alloc] init];
+    [db InsertCarImage:carImage];
+    
+    /*
+    //Wait 2 seconds to stop loading activity
+    //Give time to upload Image
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 *NSEC_PER_SEC)),dispatch_get_main_queue(),
+                   ^{
+                       //Enable button
+                       saveBtn.enabled = YES;
+                       [self->loadingActivity stopAnimating];
+                   });
+     */
+    
+    //TODO Open List after input to firebase
 }
 
 #pragma mark UIImagePickerController Delegate

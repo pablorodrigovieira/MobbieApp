@@ -17,6 +17,8 @@
 
 @property (strong, nonatomic) FIRDatabaseReference *rootNode;
 @property (strong, nonatomic) FIRDatabaseReference *usersNode;
+@property (strong, nonatomic) FIRStorageReference *storageRef;
+
 @property NSString *USER_ID;
 
 
@@ -24,6 +26,7 @@
 -(void)UpdateUserProfile:(UserModel *)user WithUserID:(NSString*) userID;
 -(void)ChangeUserPassword:(NSString *)userPwd;
 -(void)InsertUserMapSettings:(MapModel *) distance WithUserID:(NSString *)userId;
--(void)updateMapSettings:(MapModel *) map WithUserID:(NSString *)userId;
+-(void)UpdateMapSettings:(MapModel *) map WithUserID:(NSString *)userId;
+-(void)InsertCarImage:(UIImageView *) image;
 
 @end

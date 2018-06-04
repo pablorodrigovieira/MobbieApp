@@ -28,6 +28,7 @@ NSString *const const_no_input_alert_message = @"Please fill information in all 
 NSString *const const_passwords_not_matching_alert_message = @"Passwords did not match, try again";
 
 NSString *const const_update_db_alert_message = @"Update Successfully!";
+NSString *const const_upload_db_alert_message = @"Uploaded Successfully!";
 
 - (void)viewDidLoad {
     [super viewDidLoad];

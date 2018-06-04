@@ -207,7 +207,7 @@
         [map setRangeDistance:distance];
         
         DatabaseProvider *db = [[DatabaseProvider alloc] init];
-        [db updateMapSettings:map WithUserID:userID];
+        [db UpdateMapSettings:map WithUserID:userID];
         
         //hide activity
         self.loadingIndicator.hidden = YES;
