@@ -158,7 +158,7 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
             else{
                 //change password
                 DatabaseProvider *db = [[DatabaseProvider alloc ]init];
-                [db ChangeUserPassword: newPwd.text];
+                [db changeUserPassword: newPwd.text];
                 AlertsViewController *alertError = [[AlertsViewController alloc]init];
                 [alertError displayAlertMessage: const_update_db_alert_message];
             }
@@ -201,7 +201,7 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
             
             //Update DB
             DatabaseProvider *db = [[DatabaseProvider alloc ] init];
-            [db UpdateUserProfile:user WithUserID:userID];
+            [db updateUserProfile:user WithUserID:userID];
             
             [self dismissKeyboard];
         }

@@ -70,48 +70,11 @@
         
         [self->carData addObject:myNewCar];
         [self.tableView reloadData];
-    }];
-    
-    NSLog(@"car: %@", carData);
-    
-    /*
-    CarModel *newCar = [[CarModel alloc] init];
-    
-    DatabaseProvider *db = [[DatabaseProvider alloc] init];
-    
-    [[[[[db rootNode] child:@"users"] child:userID] child:@"cars"]
-     observeSingleEventOfType:FIRDataEventTypeValue
-     withBlock:^(FIRDataSnapshot * _Nonnull snapshot){
-
-         [newCar setPlateNumber:[snapshot.value objectForKey:@"plate-number"]];
-         [newCar setCarModel:[snapshot.value objectForKey:@"model"]];
-         [newCar setImageURL:[snapshot.value objectForKey:@"image-url"]];
-         [newCar setCarStatus:[snapshot.value objectForKey:@"status"]];
-
-         //Get result and hold in a NSDictinary
-         NSDictionary *carDis = snapshot.value;
-         
-         //Set UserModel with values
-         [newCar setPlateNumber:[carDis valueForKey:@"plate-number"]];
-         [newCar setCarModel:[carDis valueForKey:@"plate-number"]];
-         [newCar setImageURL:[carDis valueForKey:@"plate-number"]];
-         [newCar setCarStatus:[carDis valueForKey:@"plate-number"]];
-         
-         [self->carData addObject:newCar];
-         NSLog(@"snap: %@", snapshot.value);
-         NSLog(@"car: %@", newCar);
-         NSLog(@"Model: %@", newCar.carModel);
-         NSLog(@"Plate: %@", newCar.plateNumber);
-         NSLog(@"Img: %@", newCar.imageURL);
-         NSLog(@"Status: %@", newCar.carStatus);
-         
-         [self.tableView reloadData];
-         
-     }withCancelBlock:^(NSError * _Nonnull error) {
+        
+    }withCancelBlock:^(NSError * _Nonnull error) {
          AlertsViewController *alertError = [[AlertsViewController alloc] init];
          [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
      }];
-*/
     
 }
 
@@ -143,22 +106,17 @@
     [[cell labelRegoPlate] setText:[NSString stringWithFormat:@"%@", [[carData objectAtIndex:indexPath.row] plateNumber]]];
     
     NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: image_url]];
-    //[cell imageView].frame = CGRectMake(0, 0, 100, 100);
-    //[cell imageView].center = cell.imageView.superview.center;
     [[cell carImage] setImage:[UIImage imageWithData:imageData]];
-     //:[NSString stringWithFormat:@"%@", [[carData objectAtIndex:indexPath.row] plateNumber]]];
-    /*
-    CarModel *_car = [carData objectAtIndex:indexPath.row];
-    cell.labelCarName.text = [_car model];
-    cell.labelRegoPlate.text = [_car plateNumber];
-    */
+    
+    
     //Custom color and border
     
+    /*
     cell.contentView.layer.borderColor = [UIColor grayColor].CGColor;
     cell.contentView.layer.borderWidth = 2.0;
     cell.contentView.layer.cornerRadius = 10.0;
     [cell.contentView setClipsToBounds:YES];
-    
+    */
     /*
     [cell.layer setShadowColor:[[UIColor blackColor] CGColor]];
     [cell.layer setShadowOffset:CGSizeMake(-4.0, 4.0)];

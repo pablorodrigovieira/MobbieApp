@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.ref = [[FIRDatabase database] reference];
+    //self.ref = [[FIRDatabase database] reference];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,6 +67,8 @@
     //TODO fields Validation
     //TODO ADD to DB
     
+    //NSString *userID = [FIRAuth auth].currentUser.uid;
+    
     self.loadingActivity.hidden = NO;
     [self.loadingActivity startAnimating];
     
@@ -76,54 +78,28 @@
     
     //Added Image to Firebase
     DatabaseProvider *db = [[DatabaseProvider alloc] init];
-    [db InsertCarImage:carImage];
+    [db insertCarImage:carImage];
     
-    NSString *userID = [FIRAuth auth].currentUser.uid;
+    //Car Model
+    CarModel *newCar = [[CarModel alloc] init];
     
-    NSString *CarPath = [NSString stringWithFormat:@"users/%@/cars", userID];
+    newCar.vinChassis = self.vinTextField.text;
+    newCar.regoExpiry = self.regoTextField.text;
+    newCar.plateNumber = self.plateNumberTextField.text;
+    newCar.year = self.yearTextField.text;
+    newCar.make = self.makeTextField.text;
+    newCar.bodyType = self.bodyTypeTextField.text;
+    newCar.transmission = self.transmissionTextField.text;
+    newCar.colour = self.colourTextField.text;
+    newCar.fuelType = self.fuelTypeTextField.text;
+    newCar.seats = self.seatsTextField.text;
+    newCar.doors = self.doorsTextField.text;
+    newCar.carModel = self.modelTextField.text;
+    newCar.imageURL = @"https://firebasestorage.googleapis.com/v0/b/mobbieapp.appspot.com/o/ujiF9eHrrPUCvo91qNZjXD46bH92%20%2F85DE6D86-3223-4F59-84BA-0D372400AA00.jpg?alt=media&token=e11d3228-912e-499a-b7e8-7bb7422cb8e3";
+    newCar.carStatus = @"YES";
     
-    NSString *key = [[_ref child:CarPath] childByAutoId].key;
+    [db insertCarDetails:newCar];
     
-    //Values as Model
-    NSString *vinChassis, *regoExpiry, *plateNumber, *year, *make, *bodyType, *transmission, *colour, *fuelType, *seats, *doors, *carModel, *imageURL, *carStatus;
-    
-    vinChassis = self.vinTextField.text;
-    regoExpiry = self.regoTextField.text;
-    plateNumber = self.plateNumberTextField.text;
-    year = self.yearTextField.text;
-    make = self.makeTextField.text;
-    bodyType = self.bodyTypeTextField.text;
-    transmission = self.transmissionTextField.text;
-    colour = self.colourTextField.text;
-    fuelType = self.fuelTypeTextField.text;
-    seats = self.seatsTextField.text;
-    doors = self.doorsTextField.text;
-    carModel = self.modelTextField.text;
-    imageURL = @"https://firebasestorage.googleapis.com/v0/b/mobbieapp.appspot.com/o/ujiF9eHrrPUCvo91qNZjXD46bH92%20%2F85DE6D86-3223-4F59-84BA-0D372400AA00.jpg?alt=media&token=e11d3228-912e-499a-b7e8-7bb7422cb8e3";
-    carStatus = @"YES";
-    
-    
-    //Obj to be inserted into DB
-    NSDictionary *carPost = @{
-                              const_database_car_key_vin_chassis: vinChassis,
-                              const_database_car_key_rego_expiry: regoExpiry,
-                              const_database_car_key_plate_number: plateNumber,
-                              const_database_car_key_year: year,
-                              const_database_car_key_make: make,
-                              const_database_car_key_body_type: bodyType,
-                              const_database_car_key_transmission: transmission,
-                              const_database_car_key_colour: colour,
-                              const_database_car_key_fuel_type: fuelType,
-                              const_database_car_key_seats: seats,
-                              const_database_car_key_doors: doors,
-                              const_database_car_key_model: carModel,
-                              const_database_car_key_image_url: imageURL,
-                              const_database_car_key_status: carStatus
-                              };
-    
-    NSDictionary *childUpdate = @{[NSString stringWithFormat:@"%@/%@", CarPath, key]: carPost};
-    
-    [_ref updateChildValues:childUpdate];
 
     /*
     //Wait 2 seconds to stop loading activity

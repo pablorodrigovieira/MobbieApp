@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "../Models/UserModel.h"
 #import "../Models/MapModel.h"
+#import "CarModel.h"
 #import "../Alerts/AlertsViewController.h"
 
 @import Firebase;
@@ -38,11 +39,12 @@ extern NSString *const const_database_car_key_status;
 @property NSString *USER_ID;
 
 
--(void)InsertUserProfileData: (UserModel *) user WithUserID:(NSString *) userID;
--(void)UpdateUserProfile:(UserModel *)user WithUserID:(NSString*) userID;
--(void)ChangeUserPassword:(NSString *)userPwd;
--(void)InsertUserMapSettings:(MapModel *) distance WithUserID:(NSString *)userId;
--(void)UpdateMapSettings:(MapModel *) map WithUserID:(NSString *)userId;
--(void)InsertCarImage:(UIImageView *) image;
+-(void)insertUserProfileData: (UserModel *) user WithUserID:(NSString *) userID;
+-(void)updateUserProfile:(UserModel *)user WithUserID:(NSString*) userID;
+-(void)changeUserPassword:(NSString *)userPwd;
+-(void)insertUserMapSettings:(MapModel *) distance WithUserID:(NSString *)userId;
+-(void)updateMapSettings:(MapModel *) map WithUserID:(NSString *)userId;
+-(void)insertCarImage:(UIImageView *) image;
+-(void)insertCarDetails:(CarModel *) car;
 
 @end

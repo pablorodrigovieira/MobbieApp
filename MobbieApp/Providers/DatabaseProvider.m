@@ -47,7 +47,7 @@ NSString *const const_database_car_key_status = @"status";
 }
 
 //Insert User Profile - FIREBASE
--(void)InsertUserProfileData: (UserModel *) user WithUserID:(NSString *) userID{
+-(void)insertUserProfileData: (UserModel *) user WithUserID:(NSString *) userID{
     @try{
         //Reference Child Firebase
         NSString *key = [[rootNode child:@"users/"] child:userID].key;
@@ -85,7 +85,7 @@ NSString *const const_database_car_key_status = @"status";
     }
 }
 
--(void)UpdateUserProfile:(UserModel *)user WithUserID:(NSString*) userID{
+-(void)updateUserProfile:(UserModel *)user WithUserID:(NSString*) userID{
     @try{
         //Get current UID
         if(userID == nil){
@@ -122,7 +122,7 @@ NSString *const const_database_car_key_status = @"status";
     }
 }
 
--(void)ChangeUserPassword:(NSString *)userPwd{
+-(void)changeUserPassword:(NSString *)userPwd{
     @try{
         [[FIRAuth auth].currentUser
          updatePassword:userPwd
@@ -136,7 +136,7 @@ NSString *const const_database_car_key_status = @"status";
     }
 }
 
--(void)InsertUserMapSettings:(MapModel *) distance WithUserID:(NSString *)userId{
+-(void)insertUserMapSettings:(MapModel *) distance WithUserID:(NSString *)userId{
     @try{
         //Reference Child Firebase
         NSString *key = [[rootNode child:@"users/"] child:userId].key;
@@ -170,7 +170,7 @@ NSString *const const_database_car_key_status = @"status";
     }
 }
 
--(void)UpdateMapSettings:(MapModel *) map WithUserID:(NSString *)userId{
+-(void)updateMapSettings:(MapModel *) map WithUserID:(NSString *)userId{
     @try{
         //Get current UID
         if(userId == nil){
@@ -206,7 +206,7 @@ NSString *const const_database_car_key_status = @"status";
     }
 }
 
--(void)InsertCarImage:(UIImageView *) image{
+-(void)insertCarImage:(UIImageView *) image{
     @try{
         //
         CGFloat compressionQuality = 0.8;
@@ -253,6 +253,44 @@ NSString *const const_database_car_key_status = @"status";
             
             
         }
+    }
+    @catch(NSException *ex){
+        @throw ex.reason;
+    }
+}
+
+-(void)insertCarDetails:(CarModel *) car{
+    @try{
+        
+        NSString *userID = [FIRAuth auth].currentUser.uid;
+        
+        //
+        NSString *CarPath = [NSString stringWithFormat:@"users/%@/cars", userID];
+        
+        NSString *key = [[rootNode child:CarPath] childByAutoId].key;
+        
+        //Obj to be inserted into DB
+        NSDictionary *carPost = @{
+                                  const_database_car_key_vin_chassis: car.vinChassis,
+                                  const_database_car_key_rego_expiry: car.regoExpiry,
+                                  const_database_car_key_plate_number: car.plateNumber,
+                                  const_database_car_key_year: car.year,
+                                  const_database_car_key_make: car.make,
+                                  const_database_car_key_body_type: car.bodyType,
+                                  const_database_car_key_transmission: car.transmission,
+                                  const_database_car_key_colour: car.colour,
+                                  const_database_car_key_fuel_type: car.fuelType,
+                                  const_database_car_key_seats: car.seats,
+                                  const_database_car_key_doors: car.doors,
+                                  const_database_car_key_model: car.carModel,
+                                  const_database_car_key_image_url: car.imageURL,
+                                  const_database_car_key_status: car.carStatus
+                                  };
+        
+        NSDictionary *childUpdate = @{[NSString stringWithFormat:@"%@/%@", CarPath, key]: carPost};
+        
+        [rootNode updateChildValues:childUpdate];
+        
     }
     @catch(NSException *ex){
         @throw ex.reason;
