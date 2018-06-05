@@ -15,6 +15,22 @@
 
 @interface DatabaseProvider : NSObject
 
+//Constants
+extern NSString *const const_database_car_key_vin_chassis;
+extern NSString *const const_database_car_key_rego_expiry;
+extern NSString *const const_database_car_key_plate_number;
+extern NSString *const const_database_car_key_year;
+extern NSString *const const_database_car_key_make;
+extern NSString *const const_database_car_key_body_type;
+extern NSString *const const_database_car_key_transmission;
+extern NSString *const const_database_car_key_colour;
+extern NSString *const const_database_car_key_fuel_type;
+extern NSString *const const_database_car_key_seats;
+extern NSString *const const_database_car_key_doors;
+extern NSString *const const_database_car_key_model;
+extern NSString *const const_database_car_key_image_url;
+extern NSString *const const_database_car_key_status;
+
 @property (strong, nonatomic) FIRDatabaseReference *rootNode;
 @property (strong, nonatomic) FIRDatabaseReference *usersNode;
 @property (strong, nonatomic) FIRStorageReference *storageRef;

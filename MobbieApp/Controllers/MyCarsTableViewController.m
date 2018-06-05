@@ -21,7 +21,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self hendleCarData];
+    [self handleCarData];
      //NSLog(@"carData: %@", carData);
 }
 - (void)viewDidLoad {
@@ -53,7 +53,7 @@
      */
     
 }
--(void)hendleCarData{
+-(void)handleCarData{
     
     //Firebase Query
     NSString *CarPath = [NSString stringWithFormat:@"users/%@/cars", userID];
@@ -64,7 +64,9 @@
     
     [query observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         CarModel *myNewCar = [[CarModel alloc] init];
-        [myNewCar setPlateNumber:[snapshot.value objectForKey:@"plate-number"]];
+        [myNewCar setCarModel:[snapshot.value objectForKey:const_database_car_key_model]];
+        [myNewCar setPlateNumber:[snapshot.value objectForKey:const_database_car_key_plate_number]];
+        [myNewCar setImageURL:[snapshot.value objectForKey:const_database_car_key_image_url]];
         
         [self->carData addObject:myNewCar];
         [self.tableView reloadData];
@@ -129,13 +131,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *cellIdentifier = @"carCell";
+    NSString *image_url;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CustomTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
+    image_url = [[carData objectAtIndex:indexPath.row]imageURL];
+    
+    [[cell labelCarName] setText:[NSString stringWithFormat:@"%@", [[carData objectAtIndex:indexPath.row] carModel]]];
     [[cell labelRegoPlate] setText:[NSString stringWithFormat:@"%@", [[carData objectAtIndex:indexPath.row] plateNumber]]];
     
+    NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: image_url]];
+    //[cell imageView].frame = CGRectMake(0, 0, 100, 100);
+    //[cell imageView].center = cell.imageView.superview.center;
+    [[cell carImage] setImage:[UIImage imageWithData:imageData]];
+     //:[NSString stringWithFormat:@"%@", [[carData objectAtIndex:indexPath.row] plateNumber]]];
     /*
     CarModel *_car = [carData objectAtIndex:indexPath.row];
     cell.labelCarName.text = [_car model];

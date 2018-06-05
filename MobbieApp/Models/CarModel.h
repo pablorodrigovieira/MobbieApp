@@ -10,22 +10,19 @@
 
 @interface CarModel : NSObject
 
-//@property (weak,nonatomic) NSString *vinChassis;
-//@property (weak,nonatomic) NSString *regoExpiry;
+@property NSString *vinChassis;
+@property NSString *regoExpiry;
 @property NSString *plateNumber;
-//@property (weak,nonatomic) NSString *year;
-//@property (weak,nonatomic) NSString *make;
+@property NSString *year;
+@property NSString *make;
 @property NSString *carModel;
 @property NSString *imageURL;
 @property NSString *carStatus;
-//@property (weak,nonatomic) NSString *bodyType;
-/*@property (weak,nonatomic) NSString *transmission;
-@property (weak,nonatomic) NSString *colour;
-@property (weak,nonatomic) NSString *fuelType;
-@property (weak,nonatomic) NSString *seats;
-@property (weak,nonatomic) NSString *doors;
-
-
- */
+@property NSString *bodyType;
+@property NSString *transmission;
+@property NSString *colour;
+@property NSString *fuelType;
+@property NSString *seats;
+@property NSString *doors;
 
 @end

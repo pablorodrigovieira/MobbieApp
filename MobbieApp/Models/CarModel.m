@@ -10,9 +10,6 @@
 
 @implementation CarModel
 
-/*
-@synthesize vinChassis, regoExpiry, plateNumber, year, make, model, bodyType, transmission, colour, fuelType, seats, doors, ;
- */
-@synthesize plateNumber, carModel, imageURL, carStatus;
+@synthesize vinChassis, regoExpiry, plateNumber, year, make, bodyType, transmission, colour, fuelType, seats, doors, carModel, imageURL, carStatus;
 
 @end

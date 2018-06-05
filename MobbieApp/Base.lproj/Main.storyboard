@@ -57,7 +57,7 @@
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="eyu-Dl-9Vi" kind="show" identifier="sign_up_identifier_segue" id="ZAR-nf-9TH"/>
+                                                    <segue destination="mjo-MZ-Nra" kind="show" identifier="sign_up_identifier_segue" id="tL3-rD-XeM"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="llN-rf-ZrO">
@@ -152,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2427" y="-210"/>
+            <point key="canvasLocation" x="-2668" y="-334"/>
         </scene>
         <!--Profile-->
         <scene sceneID="GFf-hx-IwY">
@@ -387,6 +387,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmt-9h-068">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Sign Up" id="OHb-hh-j9r">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="aVA-SP-sI7">
+                                            <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" identifier="cancel_identifier_segue" id="3yk-WE-u9R"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGr-cY-adG">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
@@ -537,11 +554,11 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="KGr-cY-adG" firstAttribute="leading" secondItem="9Fn-gS-gcb" secondAttribute="leading" id="SU0-ii-iUE"/>
-                            <constraint firstItem="KGr-cY-adG" firstAttribute="top" secondItem="9Fn-gS-gcb" secondAttribute="top" id="hru-1T-QP1"/>
+                            <constraint firstItem="KGr-cY-adG" firstAttribute="top" secondItem="9Fn-gS-gcb" secondAttribute="top" constant="44" id="hru-1T-QP1"/>
                             <constraint firstItem="9Fn-gS-gcb" firstAttribute="trailing" secondItem="KGr-cY-adG" secondAttribute="trailing" id="kCH-YV-F5g"/>
                             <constraint firstItem="9Fn-gS-gcb" firstAttribute="bottom" secondItem="KGr-cY-adG" secondAttribute="bottom" id="tmi-FH-VSc"/>
                         </constraints>
@@ -563,12 +580,12 @@
                         <outlet property="passwordTextField" destination="ZGB-dK-6Ew" id="S2I-pa-xoc"/>
                         <outlet property="phoneTextField" destination="ujK-7u-7TG" id="sQb-jh-ko3"/>
                         <outlet property="termsAndConditionsSwitch" destination="mwj-80-WFa" id="4Wu-3Z-MeP"/>
-                        <segue destination="D7o-Kh-5gG" kind="presentation" identifier="signup_identifier_segue" id="g2z-nu-CBc"/>
+                        <segue destination="D7o-Kh-5gG" kind="show" identifier="signup_identifier_segue" id="g2z-nu-CBc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRM-4B-B2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2428" y="1560"/>
+            <point key="canvasLocation" x="-1202" y="-1093"/>
         </scene>
         <!--Map-->
         <scene sceneID="6eS-mr-5lK">
@@ -1005,6 +1022,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9p-TB-f10">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Mobbie" id="osz-wZ-Gl7">
+                                        <barButtonItem key="rightBarButtonItem" image="logout" id="jEy-GV-Sxq">
+                                            <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="logoutButton:" destination="6gZ-35-pN7" id="bby-xz-c5N"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="4wB-1H-zWA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
@@ -1016,10 +1050,10 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NaA-dV-nhi" firstAttribute="bottom" secondItem="4wB-1H-zWA" secondAttribute="bottom" id="6Fa-PL-yZe"/>
-                            <constraint firstItem="4wB-1H-zWA" firstAttribute="top" secondItem="NaA-dV-nhi" secondAttribute="top" id="C0C-Xa-JEw"/>
+                            <constraint firstItem="4wB-1H-zWA" firstAttribute="top" secondItem="NaA-dV-nhi" secondAttribute="top" constant="44" id="C0C-Xa-JEw"/>
                             <constraint firstItem="NaA-dV-nhi" firstAttribute="trailing" secondItem="4wB-1H-zWA" secondAttribute="trailing" id="Gkg-WS-A9Y"/>
                             <constraint firstItem="NaA-dV-nhi" firstAttribute="bottom" secondItem="CNU-WY-zlM" secondAttribute="bottom" constant="18" id="cxq-BQ-Kii"/>
                             <constraint firstItem="NaA-dV-nhi" firstAttribute="trailing" secondItem="CNU-WY-zlM" secondAttribute="trailing" constant="16" id="hhJ-4g-WcD"/>
@@ -1027,6 +1061,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NaA-dV-nhi"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="uYZ-Zx-S6T"/>
                     <navigationItem key="navigationItem" title="Mobbie" id="EEw-hK-8hi">
                         <barButtonItem key="rightBarButtonItem" title="Logout" image="logout" id="jK7-X1-SwW">
                             <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1035,10 +1070,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="logout_identifier_segue" id="Pgr-e9-1fX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FqI-Mc-sGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="342" y="-211"/>
+            <point key="canvasLocation" x="-1554" y="706"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mfa-1h-JNB">
@@ -1052,7 +1090,7 @@
                         <color key="selectedImageTintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Z0t-Rg-HQl" kind="relationship" relationship="viewControllers" id="DBV-YC-t2U"/>
+                        <segue destination="6gZ-35-pN7" kind="relationship" relationship="viewControllers" id="vbP-pL-PnO"/>
                         <segue destination="88f-RP-eyX" kind="relationship" relationship="viewControllers" id="Csd-KV-p3n"/>
                         <segue destination="sbK-V3-oST" kind="relationship" relationship="viewControllers" id="64O-YT-yEn"/>
                         <segue destination="spM-rf-tp8" kind="relationship" relationship="viewControllers" id="XdL-F7-Wqy"/>
@@ -1061,52 +1099,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dz-AV-5si" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1573" y="-210"/>
-        </scene>
-        <!--Sign Up Navigation Controller-->
-        <scene sceneID="Odq-QB-dMS">
-            <objects>
-                <navigationController title="Sign Up Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="eyu-Dl-9Vi" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3zK-ED-3Q9">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="mjo-MZ-Nra" kind="relationship" relationship="rootViewController" id="WgV-T7-Brv"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WSh-fc-yVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2427" y="706"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="jeo-QK-hGS">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z0t-Rg-HQl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="home" id="f1c-SS-g3Y"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="31P-ja-cF3">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="textShadowColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="6gZ-35-pN7" kind="relationship" relationship="rootViewController" id="sLs-ec-qV9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Le-HL-BK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-592" y="-210"/>
+            <point key="canvasLocation" x="342" y="-334"/>
         </scene>
         <!--My Cars-->
         <scene sceneID="xxN-ts-zyn">
@@ -1145,6 +1138,7 @@
         <image name="username-menu" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7ho-tw-kKo"/>
+        <segue reference="g2z-nu-CBc"/>
+        <segue reference="3yk-WE-u9R"/>
     </inferredMetricsTieBreakers>
 </document>

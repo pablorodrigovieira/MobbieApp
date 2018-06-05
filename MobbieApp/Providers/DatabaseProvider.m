@@ -12,6 +12,21 @@
 
 @synthesize rootNode, usersNode, USER_ID, storageRef;
 
+NSString *const const_database_car_key_vin_chassis = @"vin-chassis";
+NSString *const const_database_car_key_rego_expiry = @"rego-expiry";
+NSString *const const_database_car_key_plate_number = @"plate-number";
+NSString *const const_database_car_key_year = @"year";
+NSString *const const_database_car_key_make = @"make";
+NSString *const const_database_car_key_body_type = @"body-type";
+NSString *const const_database_car_key_transmission = @"transmission";
+NSString *const const_database_car_key_colour = @"colour";
+NSString *const const_database_car_key_fuel_type = @"fuel-type";
+NSString *const const_database_car_key_seats = @"seats";
+NSString *const const_database_car_key_doors = @"doors";
+NSString *const const_database_car_key_model = @"model";
+NSString *const const_database_car_key_image_url = @"image-url";
+NSString *const const_database_car_key_status = @"status";
+
 //Constructor
 -(id)init{
     
