@@ -14,14 +14,15 @@
 
 @implementation MyCarsManagementViewController
 
-@synthesize carImage, loadingActivity;
+@synthesize carImage, loadingActivity, plateNumberTextField;
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.loadingActivity stopAnimating];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.ref = [[FIRDatabase database] reference];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,7 +64,7 @@
 
 - (IBAction)saveCar:(id)sender {
     //TODO ADD to DB
-    
+    /*
     self.loadingActivity.hidden = NO;
     [self.loadingActivity startAnimating];
     
@@ -74,7 +75,23 @@
     //Added Image to Firebase
     DatabaseProvider *db = [[DatabaseProvider alloc] init];
     [db InsertCarImage:carImage];
+    */
     
+    //Temporary User for test
+    NSString *userID = @"ujiF9eHrrPUCvo91qNZjXD46bH92";
+    
+    NSString *CarPath = [NSString stringWithFormat:@"users/%@/cars", userID];
+    
+    NSString *key = [[_ref child:CarPath] childByAutoId].key;
+    
+    NSDictionary *post = @{@"image-url": @"https://firebasestorage.googleapis.com/v0/b/mobbieapp.appspot.com/o/ujiF9eHrrPUCvo91qNZjXD46bH92%20%2F85DE6D86-3223-4F59-84BA-0D372400AA00.jpg?alt=media&token=e11d3228-912e-499a-b7e8-7bb7422cb8e3",
+                           @"plate-number": @"12345"
+                           };
+    
+    NSDictionary *childUpdate = @{[NSString stringWithFormat:@"%@/%@", CarPath, key]: post};
+    
+    [_ref updateChildValues:childUpdate];
+
     /*
     //Wait 2 seconds to stop loading activity
     //Give time to upload Image

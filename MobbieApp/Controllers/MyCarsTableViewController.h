@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "../Models/CarModel.h"
 #import "../Customs/CustomTableViewCell.h"
+#import "DatabaseProvider.h"
+
+@import Firebase;
 
 @interface MyCarsTableViewController : UITableViewController
-{
-    NSMutableArray *carData;
-}
+
+@property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (strong, nonatomic) NSMutableArray *carData;
 
 @end

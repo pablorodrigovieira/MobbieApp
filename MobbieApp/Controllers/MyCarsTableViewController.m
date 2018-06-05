@@ -9,19 +9,34 @@
 #import "MyCarsTableViewController.h"
 
 
-@interface MyCarsTableViewController ()
+@interface MyCarsTableViewController (){
+    NSString *userID;
+}
 
 @end
 
 @implementation MyCarsTableViewController
 
+@synthesize carData;
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self hendleCarData];
+     //NSLog(@"carData: %@", carData);
+}
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
+    //DB Ref
+    self.ref = [[FIRDatabase database] reference];
+    
+    //UserID
+    userID = [FIRAuth auth].currentUser.uid;
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+    /*
     carData = [NSMutableArray array];
     
     NSInteger numberOfCars = 3;
@@ -35,6 +50,66 @@
         
         [carData addObject:myCar];
     }
+     */
+    
+}
+-(void)hendleCarData{
+    
+    //Firebase Query
+    NSString *CarPath = [NSString stringWithFormat:@"users/%@/cars", userID];
+    
+    FIRDatabaseQuery *query = [[self.ref child:CarPath] queryOrderedByKey];
+    
+    carData = [[NSMutableArray alloc]init];
+    
+    [query observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        CarModel *myNewCar = [[CarModel alloc] init];
+        [myNewCar setPlateNumber:[snapshot.value objectForKey:@"plate-number"]];
+        
+        [self->carData addObject:myNewCar];
+        [self.tableView reloadData];
+    }];
+    
+    NSLog(@"car: %@", carData);
+    
+    /*
+    CarModel *newCar = [[CarModel alloc] init];
+    
+    DatabaseProvider *db = [[DatabaseProvider alloc] init];
+    
+    [[[[[db rootNode] child:@"users"] child:userID] child:@"cars"]
+     observeSingleEventOfType:FIRDataEventTypeValue
+     withBlock:^(FIRDataSnapshot * _Nonnull snapshot){
+
+         [newCar setPlateNumber:[snapshot.value objectForKey:@"plate-number"]];
+         [newCar setCarModel:[snapshot.value objectForKey:@"model"]];
+         [newCar setImageURL:[snapshot.value objectForKey:@"image-url"]];
+         [newCar setCarStatus:[snapshot.value objectForKey:@"status"]];
+
+         //Get result and hold in a NSDictinary
+         NSDictionary *carDis = snapshot.value;
+         
+         //Set UserModel with values
+         [newCar setPlateNumber:[carDis valueForKey:@"plate-number"]];
+         [newCar setCarModel:[carDis valueForKey:@"plate-number"]];
+         [newCar setImageURL:[carDis valueForKey:@"plate-number"]];
+         [newCar setCarStatus:[carDis valueForKey:@"plate-number"]];
+         
+         [self->carData addObject:newCar];
+         NSLog(@"snap: %@", snapshot.value);
+         NSLog(@"car: %@", newCar);
+         NSLog(@"Model: %@", newCar.carModel);
+         NSLog(@"Plate: %@", newCar.plateNumber);
+         NSLog(@"Img: %@", newCar.imageURL);
+         NSLog(@"Status: %@", newCar.carStatus);
+         
+         [self.tableView reloadData];
+         
+     }withCancelBlock:^(NSError * _Nonnull error) {
+         AlertsViewController *alertError = [[AlertsViewController alloc] init];
+         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
+     }];
+*/
     
 }
 
@@ -59,10 +134,13 @@
     
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
+    [[cell labelRegoPlate] setText:[NSString stringWithFormat:@"%@", [[carData objectAtIndex:indexPath.row] plateNumber]]];
+    
+    /*
     CarModel *_car = [carData objectAtIndex:indexPath.row];
     cell.labelCarName.text = [_car model];
     cell.labelRegoPlate.text = [_car plateNumber];
-    
+    */
     //Custom color and border
     
     cell.contentView.layer.borderColor = [UIColor grayColor].CGColor;

@@ -8,8 +8,13 @@
 
 #import "ViewController.h"
 #import "DatabaseProvider.h"
+#import "CarModel.h"
+@import Firebase;
 
 @interface MyCarsManagementViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+
+@property (strong, nonatomic) FIRDatabaseReference *ref;
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 
 @property (weak, nonatomic) IBOutlet UITextField *vinTextField;
