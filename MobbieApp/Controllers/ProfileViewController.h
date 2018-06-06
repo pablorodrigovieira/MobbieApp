@@ -27,5 +27,4 @@ extern NSString *const const_profile_alert_cancel_button;
 - (IBAction)changePasswordButton:(id)sender;
 - (IBAction)updateProfileButton:(id)sender;
 
-
 @end

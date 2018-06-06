@@ -205,7 +205,7 @@ NSString *const const_database_car_key_status = @"status";
         @throw ex.reason;
     }
 }
-
+/*
 -(void)insertCarImage:(UIImageView *) image{
     @try{
         //
@@ -258,13 +258,70 @@ NSString *const const_database_car_key_status = @"status";
         @throw ex.reason;
     }
 }
+*/
+-(NSString *)insertImage:(UIImageView *) image{
+    @try{
+        CGFloat compressionQuality = 0.8;
+        USER_ID = [FIRAuth auth].currentUser.uid;
+        
+        CarModel *myCar = [[CarModel alloc] init];
+        
+        //Semaphore to execute async func
+        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+        
+        if(image.image != nil){
+            
+            FIRStorage *storage = [FIRStorage storage];
+            storageRef = [storage referenceForURL:@"gs://mobbieapp.appspot.com"];
+            
+            NSString *imageID = [[NSUUID UUID] UUIDString];
+            NSString *imageName = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%@", USER_ID],[NSString stringWithFormat:@"/%@.jpg",imageID]];
+            
+            FIRStorageReference *imageRef = [storageRef child:imageName];
+            FIRStorageMetadata *metadata = [[FIRStorageMetadata alloc]init];
+            
+            metadata.contentType = @"image/jpeg";
+            NSData *imageData = UIImageJPEGRepresentation(image.image, compressionQuality);
+            
+            [imageRef putData:imageData metadata:metadata
+                   completion:^(FIRStorageMetadata *metadata,
+                                NSError *error)
+             {
+                 if(!error){
+                     //Get IMG URL
+                     [imageRef downloadURLWithCompletion:^(NSURL * _Nullable URL, NSError * _Nullable error) {
+                         
+                         myCar.imageURL = URL.absoluteString;
+                         
+                         //dispatch semaphore
+                         dispatch_semaphore_signal(sema);
+                     }];
+                 }
+                 else{
+                     //Error
+                     AlertsViewController *alert = [[AlertsViewController alloc] init];
+                     [alert displayAlertMessage:error.observationInfo];
+                 }
+             }];
+        }
+        
+        while (dispatch_semaphore_wait(sema, DISPATCH_TIME_NOW)) {
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+        }
+        
+        return myCar.imageURL;
+        
+    }
+    @catch(NSException *ex){
+        @throw ex.reason;
+    }
+}
 
 -(void)insertCarDetails:(CarModel *) car{
     @try{
         
         NSString *userID = [FIRAuth auth].currentUser.uid;
-        
-        //
+
         NSString *CarPath = [NSString stringWithFormat:@"users/%@/cars", userID];
         
         NSString *key = [[rootNode child:CarPath] childByAutoId].key;
@@ -289,8 +346,18 @@ NSString *const const_database_car_key_status = @"status";
         
         NSDictionary *childUpdate = @{[NSString stringWithFormat:@"%@/%@", CarPath, key]: carPost};
         
-        [rootNode updateChildValues:childUpdate];
-        
+        [rootNode updateChildValues:childUpdate withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+            if(error == nil){
+                //Update successed
+                AlertsViewController *alert = [[AlertsViewController alloc] init];
+                [alert displayAlertMessage:const_upload_db_alert_message];
+            }
+            else{
+                //Error
+                AlertsViewController *alert = [[AlertsViewController alloc] init];
+                [alert displayAlertMessage:error.observationInfo];
+            }
+        }];
     }
     @catch(NSException *ex){
         @throw ex.reason;

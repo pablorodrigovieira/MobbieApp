@@ -21,6 +21,8 @@
     //Hide Activity Indicator
     loadingActivity.hidden = YES;
     
+    //TODO dismiss keyboard
+    
     //TODO remove it, only for testing
     usernameTextField.text = @"pablovieira.com@gmail.com";
     passwordTextField.text = @"123456";
@@ -41,8 +43,20 @@
     
     CustomTextField *passwordInput = [[CustomTextField alloc] init];
     [passwordInput setIcon: const_password_icon forUITextField:self.passwordTextField];
+    
+    //Tap gesture to dismiss keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
+//Method to dismiss keyboard
+-(void)dismissKeyboard {
+    [usernameTextField resignFirstResponder];
+    [passwordTextField resignFirstResponder];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -71,6 +85,11 @@
             [customAlert displayInputAlert: [passwordTextField placeholder]];
         }
         else{
+            
+            //Disable button
+            UIButton *btn = (UIButton *)sender;
+            btn.enabled = NO;
+            
             //Show Activity Indicator
             loadingActivity.hidden = NO;
             [loadingActivity startAnimating];
@@ -95,6 +114,10 @@
                          [self performSegueWithIdentifier:@"login_identifier_segue" sender:self];
                      }
                      else{
+                         //Enable button
+                         UIButton *btn = (UIButton *)sender;
+                         btn.enabled = YES;
+                         
                          AlertsViewController *alertError = [[AlertsViewController alloc] init];
                          [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
                      }
@@ -103,6 +126,11 @@
         }
     }
     @catch(NSException *ex){
+        
+        //Enable button
+        UIButton *btn = (UIButton *)sender;
+        btn.enabled = YES;
+        
         //Stop and hide Activity Indicator
         loadingActivity.hidden = YES;
         [loadingActivity stopAnimating];

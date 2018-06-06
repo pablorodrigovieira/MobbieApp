@@ -32,12 +32,10 @@ NSString *const const_upload_db_alert_message = @"Uploaded Successfully!";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (UIViewController *)topViewController {

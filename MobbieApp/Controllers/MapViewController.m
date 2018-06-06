@@ -31,9 +31,7 @@
         DatabaseProvider *db = [[DatabaseProvider alloc] init];
         MapModel *map = [[MapModel alloc]init];
         
-        if([FIRAuth auth].currentUser != nil){
-            
-            //Get userID info from Authentication
+        if([FIRAuth auth].currentUser != nil){            
             userID = [FIRAuth auth].currentUser.uid;
             
             [[[[[db rootNode] child:@"users"] child:userID] child:@"map"]
@@ -43,8 +41,6 @@
                  if(snapshot != nil){
                      //Get result and hold in a NSDictinary
                      NSDictionary *mapDisc = snapshot.value;
-                     
-                     //Set UserModel with values
                      [map setRangeDistance: [mapDisc valueForKey:@"range_distance"]];
                      
                      //Convert to float to add value to Slider
@@ -53,7 +49,6 @@
                          //Convert to meters
                          self->rangeSlider = self->rangeSlider*1000;
                      }
-                     //Set Range Label with details
                      NSString *rangeLabel = [map rangeDistance];
                      
                      self.kmLabel.text = rangeLabel;
@@ -69,7 +64,6 @@
                              //Stop and hide Activity Indicator
                              self.loadingIndicator.hidden = YES;
                             [self.loadingIndicator stopAnimating];
-                            
                         });
                  }
                  

@@ -41,11 +41,28 @@
     
     CustomTextField *confirmPasswordInput = [[CustomTextField alloc] init];
     [confirmPasswordInput setIcon:const_password_icon forUITextField:self.confirmPasswordTextField];
+    
+    //Tap gesture to dismiss keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+
+//Method to dismiss keyboard
+-(void)dismissKeyboard {
+    [firstNameTextField resignFirstResponder];
+    [lastNameTextField resignFirstResponder];
+    [emailTextField resignFirstResponder];
+    [phoneTextField resignFirstResponder];
+    [passwordTextField resignFirstResponder];
+    [confirmPasswordTextField resignFirstResponder];
+    [termsAndConditionsSwitch resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)cancelButton:(id)sender {
@@ -152,8 +169,5 @@
         AlertsViewController *alertError = [[AlertsViewController alloc] init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
-    
-    
-    
 }
 @end

@@ -36,22 +36,6 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    /*
-    carData = [NSMutableArray array];
-    
-    NSInteger numberOfCars = 3;
-    
-    for(NSUInteger index = 1; index <= numberOfCars; index++){
-        CarModel *myCar = [[CarModel alloc]init];
-        myCar.model = @"Ford";
-        myCar.plateNumber = @"XXX-1111";
-        //myCar.status = YES;
-        //myCar.imageURL = @"logo";
-        
-        [carData addObject:myCar];
-    }
-     */
-    
 }
 -(void)handleCarData{
     
@@ -63,6 +47,7 @@
     carData = [[NSMutableArray alloc]init];
     
     [query observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        
         CarModel *myNewCar = [[CarModel alloc] init];
         [myNewCar setCarModel:[snapshot.value objectForKey:const_database_car_key_model]];
         [myNewCar setPlateNumber:[snapshot.value objectForKey:const_database_car_key_plate_number]];
@@ -71,7 +56,14 @@
         [self->carData addObject:myNewCar];
         [self.tableView reloadData];
         
+        self.loadingActivity.hidden = YES;
+        [self.loadingActivity stopAnimating];
+        
     }withCancelBlock:^(NSError * _Nonnull error) {
+        
+        self.loadingActivity.hidden = YES;
+        [self.loadingActivity stopAnimating];
+        
          AlertsViewController *alertError = [[AlertsViewController alloc] init];
          [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
      }];
@@ -108,21 +100,6 @@
     NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: image_url]];
     [[cell carImage] setImage:[UIImage imageWithData:imageData]];
     
-    
-    //Custom color and border
-    
-    /*
-    cell.contentView.layer.borderColor = [UIColor grayColor].CGColor;
-    cell.contentView.layer.borderWidth = 2.0;
-    cell.contentView.layer.cornerRadius = 10.0;
-    [cell.contentView setClipsToBounds:YES];
-    */
-    /*
-    [cell.layer setShadowColor:[[UIColor blackColor] CGColor]];
-    [cell.layer setShadowOffset:CGSizeMake(-4.0, 4.0)];
-    [cell.layer setShadowRadius:4.75];
-    [cell.layer setShadowOpacity:0.4];
-    */
     return cell;
 }
 

@@ -44,7 +44,7 @@ extern NSString *const const_database_car_key_status;
 -(void)changeUserPassword:(NSString *)userPwd;
 -(void)insertUserMapSettings:(MapModel *) distance WithUserID:(NSString *)userId;
 -(void)updateMapSettings:(MapModel *) map WithUserID:(NSString *)userId;
--(void)insertCarImage:(UIImageView *) image;
+//-(void)insertCarImage:(UIImageView *) image;
 -(void)insertCarDetails:(CarModel *) car;
-
+-(NSString *)insertImage:(UIImageView *) image;
 @end

@@ -78,7 +78,6 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
              withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
                  
                  if(snapshot != nil){
-                     //Get result and hold in a NSDictinary
                      NSDictionary *usersDict = snapshot.value;
                      
                      //Set UserModel with values
@@ -87,7 +86,6 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
                      [user setEmail: [usersDict valueForKey:@"email"]];
                      [user setPhoneNumber: [usersDict valueForKey:@"phone_number"]];
                      
-                     //Set textfields with details
                      self.firstNameTextField.text = user.firstName;
                      self.lastNameTextField.text = user.lastName;
                      self.emailTextField.text = user.email;
@@ -116,7 +114,6 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

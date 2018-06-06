@@ -14,21 +14,45 @@
 
 @implementation MyCarsManagementViewController
 
-@synthesize carImage, loadingActivity, plateNumberTextField;
+@synthesize carImage, loadingActivity, vinTextField,regoTextField,plateNumberTextField,yearTextField,makeTextField,modelTextField,bodyTypeTextField,transmissionTextField,colourTextField,fuelTypeTextField,seatsTextField,doorsTextField;
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.loadingActivity stopAnimating];
 
+    //todo field validation
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Tap gesture to dismiss keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
 
-    //self.ref = [[FIRDatabase database] reference];
+//Method to dismiss keyboard
+-(void)dismissKeyboard {
+    
+    [vinTextField resignFirstResponder];
+    [regoTextField resignFirstResponder];
+    [plateNumberTextField resignFirstResponder];
+    [yearTextField resignFirstResponder];
+    [makeTextField resignFirstResponder];
+    [modelTextField resignFirstResponder];
+    [bodyTypeTextField resignFirstResponder];
+    [transmissionTextField resignFirstResponder];
+    [colourTextField resignFirstResponder];
+    [fuelTypeTextField resignFirstResponder];
+    [seatsTextField resignFirstResponder];
+    [doorsTextField resignFirstResponder];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)takePhoto:(id)sender {
@@ -64,56 +88,54 @@
 }
 
 - (IBAction)saveCar:(id)sender {
-    //TODO fields Validation
-    //TODO ADD to DB
-    
-    //NSString *userID = [FIRAuth auth].currentUser.uid;
-    
-    self.loadingActivity.hidden = NO;
-    [self.loadingActivity startAnimating];
-    
-    //Disable button
-    UIButton *saveBtn = (UIButton *)sender;
-    saveBtn.enabled = NO;
-    
-    //Added Image to Firebase
-    DatabaseProvider *db = [[DatabaseProvider alloc] init];
-    [db insertCarImage:carImage];
-    
-    //Car Model
-    CarModel *newCar = [[CarModel alloc] init];
-    
-    newCar.vinChassis = self.vinTextField.text;
-    newCar.regoExpiry = self.regoTextField.text;
-    newCar.plateNumber = self.plateNumberTextField.text;
-    newCar.year = self.yearTextField.text;
-    newCar.make = self.makeTextField.text;
-    newCar.bodyType = self.bodyTypeTextField.text;
-    newCar.transmission = self.transmissionTextField.text;
-    newCar.colour = self.colourTextField.text;
-    newCar.fuelType = self.fuelTypeTextField.text;
-    newCar.seats = self.seatsTextField.text;
-    newCar.doors = self.doorsTextField.text;
-    newCar.carModel = self.modelTextField.text;
-    newCar.imageURL = @"https://firebasestorage.googleapis.com/v0/b/mobbieapp.appspot.com/o/ujiF9eHrrPUCvo91qNZjXD46bH92%20%2F85DE6D86-3223-4F59-84BA-0D372400AA00.jpg?alt=media&token=e11d3228-912e-499a-b7e8-7bb7422cb8e3";
-    newCar.carStatus = @"YES";
-    
-    [db insertCarDetails:newCar];
-    
+    @try{
+        //TODO fields Validation
+        
+        self.loadingActivity.hidden = NO;
+        [self.loadingActivity startAnimating];
+        
+        //Disable button
+        UIButton *saveBtn = (UIButton *)sender;
+        saveBtn.enabled = NO;
+        
+        //Added Image to Firebase
+        DatabaseProvider *db = [[DatabaseProvider alloc] init];
+        
+        //Car Model
+        CarModel *newCar = [[CarModel alloc] init];
+        
+        newCar.vinChassis = self.vinTextField.text;
+        newCar.regoExpiry = self.regoTextField.text;
+        newCar.plateNumber = self.plateNumberTextField.text;
+        newCar.year = self.yearTextField.text;
+        newCar.make = self.makeTextField.text;
+        newCar.bodyType = self.bodyTypeTextField.text;
+        newCar.transmission = self.transmissionTextField.text;
+        newCar.colour = self.colourTextField.text;
+        newCar.fuelType = self.fuelTypeTextField.text;
+        newCar.seats = self.seatsTextField.text;
+        newCar.doors = self.doorsTextField.text;
+        newCar.carModel = self.modelTextField.text;
+        newCar.imageURL = [db insertImage:carImage];
+        newCar.carStatus = @"YES";
+        
+        [db insertCarDetails:newCar];
+        
+        //Open List after input to firebase
+        [self.navigationController popViewControllerAnimated:YES];
 
-    /*
-    //Wait 2 seconds to stop loading activity
-    //Give time to upload Image
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 *NSEC_PER_SEC)),dispatch_get_main_queue(),
-                   ^{
-                       //Enable button
-                       saveBtn.enabled = YES;
-                       [self->loadingActivity stopAnimating];
-                   });
-     */
+    }@catch(NSException *ex){
+        //Enable button
+        UIButton *saveBtn = (UIButton *)sender;
+        saveBtn.enabled = YES;
+        
+        self.loadingActivity.hidden = YES;
+        [self.loadingActivity stopAnimating];
+        
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
     
-    //Open List after input to firebase
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark UIImagePickerController Delegate
