@@ -40,15 +40,12 @@
                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omE-Pl-CwQ">
-                        <rect key="frame" x="174" y="100" width="61" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rego:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omE-Pl-CwQ">
+                        <rect key="frame" x="174" y="100" width="46.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q8a-aO-PjV">
-                        <rect key="frame" x="255" y="95" width="51" height="31"/>
-                    </switch>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kiF-NT-fB9">
                         <rect key="frame" x="9" y="11" width="150" height="128"/>
                         <constraints>
@@ -56,34 +53,40 @@
                             <constraint firstAttribute="height" constant="128" id="mVd-jj-pWz"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="xxx" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wir-6K-OX2">
+                        <rect key="frame" x="221" y="100" width="83" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="omE-Pl-CwQ" firstAttribute="leading" secondItem="kiF-NT-fB9" secondAttribute="trailing" constant="15" id="0Ba-dx-ei3"/>
                     <constraint firstItem="lQB-5a-6ux" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="4KC-dX-wLN"/>
                     <constraint firstAttribute="trailing" secondItem="lQB-5a-6ux" secondAttribute="trailing" constant="14" id="6DU-Aq-0Kb"/>
+                    <constraint firstItem="Wir-6K-OX2" firstAttribute="top" secondItem="tuK-2f-eM7" secondAttribute="bottom" constant="31" id="9Cq-Mg-Kek"/>
                     <constraint firstAttribute="bottom" secondItem="omE-Pl-CwQ" secondAttribute="bottom" constant="28.5" id="FIv-Dw-49E"/>
                     <constraint firstItem="zCV-Zb-lHv" firstAttribute="leading" secondItem="kiF-NT-fB9" secondAttribute="trailing" constant="15" id="GYQ-Hi-Yc5"/>
-                    <constraint firstAttribute="bottom" secondItem="q8a-aO-PjV" secondAttribute="bottom" constant="23.5" id="IPF-Pr-AGa"/>
                     <constraint firstItem="kiF-NT-fB9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="LEJ-U0-H1h"/>
                     <constraint firstAttribute="bottom" secondItem="kiF-NT-fB9" secondAttribute="bottom" constant="10.5" id="Nqo-8O-Uk1"/>
                     <constraint firstItem="lQB-5a-6ux" firstAttribute="leading" secondItem="kiF-NT-fB9" secondAttribute="trailing" constant="15" id="Q1p-nl-Kti"/>
                     <constraint firstItem="zCV-Zb-lHv" firstAttribute="top" secondItem="lQB-5a-6ux" secondAttribute="bottom" constant="17" id="SrC-c9-b01"/>
+                    <constraint firstAttribute="trailing" secondItem="Wir-6K-OX2" secondAttribute="trailing" constant="16" id="aIn-xB-yA0"/>
                     <constraint firstAttribute="trailing" secondItem="tuK-2f-eM7" secondAttribute="trailing" constant="16" id="abL-9b-7NH"/>
                     <constraint firstItem="omE-Pl-CwQ" firstAttribute="top" secondItem="zCV-Zb-lHv" secondAttribute="bottom" constant="30" id="bFx-pB-Fkw"/>
                     <constraint firstItem="tuK-2f-eM7" firstAttribute="leading" secondItem="zCV-Zb-lHv" secondAttribute="trailing" id="bqm-aF-ne6"/>
+                    <constraint firstItem="Wir-6K-OX2" firstAttribute="leading" secondItem="omE-Pl-CwQ" secondAttribute="trailing" constant="0.5" id="bt0-kF-QYr"/>
                     <constraint firstItem="kiF-NT-fB9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="ctF-2M-kvW"/>
-                    <constraint firstItem="q8a-aO-PjV" firstAttribute="top" secondItem="tuK-2f-eM7" secondAttribute="bottom" constant="26" id="dsD-Gv-bZ9"/>
-                    <constraint firstItem="q8a-aO-PjV" firstAttribute="leading" secondItem="omE-Pl-CwQ" secondAttribute="trailing" constant="20" id="iMu-YQ-MIL"/>
+                    <constraint firstAttribute="bottom" secondItem="Wir-6K-OX2" secondAttribute="bottom" constant="28.5" id="hVo-O0-a7I"/>
                     <constraint firstItem="tuK-2f-eM7" firstAttribute="top" secondItem="lQB-5a-6ux" secondAttribute="bottom" constant="16" id="syS-ST-mC6"/>
-                    <constraint firstAttribute="trailing" secondItem="q8a-aO-PjV" secondAttribute="trailing" constant="16" id="x7j-u2-7jS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="carImage" destination="kiF-NT-fB9" id="Df5-Cc-QJQ"/>
                 <outlet property="labelCarName" destination="lQB-5a-6ux" id="9zS-n6-TtC"/>
+                <outlet property="labelRegoExpiry" destination="Wir-6K-OX2" id="qwb-aJ-Vcn"/>
                 <outlet property="labelRegoPlate" destination="tuK-2f-eM7" id="ESj-zi-crO"/>
-                <outlet property="switchCarStatus" destination="q8a-aO-PjV" id="R3K-ve-McV"/>
             </connections>
             <point key="canvasLocation" x="34" y="107"/>
         </tableViewCell>

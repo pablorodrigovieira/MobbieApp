@@ -8,7 +8,9 @@
 
 #import "MyCarsManagementViewController.h"
 
-@interface MyCarsManagementViewController ()
+@interface MyCarsManagementViewController (){
+    BOOL isUpdate;
+}
 
 @end
 
@@ -20,8 +22,15 @@
     @try{
         [self.loadingActivity stopAnimating];
         
+        //Variable to control if its update or insert new car
+        //in order to delete current image
+        isUpdate = NO;
+        
         //Read Car segue
         if(carSegue){
+            
+            isUpdate = YES;
+            
             [vinTextField setText:carSegue.vinChassis];
             [regoTextField setText:carSegue.regoExpiry];
             [plateNumberTextField setText:carSegue.plateNumber];
@@ -55,6 +64,20 @@
                                        action:@selector(dismissKeyboard)];
         
         [self.view addGestureRecognizer:tap];
+        
+        //Array with Body type Info
+        bodyTypeArray = [[NSMutableArray alloc] init];
+        [bodyTypeArray addObject:@"Convertible"];
+        [bodyTypeArray addObject:@"Coupe"];
+        [bodyTypeArray addObject:@"Hatch"];
+        [bodyTypeArray addObject:@"Sedan"];
+        [bodyTypeArray addObject:@"SUV"];
+        [bodyTypeArray addObject:@"Ute"];
+        [bodyTypeArray addObject:@"Van"];
+        [bodyTypeArray addObject:@"Wagon"];
+        [bodyTypeArray addObject:@"Other"];
+        
+        bodyTypeTextField.delegate = self;
     }
     @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
@@ -88,6 +111,82 @@
     [super didReceiveMemoryWarning];
 }
 
+//Set textfield with picker/array Info and Picker style
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    @try{
+        
+        CGRect pickerFrame = CGRectMake(0, 44, 0, 0);
+        pickerBodyType = [[UIPickerView alloc] initWithFrame:pickerFrame];
+        [pickerBodyType setBackgroundColor:[UIColor lightTextColor]];
+        
+        bodyTypeTextField.text = [bodyTypeArray objectAtIndex:0];
+        bodyTypeTextField.inputView = pickerBodyType;
+        
+        pickerBodyType.delegate = self;
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
+}
+
+//Resign first responder for bodytype text field
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    @try{
+        [bodyTypeTextField resignFirstResponder];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
+}
+
+#pragma mark - UIPickerView Delegate
+
+-(NSUInteger)numberOfComponentsInpickerView:(UIPickerView *)pickerView{
+    @try{
+        return 1;
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    @try{
+        return [bodyTypeArray count];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    @try{
+        return [bodyTypeArray objectAtIndex:row];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    @try{
+        bodyTypeTextField.text = [bodyTypeArray objectAtIndex:row];
+        //Hide pickerview
+        [[self view] endEditing:YES];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
+}
+
+#pragma mark - Buttons
+
 - (IBAction)takePhoto:(id)sender {
     @try{
         //If the device has camera
@@ -118,7 +217,6 @@
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
-    
 }
 
 - (IBAction)saveCar:(id)sender {
@@ -172,9 +270,25 @@
             newCar.seats = self.seatsTextField.text;
             newCar.doors = self.doorsTextField.text;
             newCar.carModel = self.modelTextField.text;
-            newCar.imageURL = [db insertImage:carImage];
-            newCar.carStatus = @"YES";
             
+            //If its update, delete current image to Update new before Insert New Img
+            if(isUpdate){
+                
+                //Image reference from storage
+                FIRStorage *storage = [FIRStorage storage];
+                FIRStorageReference *imageRef = [storage referenceForURL:carSegue.imageURL];
+                
+                // Delete Image file
+                [imageRef deleteWithCompletion:^(NSError *error){
+                    // File deleted successfully
+                    if (error != nil) {
+                        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+                        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.description]];
+                    }
+                }];
+            }
+            
+            newCar.imageURL = [db insertImage:carImage];
             [db insertCarDetails:newCar];
             
             //Open List after input to firebase

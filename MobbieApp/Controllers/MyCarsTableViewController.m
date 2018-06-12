@@ -8,13 +8,6 @@
 
 #import "MyCarsTableViewController.h"
 
-//Create color with RGB Value
-#define UIColorFromRGB(rgbValue) \
-[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
-green:((float)((rgbValue & 0x00FF00) >>  8))/255.0 \
-blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0 \
-alpha:1.0]
-
 @interface MyCarsTableViewController (){
     NSString *userID;
 }
@@ -49,13 +42,7 @@ alpha:1.0]
     @try{
         [super viewDidLoad];
         
-        self.loadingActivity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        loadingActivity.color = UIColorFromRGB(0x06028D);
-        
-        loadingActivity.center = self.view.center;
-        [self.tableView addSubview:loadingActivity];
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        [loadingActivity setHidesWhenStopped:YES];
         
         //DB Ref
         self.ref = [[FIRDatabase database] reference];
@@ -88,6 +75,15 @@ alpha:1.0]
             [myNewCar setCarModel:[snapshot.value objectForKey:const_database_car_key_model]];
             [myNewCar setPlateNumber:[snapshot.value objectForKey:const_database_car_key_plate_number]];
             [myNewCar setImageURL:[snapshot.value objectForKey:const_database_car_key_image_url]];
+            [myNewCar setRegoExpiry:[snapshot.value objectForKey:const_database_car_key_rego_expiry]];
+            [myNewCar setVinChassis:[snapshot.value objectForKey:const_database_car_key_vin_chassis]];
+            [myNewCar setYear:[snapshot.value objectForKey:const_database_car_key_year]];
+            [myNewCar setBodyType:[snapshot.value objectForKey:const_database_car_key_body_type]];
+            [myNewCar setTransmission:[snapshot.value objectForKey:const_database_car_key_transmission]];
+            [myNewCar setColour:[snapshot.value objectForKey:const_database_car_key_colour]];
+            [myNewCar setFuelType:[snapshot.value objectForKey:const_database_car_key_fuel_type]];
+            [myNewCar setSeats:[snapshot.value objectForKey:const_database_car_key_seats]];
+            [myNewCar setDoors:[snapshot.value objectForKey:const_database_car_key_doors]];
             
             [self->carData addObject:myNewCar];
             [self.tableView reloadData];
@@ -144,16 +140,27 @@ alpha:1.0]
         
         CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
-        image_url = [[carData objectAtIndex:indexPath.row]imageURL];
+        //Details
         carName = [NSString stringWithFormat:@"%@ %@", [[carData objectAtIndex:indexPath.row] make], [[carData objectAtIndex:indexPath.row] carModel]];
         
         [[cell labelCarName] setText: carName];
         [[cell labelRegoPlate] setText:[NSString stringWithFormat:@"%@", [[carData objectAtIndex:indexPath.row] plateNumber]]];
+        [[cell labelRegoExpiry] setText:[NSString stringWithFormat:@"%@", [[carData objectAtIndex:indexPath.row] regoExpiry]]];
         
+        //Image
+        image_url = [[carData objectAtIndex:indexPath.row]imageURL];
         NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: image_url]];
         [[cell carImage] setImage:[UIImage imageWithData:imageData]];
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        //Change background color of selected cell
+        UIView *backgroundColorView = [[UIView alloc] init];
+        [backgroundColorView setBackgroundColor:[UIColor colorWithRed:248/255.0f
+                                                 green:248/255.0f
+                                                 blue:248/255.0f
+                                                 alpha:1.0f]];
+        [cell setSelectedBackgroundView:backgroundColorView];
         
         return cell;
     }
@@ -190,17 +197,32 @@ alpha:1.0]
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"car_management_edit_segue" sender:self];
+    @try{
+        [self performSegueWithIdentifier:@"car_management_edit_segue" sender:self];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"car_management_edit_segue"])
-    {
-        CarModel *myCar = [carData objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-        MyCarsManagementViewController *viewController = segue.destinationViewController;
-        viewController.carSegue = myCar;
+    @try{
+        CarModel *myCar = [[CarModel alloc] init];
+        
+        if ([segue.identifier isEqualToString:@"car_management_edit_segue"])
+        {
+            myCar = [carData objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+            MyCarsManagementViewController *viewController = segue.destinationViewController;
+            viewController.carSegue = myCar;
+        }
     }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
+    
 }
 
 @end

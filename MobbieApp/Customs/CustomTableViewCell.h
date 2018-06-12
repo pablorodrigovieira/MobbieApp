@@ -13,6 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *carImage;
 @property (weak, nonatomic) IBOutlet UILabel *labelCarName;
 @property (weak, nonatomic) IBOutlet UILabel *labelRegoPlate;
-@property (weak, nonatomic) IBOutlet UISwitch *switchCarStatus;
+@property (weak, nonatomic) IBOutlet UILabel *labelRegoExpiry;
 
 @end

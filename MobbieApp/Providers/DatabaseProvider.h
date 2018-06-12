@@ -30,7 +30,6 @@ extern NSString *const const_database_car_key_seats;
 extern NSString *const const_database_car_key_doors;
 extern NSString *const const_database_car_key_model;
 extern NSString *const const_database_car_key_image_url;
-extern NSString *const const_database_car_key_status;
 
 @property (strong, nonatomic) FIRDatabaseReference *rootNode;
 @property (strong, nonatomic) FIRDatabaseReference *usersNode;

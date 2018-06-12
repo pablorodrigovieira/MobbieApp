@@ -11,7 +11,11 @@
 #import "CarModel.h"
 @import Firebase;
 
-@interface MyCarsManagementViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface MyCarsManagementViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate>
+{
+    NSMutableArray *bodyTypeArray;
+    UIPickerView *pickerBodyType;
+}
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 @property (weak, nonatomic) IBOutlet UITextField *vinTextField;

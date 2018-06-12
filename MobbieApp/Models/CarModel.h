@@ -17,7 +17,7 @@
 @property NSString *make;
 @property NSString *carModel;
 @property NSString *imageURL;
-@property NSString *carStatus;
+//@property NSString *carStatus;
 @property NSString *bodyType;
 @property NSString *transmission;
 @property NSString *colour;

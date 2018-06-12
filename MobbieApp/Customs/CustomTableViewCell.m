@@ -7,11 +7,10 @@
 //
 
 #import "CustomTableViewCell.h"
-//#import "QuartzCore/QuartzCore.h"
 
 @implementation CustomTableViewCell
 
-@synthesize carImage,labelCarName, labelRegoPlate, switchCarStatus;
+@synthesize carImage,labelCarName, labelRegoPlate;
 
 - (void)awakeFromNib {
     [super awakeFromNib];

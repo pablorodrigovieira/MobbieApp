@@ -25,7 +25,6 @@ NSString *const const_database_car_key_seats = @"seats";
 NSString *const const_database_car_key_doors = @"doors";
 NSString *const const_database_car_key_model = @"model";
 NSString *const const_database_car_key_image_url = @"image-url";
-NSString *const const_database_car_key_status = @"status";
 
 //Constructor
 -(id)init{
@@ -288,8 +287,7 @@ NSString *const const_database_car_key_status = @"status";
                                   const_database_car_key_seats: car.seats,
                                   const_database_car_key_doors: car.doors,
                                   const_database_car_key_model: car.carModel,
-                                  const_database_car_key_image_url: car.imageURL,
-                                  const_database_car_key_status: car.carStatus
+                                  const_database_car_key_image_url: car.imageURL
                                   };
         
         NSDictionary *childUpdate = @{[NSString stringWithFormat:@"%@/%@", CarPath, car.plateNumber]: carPost};
