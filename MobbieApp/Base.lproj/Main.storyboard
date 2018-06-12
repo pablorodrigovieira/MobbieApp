@@ -735,6 +735,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Vm8-FN-hSN" kind="show" identifier="car_management_edit_segue" id="wlB-e9-dYR"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1150,6 +1153,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="g2z-nu-CBc"/>
+        <segue reference="wlB-e9-dYR"/>
         <segue reference="3yk-WE-u9R"/>
     </inferredMetricsTieBreakers>
 </document>

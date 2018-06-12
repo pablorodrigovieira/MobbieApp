@@ -14,7 +14,6 @@
 @interface MyCarsManagementViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
-
 @property (weak, nonatomic) IBOutlet UITextField *vinTextField;
 @property (weak, nonatomic) IBOutlet UITextField *regoTextField;
 @property (weak, nonatomic) IBOutlet UITextField *plateNumberTextField;
@@ -27,8 +26,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *fuelTypeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *seatsTextField;
 @property (weak, nonatomic) IBOutlet UITextField *doorsTextField;
-
 @property IBOutlet UIImageView *carImage;
+@property CarModel *carSegue;
 
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)saveCar:(id)sender;

@@ -164,7 +164,6 @@ alpha:1.0]
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
@@ -183,6 +182,20 @@ alpha:1.0]
     @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"car_management_edit_segue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"car_management_edit_segue"])
+    {
+        CarModel *myCar = [carData objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        MyCarsManagementViewController *viewController = segue.destinationViewController;
+        viewController.carSegue = myCar;
     }
 }
 

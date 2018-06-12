@@ -10,6 +10,7 @@
 #import "../Models/CarModel.h"
 #import "../Customs/CustomTableViewCell.h"
 #import "DatabaseProvider.h"
+#import "MyCarsManagementViewController.h"
 
 @import Firebase;
 

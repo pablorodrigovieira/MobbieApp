@@ -14,13 +14,31 @@
 
 @implementation MyCarsManagementViewController
 
-@synthesize carImage, loadingActivity, vinTextField,regoTextField,plateNumberTextField,yearTextField,makeTextField,modelTextField,bodyTypeTextField,transmissionTextField,colourTextField,fuelTypeTextField,seatsTextField,doorsTextField;
+@synthesize carImage, loadingActivity, vinTextField,regoTextField,plateNumberTextField,yearTextField,makeTextField,modelTextField,bodyTypeTextField,transmissionTextField,colourTextField,fuelTypeTextField,seatsTextField,doorsTextField, carSegue;
 
 - (void)viewWillAppear:(BOOL)animated{
     @try{
         [self.loadingActivity stopAnimating];
         
-        //todo field validation
+        //Read Car segue
+        if(carSegue){
+            [vinTextField setText:carSegue.vinChassis];
+            [regoTextField setText:carSegue.regoExpiry];
+            [plateNumberTextField setText:carSegue.plateNumber];
+            [yearTextField setText:carSegue.year];
+            [makeTextField setText:carSegue.make];
+            [modelTextField setText:carSegue.carModel];
+            [bodyTypeTextField setText:carSegue.bodyType];
+            [transmissionTextField setText:carSegue.transmission];
+            [colourTextField setText:carSegue.colour];
+            [fuelTypeTextField setText:carSegue.fuelType];
+            [seatsTextField setText:carSegue.seats];
+            [doorsTextField setText:carSegue.doors];
+            
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: carSegue.imageURL]];
+            UIImage *image = [[UIImage alloc] initWithData:imageData];
+            [carImage setImage: image];
+        }
     }
     @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
