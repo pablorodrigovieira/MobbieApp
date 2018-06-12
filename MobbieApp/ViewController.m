@@ -83,15 +83,14 @@
             AlertsViewController *customAlert = [[AlertsViewController alloc] init];
             [customAlert displayInputAlert: [passwordTextField placeholder]];
         }
-        else{
-            
+        else{            
             //Regex Validation form Email
-            NSString *regexEmailPatter = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+            NSString *regexEmailPattern = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
             NSString *emailInput = [usernameTextField text];
             NSRange emailRange = NSMakeRange(0, [emailInput length]);
             NSError *error = nil;
             
-            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexEmailPatter options:0 error:&error];
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexEmailPattern options:0 error:&error];
             
             NSTextCheckingResult *emailMatch = [regex firstMatchInString:emailInput options:0 range:emailRange];
             

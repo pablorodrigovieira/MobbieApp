@@ -26,9 +26,25 @@ alpha:1.0]
 @synthesize carData,loadingActivity;
 
 -(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self handleCarData];
+    @try{
+        [super viewDidAppear:animated];
+        carData = [[NSMutableArray alloc]init];
+        
+        [self handleCarData];
+        
+        //Wait 2 seconds to stop loading activity
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 *NSEC_PER_SEC)),dispatch_get_main_queue(),
+           ^{
+               //Stop and hide Activity Indicator
+               [self.loadingActivity stopAnimating];
+           });
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
+
 - (void)viewDidLoad {
     @try{
         [super viewDidLoad];
@@ -64,11 +80,11 @@ alpha:1.0]
         
         FIRDatabaseQuery *query = [[self.ref child:CarPath] queryOrderedByKey];
         
-        carData = [[NSMutableArray alloc]init];
-        CarModel *myNewCar = [[CarModel alloc] init];
-        
         [query observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
             
+            CarModel *myNewCar = [[CarModel alloc] init];
+            
+            [myNewCar setMake:[snapshot.value objectForKey:const_database_car_key_make]];
             [myNewCar setCarModel:[snapshot.value objectForKey:const_database_car_key_model]];
             [myNewCar setPlateNumber:[snapshot.value objectForKey:const_database_car_key_plate_number]];
             [myNewCar setImageURL:[snapshot.value objectForKey:const_database_car_key_image_url]];
@@ -122,21 +138,47 @@ alpha:1.0]
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     @try{
         static NSString *cellIdentifier = @"carCell";
-        NSString *image_url;
+        NSString *image_url, *carName;
         
         [self.tableView registerNib:[UINib nibWithNibName:@"CustomTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
         
         CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         
         image_url = [[carData objectAtIndex:indexPath.row]imageURL];
+        carName = [NSString stringWithFormat:@"%@ %@", [[carData objectAtIndex:indexPath.row] make], [[carData objectAtIndex:indexPath.row] carModel]];
         
-        [[cell labelCarName] setText:[NSString stringWithFormat:@"%@", [[carData objectAtIndex:indexPath.row] carModel]]];
+        [[cell labelCarName] setText: carName];
         [[cell labelRegoPlate] setText:[NSString stringWithFormat:@"%@", [[carData objectAtIndex:indexPath.row] plateNumber]]];
         
         NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: image_url]];
         [[cell carImage] setImage:[UIImage imageWithData:imageData]];
         
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
         return cell;
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    @try{
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            [carData removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
+            //TODO Delete on Firebase
+            
+        } else {
+            NSLog(@"Unhandled editing style! %ld", (long)editingStyle);
+        }
     }
     @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];

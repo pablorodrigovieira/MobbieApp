@@ -18,18 +18,16 @@
 NSString *const const_alert_message = @"DEFAULT..";
 NSString *const const_alert_title = @"Mobbie";
 NSString *const const_alert_button = @"Ok";
-
 NSString *const const_about_alert_message = @"Perform Sign Up or Login to access the features that Mobbie App allows the users..";
 NSString *const const_about_alert_title = @"About Mobbie";
-
 NSString *const const_input_alert_message = @"Please fill up the Information at: ";
 NSString *const const_input_alert_title = @"Empty Field";
 NSString *const const_no_input_alert_message = @"Please fill information in all fields";
 NSString *const const_passwords_not_matching_alert_message = @"Passwords did not match, try again";
-
 NSString *const const_update_db_alert_message = @"Update Successfully!";
 NSString *const const_upload_db_alert_message = @"Uploaded Successfully!";
 NSString *const const_invalid_email_alert_message = @"E-mail format not valid!";
+NSString *const const_car_input_required = @"Plate number / Make / Model are fields required!";
 
 - (void)viewDidLoad {
     [super viewDidLoad];

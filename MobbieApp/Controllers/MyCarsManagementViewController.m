@@ -105,40 +105,67 @@
 
 - (IBAction)saveCar:(id)sender {
     @try{
-        //TODO fields Validation
         
-        self.loadingActivity.hidden = NO;
-        [self.loadingActivity startAnimating];
+        //Regex Validation  for Plate Number / Model / Make
+        NSString *regexRequiredPattern = @"^[^-\\s][a-zA-Z0-9_\\s-]+$";
+
+        NSString *plateNumberInput = [plateNumberTextField text];
+        NSString *modelInput = [modelTextField text];
+        NSString *makeInput = [makeTextField text];
         
-        //Disable button
-        UIButton *saveBtn = (UIButton *)sender;
-        saveBtn.enabled = NO;
+        NSRange plateRange = NSMakeRange(0, [plateNumberInput length]);
+        NSRange modelRange = NSMakeRange(0, [modelInput length]);
+        NSRange makeRange = NSMakeRange(0, [makeInput length]);
         
-        //Added Image to Firebase
-        DatabaseProvider *db = [[DatabaseProvider alloc] init];
+        NSError *error = nil;
         
-        //Car Model
-        CarModel *newCar = [[CarModel alloc] init];
+        NSRegularExpression *regexPlateNumber = [NSRegularExpression regularExpressionWithPattern:regexRequiredPattern options:0 error:&error];
+        NSRegularExpression *regexMake = [NSRegularExpression regularExpressionWithPattern:regexRequiredPattern options:0 error:&error];
+        NSRegularExpression *regexModel = [NSRegularExpression regularExpressionWithPattern:regexRequiredPattern options:0 error:&error];
         
-        newCar.vinChassis = self.vinTextField.text;
-        newCar.regoExpiry = self.regoTextField.text;
-        newCar.plateNumber = self.plateNumberTextField.text;
-        newCar.year = self.yearTextField.text;
-        newCar.make = self.makeTextField.text;
-        newCar.bodyType = self.bodyTypeTextField.text;
-        newCar.transmission = self.transmissionTextField.text;
-        newCar.colour = self.colourTextField.text;
-        newCar.fuelType = self.fuelTypeTextField.text;
-        newCar.seats = self.seatsTextField.text;
-        newCar.doors = self.doorsTextField.text;
-        newCar.carModel = self.modelTextField.text;
-        newCar.imageURL = [db insertImage:carImage];
-        newCar.carStatus = @"YES";
+        NSTextCheckingResult *plateNumberMatch = [regexPlateNumber firstMatchInString:plateNumberInput options:0 range:plateRange];
+        NSTextCheckingResult *makeMatch = [regexMake firstMatchInString:makeInput options:0 range:makeRange];
+         NSTextCheckingResult *modelMatch = [regexModel firstMatchInString:modelInput options:0 range:modelRange];
         
-        [db insertCarDetails:newCar];
-        
-        //Open List after input to firebase
-        [self.navigationController popViewControllerAnimated:YES];
+        if(plateNumberMatch && makeMatch && modelMatch){
+            
+            self.loadingActivity.hidden = NO;
+            [self.loadingActivity startAnimating];
+            
+            //Disable button
+            UIButton *saveBtn = (UIButton *)sender;
+            saveBtn.enabled = NO;
+            
+            //Added Image to Firebase
+            DatabaseProvider *db = [[DatabaseProvider alloc] init];
+            
+            //Car Model
+            CarModel *newCar = [[CarModel alloc] init];
+            
+            newCar.vinChassis = self.vinTextField.text;
+            newCar.regoExpiry = self.regoTextField.text;
+            newCar.plateNumber = self.plateNumberTextField.text;
+            newCar.year = self.yearTextField.text;
+            newCar.make = self.makeTextField.text;
+            newCar.bodyType = self.bodyTypeTextField.text;
+            newCar.transmission = self.transmissionTextField.text;
+            newCar.colour = self.colourTextField.text;
+            newCar.fuelType = self.fuelTypeTextField.text;
+            newCar.seats = self.seatsTextField.text;
+            newCar.doors = self.doorsTextField.text;
+            newCar.carModel = self.modelTextField.text;
+            newCar.imageURL = [db insertImage:carImage];
+            newCar.carStatus = @"YES";
+            
+            [db insertCarDetails:newCar];
+            
+            //Open List after input to firebase
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else{
+            AlertsViewController *alertError = [[AlertsViewController alloc]init];
+            [alertError displayAlertMessage: const_car_input_required];
+        }
 
     }
     @catch(NSException *ex){
