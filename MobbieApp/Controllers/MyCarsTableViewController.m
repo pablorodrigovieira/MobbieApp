@@ -170,11 +170,15 @@ alpha:1.0]
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     @try{
         if (editingStyle == UITableViewCellEditingStyleDelete) {
+            //Delete on Firebase
+            CarModel *currentCar = [carData objectAtIndex:indexPath.row];
+            DatabaseProvider *db = [[DatabaseProvider alloc] init];
+            [db deleteCar: currentCar];
+            
+            //Remove table view
             [carData removeObjectAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            
-            //TODO Delete on Firebase
-            
+    
         } else {
             NSLog(@"Unhandled editing style! %ld", (long)editingStyle);
         }

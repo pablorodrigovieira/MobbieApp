@@ -184,7 +184,6 @@
             AlertsViewController *alertError = [[AlertsViewController alloc]init];
             [alertError displayAlertMessage: const_car_input_required];
         }
-
     }
     @catch(NSException *ex){
         //Enable button

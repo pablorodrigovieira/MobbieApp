@@ -254,13 +254,11 @@ NSString *const const_database_car_key_status = @"status";
                  }
              }];
         }
-        
         while (dispatch_semaphore_wait(sema, DISPATCH_TIME_NOW)) {
             [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
         }
         
         return myCar.imageURL;
-        
     }
     @catch(NSException *ex){
         @throw ex.reason;
@@ -274,7 +272,7 @@ NSString *const const_database_car_key_status = @"status";
 
         NSString *CarPath = [NSString stringWithFormat:@"users/%@/cars", userID];
         
-        NSString *key = [[rootNode child:CarPath] childByAutoId].key;
+        //NSString *key = [[rootNode child:CarPath] childByAutoId].key;
         
         //Obj to be inserted into DB
         NSDictionary *carPost = @{
@@ -294,7 +292,7 @@ NSString *const const_database_car_key_status = @"status";
                                   const_database_car_key_status: car.carStatus
                                   };
         
-        NSDictionary *childUpdate = @{[NSString stringWithFormat:@"%@/%@", CarPath, key]: carPost};
+        NSDictionary *childUpdate = @{[NSString stringWithFormat:@"%@/%@", CarPath, car.plateNumber]: carPost};
         
         [rootNode updateChildValues:childUpdate withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
             if(error == nil){
@@ -313,5 +311,31 @@ NSString *const const_database_car_key_status = @"status";
         @throw ex.reason;
     }
 }
+
+-(void)deleteCar:(CarModel *) car{
+    @try{
+        
+        NSString *userID = [FIRAuth auth].currentUser.uid;
+        NSString *CarPath = [NSString stringWithFormat:@"users/%@/cars/%@", userID, car.plateNumber];
+        
+        //Image reference from storage
+        FIRStorage *storage = [FIRStorage storage];
+        FIRStorageReference *imageRef = [storage referenceForURL:car.imageURL];
+        
+        // Delete Image file
+        [imageRef deleteWithCompletion:^(NSError *error){
+            // File deleted successfully
+            if (error == nil) {
+                //Delete Car
+                FIRDatabaseReference *carNode = [self.rootNode child:CarPath];
+                [carNode removeValue];
+            }
+        }];
+    }
+    @catch(NSException *ex){
+        @throw ex.reason;
+    }
+}
+
 
 @end
