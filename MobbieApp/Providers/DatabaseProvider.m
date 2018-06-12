@@ -29,21 +29,25 @@ NSString *const const_database_car_key_status = @"status";
 
 //Constructor
 -(id)init{
-    
-    self = [super init];
-    
-    if(self)
-    {
-        //Reference to Firebase
-        self.rootNode = [[FIRDatabase database] reference];
-        self.usersNode = [rootNode child:@"users"];
+    @try{
+        self = [super init];
         
-        //Get Current User ID
-        if(USER_ID == nil){
-            USER_ID = [FIRAuth auth].currentUser.uid;
+        if(self)
+        {
+            //Reference to Firebase
+            self.rootNode = [[FIRDatabase database] reference];
+            self.usersNode = [rootNode child:@"users"];
+            
+            //Get Current User ID
+            if(USER_ID == nil){
+                USER_ID = [FIRAuth auth].currentUser.uid;
+            }
         }
+        return self;
     }
-    return self;
+    @catch(NSException *ex){
+        @throw ex.reason;
+    }
 }
 
 //Insert User Profile - FIREBASE
@@ -77,8 +81,7 @@ NSString *const const_database_car_key_status = @"status";
             else{
                 return;
             }
-        }];
-        
+        }];        
     }
     @catch(NSException *ex){
         @throw ex.reason;
@@ -205,60 +208,7 @@ NSString *const const_database_car_key_status = @"status";
         @throw ex.reason;
     }
 }
-/*
--(void)insertCarImage:(UIImageView *) image{
-    @try{
-        //
-        CGFloat compressionQuality = 0.8;
-        USER_ID = [FIRAuth auth].currentUser.uid;
-        
-        if(image.image != nil){
-            
-            FIRStorage *storage = [FIRStorage storage];
-            storageRef = [storage referenceForURL:@"gs://mobbieapp.appspot.com"];
-            
-            NSString *imageID = [[NSUUID UUID] UUIDString];
-            NSString *imageName = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%@", USER_ID],[NSString stringWithFormat:@"/%@.jpg",imageID]];
-            
-            FIRStorageReference *imageRef = [storageRef child:imageName];
-            FIRStorageMetadata *metadata = [[FIRStorageMetadata alloc]init];
-            
-            metadata.contentType = @"image/jpeg";
-            NSData *imageData = UIImageJPEGRepresentation(image.image, compressionQuality);
-            
-            [imageRef putData:imageData metadata:metadata
-                   completion:^(FIRStorageMetadata *metadata,
-                                NSError *error)
-            {
-                if(!error){
-                     //Get IMG URL
-                    [imageRef downloadURLWithCompletion:^(NSURL * _Nullable URL, NSError * _Nullable error) {
-                        
-                        //TODO
-                        //Add URL to CarObj
-                        
-                        AlertsViewController *alert = [[AlertsViewController alloc] init];
-                        [alert displayAlertMessage:URL.absoluteString];
-                    }];
-                    //Update successed
-                    AlertsViewController *alert = [[AlertsViewController alloc] init];
-                    [alert displayAlertMessage:const_upload_db_alert_message];
-                }
-                else{
-                    //Error
-                    AlertsViewController *alert = [[AlertsViewController alloc] init];
-                    [alert displayAlertMessage:error.observationInfo];
-                }
-            }];
-            
-            
-        }
-    }
-    @catch(NSException *ex){
-        @throw ex.reason;
-    }
-}
-*/
+
 -(NSString *)insertImage:(UIImageView *) image{
     @try{
         CGFloat compressionQuality = 0.8;

@@ -35,16 +35,14 @@ extern NSString *const const_database_car_key_status;
 @property (strong, nonatomic) FIRDatabaseReference *rootNode;
 @property (strong, nonatomic) FIRDatabaseReference *usersNode;
 @property (strong, nonatomic) FIRStorageReference *storageRef;
-
 @property NSString *USER_ID;
-
 
 -(void)insertUserProfileData: (UserModel *) user WithUserID:(NSString *) userID;
 -(void)updateUserProfile:(UserModel *)user WithUserID:(NSString*) userID;
 -(void)changeUserPassword:(NSString *)userPwd;
 -(void)insertUserMapSettings:(MapModel *) distance WithUserID:(NSString *)userId;
 -(void)updateMapSettings:(MapModel *) map WithUserID:(NSString *)userId;
-//-(void)insertCarImage:(UIImageView *) image;
 -(void)insertCarDetails:(CarModel *) car;
 -(NSString *)insertImage:(UIImageView *) image;
+
 @end

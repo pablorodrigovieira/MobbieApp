@@ -12,5 +12,4 @@
 
 @interface HomeViewController : ViewController
 - (IBAction)logoutButton:(id)sender;
-
 @end

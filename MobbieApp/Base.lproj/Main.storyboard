@@ -34,7 +34,7 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wTs-d1-h4M">
                                                 <rect key="frame" x="0.0" y="324" width="327" height="35"/>
@@ -440,7 +440,7 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ujK-7u-7TG">
                                                 <rect key="frame" x="8" y="200" width="359" height="35"/>
@@ -588,7 +588,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRM-4B-B2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1202" y="-1093"/>
+            <point key="canvasLocation" x="-1202.4000000000001" y="-1093.4032983508246"/>
         </scene>
         <!--Map-->
         <scene sceneID="6eS-mr-5lK">
@@ -722,14 +722,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <activityIndicatorView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="jUd-7n-Zte">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="BDk-5g-aMD">
+                            <rect key="frame" x="0.0" y="178" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="color" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </activityIndicatorView>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="carCell" id="BTI-sN-oHU">
-                                <rect key="frame" x="0.0" y="48" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BTI-sN-oHU" id="lJh-0L-RMx">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
@@ -749,15 +749,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="loadingActivity" destination="jUd-7n-Zte" id="Q8K-yT-MJc"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJJ-ae-6Da" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1129" y="1560"/>
         </scene>
-        <!--New Car-->
+        <!--Car Management-->
         <scene sceneID="QQX-ov-uUy">
             <objects>
                 <viewController id="Vm8-FN-hSN" customClass="MyCarsManagementViewController" sceneMemberID="viewController">
@@ -781,7 +778,7 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Plate number" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NFw-Cb-LI1">
                                                 <rect key="frame" x="8" y="51" width="168" height="35"/>
@@ -789,7 +786,7 @@
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Year" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CXR-Bl-OOk">
                                                 <rect key="frame" x="199" y="51" width="168" height="35"/>
@@ -797,7 +794,7 @@
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Make" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tKJ-Z7-6AY">
                                                 <rect key="frame" x="8" y="94" width="168" height="35"/>
@@ -805,7 +802,7 @@
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Model" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="K94-sQ-4Nr">
                                                 <rect key="frame" x="199" y="94" width="168" height="35"/>
@@ -813,7 +810,7 @@
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Body type" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="h1a-eT-tMD">
                                                 <rect key="frame" x="8" y="137" width="168" height="35"/>
@@ -821,7 +818,7 @@
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Transmission" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4oc-Pf-zoX">
                                                 <rect key="frame" x="199" y="137" width="168" height="35"/>
@@ -829,7 +826,7 @@
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Colour" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TQH-8R-r99">
                                                 <rect key="frame" x="8" y="180" width="168" height="35"/>
@@ -837,7 +834,7 @@
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Fuel type" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6rH-zA-piP">
                                                 <rect key="frame" x="199" y="180" width="168" height="35"/>
@@ -845,7 +842,7 @@
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Seats" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gly-Tj-hWc">
                                                 <rect key="frame" x="8" y="223" width="168" height="35"/>
@@ -853,7 +850,7 @@
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="given-name"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Doors" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="grS-Ww-XzL">
                                                 <rect key="frame" x="199" y="223" width="168" height="35"/>
@@ -861,15 +858,15 @@
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rego Expiry" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="A9F-Jd-bbf">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rego Expiry" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="A9F-Jd-bbf">
                                                 <rect key="frame" x="199" y="8" width="168" height="35"/>
                                                 <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="given-name"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkX-tD-2rz">
                                                 <rect key="frame" x="8" y="266" width="359" height="30"/>
@@ -889,12 +886,20 @@
                                                     <constraint firstAttribute="height" constant="150" id="9oa-ug-Knr"/>
                                                 </constraints>
                                             </imageView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lIs-LI-i1R">
+                                                <rect key="frame" x="177" y="516" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="1f1-Jb-YrA"/>
+                                                    <constraint firstAttribute="width" constant="20" id="f4M-NG-9Do"/>
+                                                </constraints>
+                                                <color key="color" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXc-MR-hft">
-                                                <rect key="frame" x="100" y="472" width="175" height="30"/>
+                                                <rect key="frame" x="112" y="472" width="150" height="30"/>
                                                 <color key="backgroundColor" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="M8z-sA-wY3"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="TdQ-hD-n7N"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="TdQ-hD-n7N"/>
                                                 </constraints>
                                                 <state key="normal" title="Save">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -907,14 +912,6 @@
                                                     <action selector="updateProfileButton:" destination="88f-RP-eyX" eventType="touchUpInside" id="GMp-My-1Yo"/>
                                                 </connections>
                                             </button>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lIs-LI-i1R">
-                                                <rect key="frame" x="177" y="516" width="20" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="1f1-Jb-YrA"/>
-                                                    <constraint firstAttribute="width" constant="20" id="f4M-NG-9Do"/>
-                                                </constraints>
-                                                <color key="color" red="0.023529411760000001" green="0.0078431372550000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </activityIndicatorView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="NFw-Cb-LI1" firstAttribute="leading" secondItem="7J1-SN-Jff" secondAttribute="leading" constant="8" id="0iv-q3-K94"/>
@@ -939,7 +936,7 @@
                                             <constraint firstItem="TQH-8R-r99" firstAttribute="leading" secondItem="7J1-SN-Jff" secondAttribute="leading" constant="8" id="MNa-Ey-gp3"/>
                                             <constraint firstAttribute="bottom" secondItem="PXc-MR-hft" secondAttribute="bottom" constant="42" id="MhB-9K-S6f"/>
                                             <constraint firstItem="A9F-Jd-bbf" firstAttribute="width" secondItem="71a-hC-q4i" secondAttribute="width" id="Nyx-X1-zGZ"/>
-                                            <constraint firstItem="PXc-MR-hft" firstAttribute="centerX" secondItem="7J1-SN-Jff" secondAttribute="centerX" id="OV6-MK-7GH"/>
+                                            <constraint firstItem="PXc-MR-hft" firstAttribute="centerX" secondItem="7J1-SN-Jff" secondAttribute="centerX" constant="-0.5" id="OV6-MK-7GH"/>
                                             <constraint firstItem="6rH-zA-piP" firstAttribute="leading" secondItem="TQH-8R-r99" secondAttribute="trailing" constant="23" id="Pii-dC-fpT"/>
                                             <constraint firstItem="71a-hC-q4i" firstAttribute="leading" secondItem="7J1-SN-Jff" secondAttribute="leading" constant="8" id="Pyv-eF-TAU"/>
                                             <constraint firstItem="NFw-Cb-LI1" firstAttribute="height" secondItem="71a-hC-q4i" secondAttribute="height" id="SRw-VF-Pon"/>
@@ -1003,7 +1000,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JyB-q6-oE4"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Car" id="9zm-lU-LOs"/>
+                    <navigationItem key="navigationItem" title="Car Management" id="9zm-lU-LOs"/>
                     <connections>
                         <outlet property="bodyTypeTextField" destination="h1a-eT-tMD" id="PEr-7m-4EC"/>
                         <outlet property="carImage" destination="m3P-6h-PIA" id="QKY-6l-bCl"/>

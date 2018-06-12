@@ -21,7 +21,6 @@
 
 @synthesize kmLabel, sliderRange, locationManager, mapView, loadingIndicator;
 
-
 -(void)loadMapSettings{
     @try{
         //As DEFAULT
@@ -72,8 +71,8 @@
                  [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
              }];
         }
-        
-    }@catch(NSException *ex){
+    }
+    @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
@@ -87,15 +86,14 @@
         [self loadMapSettings];
         
         [self sliderRangeChanged: self.sliderRange];
-        
-    }@catch(NSException *ex){
+    }
+    @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
 }
 - (void)viewDidLoad {
     @try{
-        
         [super viewDidLoad];
         
         locationManager = [[CLLocationManager alloc]init];
@@ -113,7 +111,8 @@
         
         [self.locationManager startUpdatingLocation];
         
-    }@catch(NSException *ex){
+    }
+    @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
@@ -121,11 +120,9 @@
 
 - (void)didReceiveMemoryWarning {
     @try{
-        
         [super didReceiveMemoryWarning];
-        // Dispose of any resources that can be recreated.
-        
-    }@catch(NSException *ex){
+    }
+    @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
@@ -143,7 +140,8 @@
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(selectedCoord,radius*4, radius*4);
         [self.mapView setRegion:viewRegion animated:YES];
         
-    }@catch(NSException *ex){
+    }
+    @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
@@ -159,7 +157,8 @@
         
         return circle;
         
-    }@catch(NSException *ex){
+    }
+    @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
@@ -176,8 +175,8 @@
             if(selectedCoord.latitude != 0 && selectedCoord.longitude != 0)
                 [self createBoundaryWithRadius:sender.value];
         }
-        
-    }@catch(NSException *ex){
+    }
+    @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
@@ -208,7 +207,8 @@
         [self.loadingIndicator stopAnimating];
         
         
-    }@catch(NSException *ex){
+    }
+    @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }

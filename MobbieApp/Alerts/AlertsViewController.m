@@ -29,6 +29,7 @@ NSString *const const_passwords_not_matching_alert_message = @"Passwords did not
 
 NSString *const const_update_db_alert_message = @"Update Successfully!";
 NSString *const const_upload_db_alert_message = @"Uploaded Successfully!";
+NSString *const const_invalid_email_alert_message = @"E-mail format not valid!";
 
 - (void)viewDidLoad {
     [super viewDidLoad];

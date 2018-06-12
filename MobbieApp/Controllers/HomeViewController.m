@@ -16,17 +16,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)logoutButton:(id)sender {
-    [self performSegueWithIdentifier:@"logout_identifier_segue" sender:nil];    
-    
-    //TODO LOGOUT FIREBASE
+    @try{
+        //TODO LOGOUT FIREBASE
+        [self performSegueWithIdentifier:@"logout_identifier_segue" sender:nil];
+        
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 @end

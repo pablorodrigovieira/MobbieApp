@@ -24,39 +24,56 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
 @synthesize firstNameTextField, lastNameTextField, emailTextField, phoneNumberTextField, loadingActivity;
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self loadProfileData];
+    @try{
+        [self loadProfileData];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    //Custom TextFields
-    CustomTextField *firstNameInput = [[CustomTextField alloc] init];
-    [firstNameInput setIcon:const_username_icon forUITextField: self.firstNameTextField];
-    
-    CustomTextField *lastNameInput = [[CustomTextField alloc] init];
-    [lastNameInput setIcon:const_username_icon forUITextField:self.lastNameTextField];
-    
-    CustomTextField *emailInput = [[CustomTextField alloc] init];
-    [emailInput setIcon:const_email_icon forUITextField:self.emailTextField];
-    
-    CustomTextField *phoneNumberInput = [[CustomTextField alloc] init];
-    [phoneNumberInput setIcon:const_phone_icon forUITextField:self.phoneNumberTextField];
-    
-    //Tap gesture to dismiss keyboard
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
-    
+    @try{
+        [super viewDidLoad];
+        
+        //Custom TextFields
+        CustomTextField *firstNameInput = [[CustomTextField alloc] init];
+        [firstNameInput setIcon:const_username_icon forUITextField: self.firstNameTextField];
+        
+        CustomTextField *lastNameInput = [[CustomTextField alloc] init];
+        [lastNameInput setIcon:const_username_icon forUITextField:self.lastNameTextField];
+        
+        CustomTextField *emailInput = [[CustomTextField alloc] init];
+        [emailInput setIcon:const_email_icon forUITextField:self.emailTextField];
+        
+        CustomTextField *phoneNumberInput = [[CustomTextField alloc] init];
+        [phoneNumberInput setIcon:const_phone_icon forUITextField:self.phoneNumberTextField];
+        
+        //Tap gesture to dismiss keyboard
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                       initWithTarget:self
+                                       action:@selector(dismissKeyboard)];
+        
+        [self.view addGestureRecognizer:tap];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 
 //Method to dismiss keyboard
 -(void)dismissKeyboard {
-    [firstNameTextField resignFirstResponder];
-    [lastNameTextField resignFirstResponder];
-    [phoneNumberTextField resignFirstResponder];
+    @try{
+        [firstNameTextField resignFirstResponder];
+        [lastNameTextField resignFirstResponder];
+        [phoneNumberTextField resignFirstResponder];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 
 -(void)loadProfileData{
@@ -205,9 +222,8 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
         //Display msg to fill up
         else{
             AlertsViewController *inputAlert = [[AlertsViewController alloc] init];
-            [inputAlert displayInputAlert:const_no_input_alert_message];
+            [inputAlert displayAlertMessage:const_no_input_alert_message];
         }
-        
     }@catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];

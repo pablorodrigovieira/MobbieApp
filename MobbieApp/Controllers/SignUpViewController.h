@@ -17,6 +17,7 @@
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 
 - (IBAction)cancelButton:(id)sender;
+- (IBAction)confirmButton:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UISwitch *termsAndConditionsSwitch;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivityIndicator;
@@ -26,7 +27,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
-
-- (IBAction)confirmButton:(id)sender;
 
 @end

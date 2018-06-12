@@ -15,7 +15,6 @@
 @interface MapViewController : UIViewController;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
-
 @property (weak, nonatomic) IBOutlet UISlider *sliderRange;
 @property (weak, nonatomic) IBOutlet UILabel *kmLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -23,8 +22,6 @@
 
 - (IBAction)sliderRangeChanged:(UISlider *)sender;
 - (IBAction)updateDatabase:(id)sender;
-
-//Methods
 -(void)viewWillAppear: (BOOL)animated;
 -(void)createBoundaryWithRadius: (float)radius;
 -(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay;

@@ -17,38 +17,53 @@
 @synthesize carImage, loadingActivity, vinTextField,regoTextField,plateNumberTextField,yearTextField,makeTextField,modelTextField,bodyTypeTextField,transmissionTextField,colourTextField,fuelTypeTextField,seatsTextField,doorsTextField;
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self.loadingActivity stopAnimating];
-
-    //todo field validation
-    
+    @try{
+        [self.loadingActivity stopAnimating];
+        
+        //todo field validation
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    //Tap gesture to dismiss keyboard
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
+    @try{
+        [super viewDidLoad];
+        
+        //Tap gesture to dismiss keyboard
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                       initWithTarget:self
+                                       action:@selector(dismissKeyboard)];
+        
+        [self.view addGestureRecognizer:tap];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 
 //Method to dismiss keyboard
 -(void)dismissKeyboard {
-    
-    [vinTextField resignFirstResponder];
-    [regoTextField resignFirstResponder];
-    [plateNumberTextField resignFirstResponder];
-    [yearTextField resignFirstResponder];
-    [makeTextField resignFirstResponder];
-    [modelTextField resignFirstResponder];
-    [bodyTypeTextField resignFirstResponder];
-    [transmissionTextField resignFirstResponder];
-    [colourTextField resignFirstResponder];
-    [fuelTypeTextField resignFirstResponder];
-    [seatsTextField resignFirstResponder];
-    [doorsTextField resignFirstResponder];
-    
+    @try{
+        [vinTextField resignFirstResponder];
+        [regoTextField resignFirstResponder];
+        [plateNumberTextField resignFirstResponder];
+        [yearTextField resignFirstResponder];
+        [makeTextField resignFirstResponder];
+        [modelTextField resignFirstResponder];
+        [bodyTypeTextField resignFirstResponder];
+        [transmissionTextField resignFirstResponder];
+        [colourTextField resignFirstResponder];
+        [fuelTypeTextField resignFirstResponder];
+        [seatsTextField resignFirstResponder];
+        [doorsTextField resignFirstResponder];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,7 +95,8 @@
             AlertsViewController *alertError = [[AlertsViewController alloc]init];
             [alertError displayAlertMessage: @"Your device has no camera."];
         }
-    }@catch(NSException *ex){
+    }
+    @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
@@ -124,7 +140,8 @@
         //Open List after input to firebase
         [self.navigationController popViewControllerAnimated:YES];
 
-    }@catch(NSException *ex){
+    }
+    @catch(NSException *ex){
         //Enable button
         UIButton *saveBtn = (UIButton *)sender;
         saveBtn.enabled = YES;
@@ -135,24 +152,36 @@
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
-    
 }
 
 #pragma mark UIImagePickerController Delegate
 
 //Image Picked handling
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-    //Successfully picked / handover
-    UIImage *image = info[UIImagePickerControllerEditedImage];
-    [carImage setImage:image];
+    @try{
+        //Successfully picked / handover
+        UIImage *image = info[UIImagePickerControllerEditedImage];
+        [carImage setImage:image];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //Cancel button handling
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    //Handle Cancel
-    [self dismissViewControllerAnimated:YES completion:nil];
+    @try{
+        //Handle Cancel
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 
 @end
