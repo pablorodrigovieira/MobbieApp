@@ -21,6 +21,12 @@
 
 @synthesize kmLabel, sliderRange, locationManager, mapView, loadingIndicator;
 
+/**
+ *
+ * Load map settings from Firebase
+ * @author Pablo Vieira
+ *
+ */
 -(void)loadMapSettings{
     @try{
         //As DEFAULT
@@ -78,6 +84,12 @@
     }
 }
 
+/**
+ *
+ * Load map settings and Update Slider
+ * @author Pablo Vieira
+ *
+ */
 -(void) viewWillAppear:(BOOL)animated{
     @try{
         [super viewWillAppear:YES];
@@ -92,6 +104,13 @@
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
 }
+
+/**
+ *
+ * Request user Authorization to get current Location
+ * @author Pablo Vieira
+ *
+ */
 - (void)viewDidLoad {
     @try{
         [super viewDidLoad];
@@ -128,6 +147,14 @@
     }
 }
 
+/**
+ *
+ * Create boundary on Map with Radius
+ * @author Pablo Vieira
+ *
+ * @param radius - float
+ *
+ */
 - (void)createBoundaryWithRadius:(float)radius{
     @try{
         //Create circle
@@ -148,6 +175,16 @@
     
 }
 
+/**
+ *
+ * Method to Custom and add the Circle as Overlay on the Map
+ * @author Pablo Vieira
+ *
+ * @param mapView - MKMapView
+ * @param overlay - (id<MKOverlay>)
+ *
+ * return MKOverlayRenderer
+ */
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay{
     @try{
         MKCircleRenderer *circle = [[MKCircleRenderer alloc]initWithOverlay:overlay];
@@ -164,6 +201,14 @@
     }
 }
 
+/**
+ *
+ * Update boundary based on Slider Value
+ * @author Pablo Vieira
+ *
+ * @param sender - UISlider
+ *
+ */
 - (IBAction)sliderRangeChanged:(UISlider *)sender {
     @try{
         NSString *distance;
@@ -182,6 +227,12 @@
     }
 }
 
+/**
+ *
+ * Update Map settings on Firebase
+ * @author Pablo Vieira
+ *
+ */
 - (IBAction)updateDatabase:(id)sender {
     @try{
         //show activity
@@ -194,8 +245,7 @@
         //Remove KM from range distance
         NSString *distance = kmLabel.text;
         [distance stringByReplacingOccurrencesOfString:@"KM" withString:@""];
-        
-        //Map Model
+
         MapModel *map = [[MapModel alloc] init];
         [map setRangeDistance:distance];
         
@@ -205,8 +255,6 @@
         //hide activity
         self.loadingIndicator.hidden = YES;
         [self.loadingIndicator stopAnimating];
-        
-        
     }
     @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];

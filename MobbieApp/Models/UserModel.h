@@ -1,4 +1,4 @@
-//
+//  User Model with the user information
 //  UserModel.h
 //  MobbieApp
 //

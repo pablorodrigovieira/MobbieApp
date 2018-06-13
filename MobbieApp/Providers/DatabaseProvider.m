@@ -49,7 +49,15 @@ NSString *const const_database_car_key_image_url = @"image-url";
     }
 }
 
-//Insert User Profile - FIREBASE
+/**
+ *
+ * Insert User Data(Profile) into Firebase
+ * @author Pablo Vieira
+ *
+ * @param user - UserModel Object
+ * @param userID - NSString
+ *
+ */
 -(void)insertUserProfileData: (UserModel *) user WithUserID:(NSString *) userID{
     @try{
         //Reference Child Firebase
@@ -87,6 +95,15 @@ NSString *const const_database_car_key_image_url = @"image-url";
     }
 }
 
+/**
+ *
+ * Update User Data(Profile) into Firebase
+ * @author Pablo Vieira
+ *
+ * @param user - UserModel Object
+ * @param userID - NSString
+ *
+ */
 -(void)updateUserProfile:(UserModel *)user WithUserID:(NSString*) userID{
     @try{
         //Get current UID
@@ -98,7 +115,8 @@ NSString *const const_database_car_key_image_url = @"image-url";
         NSDictionary *userDic = [[NSDictionary alloc] initWithObjectsAndKeys:
                                   user.firstName, @"first_name",
                                   user.lastName, @"last_name",
-                                  user.phoneNumber, @"phone_number",nil];
+                                  user.phoneNumber, @"phone_number",
+                                  user.email, @"email",nil];
         [[[[rootNode
             child:@"users"]
             child:userID]
@@ -124,6 +142,14 @@ NSString *const const_database_car_key_image_url = @"image-url";
     }
 }
 
+/**
+ *
+ * Change user password into Firebase
+ * @author Pablo Vieira
+ *
+ * @param userPwd - NSString
+ *
+ */
 -(void)changeUserPassword:(NSString *)userPwd{
     @try{
         [[FIRAuth auth].currentUser
@@ -138,6 +164,15 @@ NSString *const const_database_car_key_image_url = @"image-url";
     }
 }
 
+/**
+ *
+ * Insert User Map Data into Firebase
+ * @author Pablo Vieira
+ *
+ * @param distance - MapModel Object
+ * @param userId - NSString
+ *
+ */
 -(void)insertUserMapSettings:(MapModel *) distance WithUserID:(NSString *)userId{
     @try{
         //Reference Child Firebase
@@ -172,6 +207,15 @@ NSString *const const_database_car_key_image_url = @"image-url";
     }
 }
 
+/**
+ *
+ * Update User Map Data into Firebase
+ * @author Pablo Vieira
+ *
+ * @param map - MapModel Object
+ * @param userId - NSString
+ *
+ */
 -(void)updateMapSettings:(MapModel *) map WithUserID:(NSString *)userId{
     @try{
         //Get current UID
@@ -208,6 +252,15 @@ NSString *const const_database_car_key_image_url = @"image-url";
     }
 }
 
+/**
+ *
+ * Insert Image into Firebase storage
+ * @author Pablo Vieira
+ *
+ * @param image - UIImageView
+ *
+ * @return image URL from Firebase
+ */
 -(NSString *)insertImage:(UIImageView *) image{
     @try{
         CGFloat compressionQuality = 0.8;
@@ -220,12 +273,13 @@ NSString *const const_database_car_key_image_url = @"image-url";
         
         if(image.image != nil){
             
-            FIRStorage *storage = [FIRStorage storage];
-            storageRef = [storage referenceForURL:@"gs://mobbieapp.appspot.com"];
-            
+            //Image info
             NSString *imageID = [[NSUUID UUID] UUIDString];
             NSString *imageName = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%@", USER_ID],[NSString stringWithFormat:@"/%@.jpg",imageID]];
             
+            //References
+            FIRStorage *storage = [FIRStorage storage];
+            storageRef = [storage referenceForURL:@"gs://mobbieapp.appspot.com"];
             FIRStorageReference *imageRef = [storageRef child:imageName];
             FIRStorageMetadata *metadata = [[FIRStorageMetadata alloc]init];
             
@@ -264,14 +318,19 @@ NSString *const const_database_car_key_image_url = @"image-url";
     }
 }
 
+/**
+ *
+ * Insert Car Object into Firebase
+ * @author Pablo Vieira
+ *
+ * @param car - CarModel Object
+ *
+ */
 -(void)insertCarDetails:(CarModel *) car{
     @try{
         
         NSString *userID = [FIRAuth auth].currentUser.uid;
-
         NSString *CarPath = [NSString stringWithFormat:@"users/%@/cars", userID];
-        
-        //NSString *key = [[rootNode child:CarPath] childByAutoId].key;
         
         //Obj to be inserted into DB
         NSDictionary *carPost = @{
@@ -310,6 +369,15 @@ NSString *const const_database_car_key_image_url = @"image-url";
     }
 }
 
+/**
+ *
+ * Delete Car from Firebase
+ *
+ * @author Pablo Vieira
+ *
+ * @param car - CarModel Object
+ *
+ */
 -(void)deleteCar:(CarModel *) car{
     @try{
         

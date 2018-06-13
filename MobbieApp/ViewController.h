@@ -1,10 +1,10 @@
+//  Controller for Login Screen (View)
 //
 //  ViewController.h
 //  MobbieApp
 //
 //  Created by Pablo Vieira on 10/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 #import "Customs/CustomTextField.h"

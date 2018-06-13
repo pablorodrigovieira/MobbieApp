@@ -23,6 +23,12 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
 
 @synthesize firstNameTextField, lastNameTextField, emailTextField, phoneNumberTextField, loadingActivity;
 
+/**
+ *
+ * Loads Profile Data
+ * @author Pablo Vieira
+ *
+ */
 -(void)viewWillAppear:(BOOL)animated{
     @try{
         [self loadProfileData];
@@ -33,6 +39,12 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
     }
 }
 
+/**
+ *
+ * Customize TextFields and add tap recognizer
+ * @author Pablo Vieira
+ *
+ */
 - (void)viewDidLoad {
     @try{
         [super viewDidLoad];
@@ -63,7 +75,12 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
     }
 }
 
-//Method to dismiss keyboard
+/**
+ *
+ * Method to dismiss keyboard
+ * @author Pablo Vieira
+ *
+ */
 -(void)dismissKeyboard {
     @try{
         [firstNameTextField resignFirstResponder];
@@ -76,6 +93,12 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
     }
 }
 
+/**
+ *
+ * Method to Load profile data from Firebase
+ * @author Pablo Vieira
+ *
+ */
 -(void)loadProfileData{
     @try{
         //Add loading activity
@@ -133,7 +156,12 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
     [super didReceiveMemoryWarning];
 }
 
-
+/**
+ *
+ * Perform change password
+ * @author Pablo Vieira
+ *
+ */
 - (IBAction)changePasswordButton:(id)sender {
     @try{
         UIAlertController *alert = [UIAlertController
@@ -190,6 +218,12 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
     }
 }
 
+/**
+ *
+ * Update Profile
+ * @author Pablo Vieira
+ *
+ */
 - (IBAction)updateProfileButton:(id)sender {
     @try{
         //Check if fields are not empty
@@ -201,12 +235,14 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
             NSString *firstName = firstNameTextField.text;
             NSString *lastName = lastNameTextField.text;
             NSString *phoneNumber = phoneNumberTextField.text;
+            NSString *email = emailTextField.text;
             
             //Build obj with user input
             UserModel *user = [[UserModel alloc] init];
             [user setFirstName:firstName];
             [user setLastName:lastName];
             [user setPhoneNumber:phoneNumber];
+            [user setEmail:email];
             
             //Get reference to DB
             if(userID == nil){

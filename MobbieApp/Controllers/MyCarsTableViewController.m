@@ -18,6 +18,13 @@
 
 @synthesize carData,loadingActivity;
 
+/**
+ *
+ * Handle Car data from Firebase to TableViewController
+ *
+ * @author Pablo Vieira
+ *
+ */
 -(void)viewDidAppear:(BOOL)animated{
     @try{
         [super viewDidAppear:animated];
@@ -38,6 +45,13 @@
     }
 }
 
+/**
+ *
+ * Firebase references and Table view custom
+ *
+ * @author Pablo Vieira
+ *
+ */
 - (void)viewDidLoad {
     @try{
         [super viewDidLoad];
@@ -58,6 +72,14 @@
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
 }
+
+/**
+ *
+ * Get cars from Firebase and add to table view
+ *
+ * @author Pablo Vieira
+ *
+ */
 -(void)handleCarData{
     @try{
         [self.loadingActivity startAnimating];
@@ -111,6 +133,16 @@
     [super didReceiveMemoryWarning];
 }
 
+/**
+ *
+ * Return number of Columns in the table view
+ *
+ * @author Pablo Vieira
+ *
+ * @param tableView - UITableView
+ *
+ * @return NSInteger
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     @try{
         return 1;
@@ -121,6 +153,17 @@
     }
 }
 
+/**
+ *
+ * Return number of rows in the table view based on the Array info
+ *
+ * @author Pablo Vieira
+ *
+ * @param tableView - UITableView
+ * @param section - NSInteger
+ *
+ * @return NSInteger
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     @try{
         return [carData count];
@@ -131,6 +174,17 @@
     }
 }
 
+/**
+ *
+ * Parse Car data into Custom Table View Cell
+ *
+ * @author Pablo Vieira
+ *
+ * @param tableView - UITableView
+ * @param indexPath - NSIndexPath
+ *
+ * @return UITableViewCell
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     @try{
         static NSString *cellIdentifier = @"carCell";
@@ -170,10 +224,32 @@
     }
 }
 
+/**
+ *
+ * Set table view property:canEditRowAtIndexPath to YES
+ *
+ * @author Pablo Vieira
+ *
+ * @param tableView - UITableView
+ * @param indexPath - NSIndexPath
+ *
+ * @return BOOL
+ */
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
 
+/**
+ *
+ * Delete row selected in the Firebase and remove from table view
+ *
+ * @author Pablo Vieira
+ *
+ * @param tableView - UITableView
+ * @param editingStyle - editingStyle
+ * @param indexPath - NSIndexPath
+ *
+ */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     @try{
         if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -196,6 +272,16 @@
     }
 }
 
+/**
+ *
+ * Perform segue with the row selected
+ *
+ * @author Pablo Vieira
+ *
+ * @param tableView - UITableView
+ * @param indexPath - NSIndexPath
+ *
+ */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     @try{
         [self performSegueWithIdentifier:@"car_management_edit_segue" sender:self];
@@ -206,6 +292,15 @@
     }
 }
 
+/**
+ *
+ * Prepare segue with Car Object
+ *
+ * @author Pablo Vieira
+ *
+ * @param segue - UIStoryboardSegue
+ *
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     @try{
@@ -221,8 +316,7 @@
     @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
-    }
-    
+    }    
 }
 
 @end

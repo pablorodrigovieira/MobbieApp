@@ -11,12 +11,20 @@
 @implementation CustomTextField
 
 //Constants declaration
-
 NSString *const const_username_icon = @"username";
 NSString *const const_password_icon = @"password";
 NSString *const const_email_icon = @"email";
 NSString *const const_phone_icon = @"phone";
 
+/**
+ *
+ * Customize UITextField with Icon(image)
+ * @author Pablo Vieira
+ *
+ * @param textField - UITextField
+ * @param iconName - NSString
+ *
+ */
 -(void)setIcon:(NSString *)iconName forUITextField:(UITextField *)textField{
     
     //Set frame around icon

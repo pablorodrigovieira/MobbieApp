@@ -18,6 +18,12 @@
 
 @synthesize carImage, loadingActivity, vinTextField,regoTextField,plateNumberTextField,yearTextField,makeTextField,modelTextField,bodyTypeTextField,transmissionTextField,colourTextField,fuelTypeTextField,seatsTextField,doorsTextField, carSegue;
 
+/**
+ *
+ * Load Car data if user selected it from table list
+ * @author Pablo Vieira
+ *
+ */
 - (void)viewWillAppear:(BOOL)animated{
     @try{
         [self.loadingActivity stopAnimating];
@@ -54,18 +60,24 @@
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
 }
+
+/**
+ *
+ * Add Tap gesture to dismiss keyboard and build the Array with Body type Info
+ * @author Pablo Vieira
+ *
+ */
 - (void)viewDidLoad {
     @try{
         [super viewDidLoad];
         
-        //Tap gesture to dismiss keyboard
+        
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                        initWithTarget:self
                                        action:@selector(dismissKeyboard)];
         
         [self.view addGestureRecognizer:tap];
         
-        //Array with Body type Info
         bodyTypeArray = [[NSMutableArray alloc] init];
         [bodyTypeArray addObject:@"Convertible"];
         [bodyTypeArray addObject:@"Coupe"];
@@ -85,7 +97,12 @@
     }
 }
 
-//Method to dismiss keyboard
+/**
+ *
+ * Method to dismiss keyboard
+ * @author Pablo Vieira
+ *
+ */
 -(void)dismissKeyboard {
     @try{
         [vinTextField resignFirstResponder];
@@ -111,7 +128,14 @@
     [super didReceiveMemoryWarning];
 }
 
-//Set textfield with picker/array Info and Picker style
+/**
+ *
+ * Set textfield with picker/array Info and Picker style
+ * @author Pablo Vieira
+ *
+ * @param textField - UITextField
+ *
+ */
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     @try{
         
@@ -130,7 +154,15 @@
     }
 }
 
-//Resign first responder for bodytype text field
+/**
+ *
+ * Resign first responder for bodytype text field
+ * @author Pablo Vieira
+ *
+ * @param touches - NSSet<UITouch *>
+ * @param event - UIEvent
+ *
+ */
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     @try{
         [bodyTypeTextField resignFirstResponder];
@@ -143,6 +175,15 @@
 
 #pragma mark - UIPickerView Delegate
 
+/**
+ *
+ * Define number of columns in the PickerView
+ * @author Pablo Vieira
+ *
+ * @param pickerView - UIPickerView
+ *
+ * @return Integer
+ */
 -(NSUInteger)numberOfComponentsInpickerView:(UIPickerView *)pickerView{
     @try{
         return 1;
@@ -153,6 +194,17 @@
     }
 }
 
+/**
+ *
+ * Return number of rows based on the Array
+ *
+ * @author Pablo Vieira
+ *
+ * @param pickerView - UIPickerView
+ * @param component - NSInteger
+ *
+ * @return Integer
+ */
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     @try{
         return [bodyTypeArray count];
@@ -163,6 +215,18 @@
     }
 }
 
+/**
+ *
+ * Return the Value of the UIPickerView (row)
+ *
+ * @author Pablo Vieira
+ *
+ * @param pickerView - UIPickerView
+ * @param row - NSInteger
+ * @param component - NSInteger
+ *
+ * @return NSString
+ */
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     @try{
         return [bodyTypeArray objectAtIndex:row];
@@ -173,6 +237,17 @@
     }
 }
 
+/**
+ *
+ * Set text field with the Value of the UIPickerView (row)
+ *
+ * @author Pablo Vieira
+ *
+ * @param pickerView - UIPickerView
+ * @param row - NSInteger
+ * @param component - NSInteger
+ *
+ */
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     @try{
         bodyTypeTextField.text = [bodyTypeArray objectAtIndex:row];
@@ -187,6 +262,13 @@
 
 #pragma mark - Buttons
 
+/**
+ *
+ * Take a Photo
+ *
+ * @author Pablo Vieira
+ *
+ */
 - (IBAction)takePhoto:(id)sender {
     @try{
         //If the device has camera
@@ -219,6 +301,13 @@
     }
 }
 
+/**
+ *
+ * Insert/Update Car Model into Firebase
+ *
+ * @author Pablo Vieira
+ *
+ */
 - (IBAction)saveCar:(id)sender {
     @try{
         
@@ -314,10 +403,15 @@
 
 #pragma mark UIImagePickerController Delegate
 
-//Image Picked handling
+/**
+ *
+ * Image Picked handling
+ *
+ * @author Pablo Vieira
+ *
+ */
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     @try{
-        //Successfully picked / handover
         UIImage *image = info[UIImagePickerControllerEditedImage];
         [carImage setImage:image];
         
@@ -327,13 +421,17 @@
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
-    
 }
 
-//Cancel button handling
+/**
+ *
+ * Cancel button handling
+ *
+ * @author Pablo Vieira
+ *
+ */
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     @try{
-        //Handle Cancel
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     @catch(NSException *ex){

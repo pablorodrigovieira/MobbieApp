@@ -17,7 +17,12 @@
 
 @synthesize firstNameTextField,lastNameTextField,emailTextField,phoneTextField,passwordTextField,confirmPasswordTextField, loadingActivityIndicator, termsAndConditionsSwitch, ref;
 
-
+/**
+ *
+ * Customize UITextField with Icon(image), Add firebase reference
+ * @author Pablo Vieira
+ *
+ */
 - (void)viewDidLoad {
     @try{
         [super viewDidLoad];
@@ -56,7 +61,12 @@
     }
 }
 
-//Method to dismiss keyboard
+/**
+ *
+ * Method to dismiss keyboard
+ * @author Pablo Vieira
+ *
+ */
 -(void)dismissKeyboard {
     @try{
         [firstNameTextField resignFirstResponder];
@@ -77,10 +87,22 @@
     [super didReceiveMemoryWarning];
 }
 
+/**
+ *
+ * Dismiss current view
+ * @author Pablo Vieira
+ *
+ */
 - (IBAction)cancelButton:(id)sender {
-    //Dismiss current view
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
+
+/**
+ *
+ * Method that create user Account, Profile and Add Default Map Object
+ * @author Pablo Vieira
+ *
+ */
 - (IBAction)confirmButton:(id)sender {    
     @try{
         self.loadingActivityIndicator.hidden = NO;

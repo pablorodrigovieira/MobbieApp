@@ -1,3 +1,4 @@
+//  Controller for Home Screen (View)
 //
 //  HomeViewController.h
 //  MobbieApp

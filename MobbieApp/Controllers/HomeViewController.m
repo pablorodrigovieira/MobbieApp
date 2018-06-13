@@ -22,11 +22,26 @@
     [super didReceiveMemoryWarning];
 }
 
+/**
+ *
+ * Perform Logout/Signout local and Firebase
+ *
+ * @author Pablo Vieira
+ *
+ */
 - (IBAction)logoutButton:(id)sender {
     @try{
-        //TODO LOGOUT FIREBASE
-        [self performSegueWithIdentifier:@"logout_identifier_segue" sender:nil];
+        NSError *signOutError;
+        BOOL status = [[FIRAuth auth] signOut:&signOutError];
         
+        if (!status) {
+            AlertsViewController *alertError = [[AlertsViewController alloc]init];
+            [alertError displayAlertMessage: [NSString stringWithFormat:@"Error signing out: %@", signOutError]];
+            
+            return;
+        }else{
+            [self performSegueWithIdentifier:@"logout_identifier_segue" sender:nil];
+        }
     }
     @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];

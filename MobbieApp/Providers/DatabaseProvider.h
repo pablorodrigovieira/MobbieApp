@@ -1,4 +1,4 @@
-//
+//  Data provider with Database methods
 //  DatabaseProvider.h
 //  MobbieApp
 //
@@ -31,11 +31,13 @@ extern NSString *const const_database_car_key_doors;
 extern NSString *const const_database_car_key_model;
 extern NSString *const const_database_car_key_image_url;
 
+//Properties
 @property (strong, nonatomic) FIRDatabaseReference *rootNode;
 @property (strong, nonatomic) FIRDatabaseReference *usersNode;
 @property (strong, nonatomic) FIRStorageReference *storageRef;
 @property NSString *USER_ID;
 
+//Methods
 -(void)insertUserProfileData: (UserModel *) user WithUserID:(NSString *) userID;
 -(void)updateUserProfile:(UserModel *)user WithUserID:(NSString*) userID;
 -(void)changeUserPassword:(NSString *)userPwd;

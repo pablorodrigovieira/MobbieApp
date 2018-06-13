@@ -1,3 +1,4 @@
+//  Controller for Map Screen (View)
 //
 //  MapViewController.h
 //  MobbieApp

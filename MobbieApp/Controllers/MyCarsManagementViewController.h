@@ -1,10 +1,10 @@
+//  Controller for My Cars Management Screen (View)
 //
 //  MyCarsManagementViewController.h
 //  MobbieApp
 //
 //  Created by Pablo Vieira on 15/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
 #import "ViewController.h"
 #import "DatabaseProvider.h"

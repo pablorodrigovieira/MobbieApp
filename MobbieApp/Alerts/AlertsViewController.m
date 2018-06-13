@@ -37,11 +37,24 @@ NSString *const const_car_input_required = @"Plate number / Make / Model are fie
     [super didReceiveMemoryWarning];
 }
 
+/**
+ *
+ * Get top view controller of the App
+ * @author Pablo Vieira
+ *
+ * @return topViewController
+ */
 - (UIViewController *)topViewController {
     return [self topViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
 }
 
-//Get current view controller
+/**
+ *
+ * Get top view controller with rootViewController
+ * @author Pablo Vieira
+ *
+ * @return topViewController
+ */
 - (UIViewController *)topViewController:(UIViewController *)rootViewController {
     
     if (rootViewController.presentedViewController == nil) {
@@ -58,7 +71,14 @@ NSString *const const_car_input_required = @"Plate number / Make / Model are fie
     return [self topViewController:presentedViewController];
 }
 
-
+/**
+ *
+ * Display an Alert message based in a fieldName
+ * @author Pablo Vieira
+ *
+ * @param fieldName - NSString
+ *
+ */
 -(void)displayInputAlert: (NSString *) fieldName{
     
     UIAlertController *alert = [UIAlertController
@@ -81,6 +101,12 @@ NSString *const const_car_input_required = @"Plate number / Make / Model are fie
     [rootViewController presentViewController:alert animated:YES completion:nil];
 }
 
+/**
+ *
+ * Display Alert About
+ * @author Pablo Vieira
+ *
+ */
 -(void)displayAboutAlert{
     
     UIAlertController *alert = [UIAlertController
@@ -103,6 +129,13 @@ NSString *const const_car_input_required = @"Plate number / Make / Model are fie
     [rootViewController presentViewController:alert animated:YES completion:nil];
 }
 
+/**
+ *
+ * Display Alert with message as parameter
+ * @author Pablo Vieira
+ *
+ * @param message - NSString
+ */
 -(void)displayAlertMessage: (NSString *) message{
     
     UIAlertController *alert = [UIAlertController

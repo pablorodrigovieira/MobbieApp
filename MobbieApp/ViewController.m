@@ -18,14 +18,26 @@
 @synthesize usernameTextField, passwordTextField, loadingActivity;
 
 - (void)viewWillAppear:(BOOL)animated{
-    //Hide Activity Indicator
-    loadingActivity.hidden = YES;
-    
-    //TODO remove it, only for testing
-    usernameTextField.text = @"pablovieira.com@gmail.com";
-    passwordTextField.text = @"123456";
+    @try{
+        //Hide Activity Indicator
+        loadingActivity.hidden = YES;
+        
+        //TODO remove it, only for testing
+        usernameTextField.text = @"pablovieira.com@gmail.com";
+        passwordTextField.text = @"123456";
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc] init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 
+/**
+ *
+ * Customise textfields with icon and add Tap recognizer
+ * @author Pablo Vieira
+ *
+ */
 - (void)viewDidLoad {
     @try{
         [super viewDidLoad];
@@ -50,7 +62,12 @@
     }
 }
 
-//Method to dismiss keyboard
+/**
+ *
+ * Method to dismiss keyboard
+ * @author Pablo Vieira
+ *
+ */
 -(void)dismissKeyboard {
     @try{
         [usernameTextField resignFirstResponder];
@@ -66,13 +83,29 @@
     [super didReceiveMemoryWarning];
 }
 
-
+/**
+ *
+ * Display About Alert
+ * @author Pablo Vieira
+ *
+ */
 - (IBAction)aboutButton:(id)sender {
-    AlertsViewController *about = [[AlertsViewController alloc] init];
-    [about displayAboutAlert];
+    @try{
+        AlertsViewController *about = [[AlertsViewController alloc] init];
+        [about displayAboutAlert];
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc] init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
 }
 
-
+/**
+ *
+ * Perform Login
+ * @author Pablo Vieira
+ *
+ */
 - (IBAction)loginButton:(id)sender {
     @try{
         if([usernameTextField.text isEqualToString:@""]){

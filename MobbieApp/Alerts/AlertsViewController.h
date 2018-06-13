@@ -1,3 +1,4 @@
+//  Helper class with Custom AlertsView and Messages
 //
 //  AlertsViewController.h
 //  MobbieApp
@@ -25,6 +26,7 @@ extern NSString *const const_upload_db_alert_message;
 extern NSString *const const_invalid_email_alert_message;
 extern NSString *const const_car_input_required;
 
+//Methods
 -(void)displayInputAlert: (NSString *) fieldName;
 -(void)displayAboutAlert;
 -(void)displayAlertMessage: (NSString *) message;

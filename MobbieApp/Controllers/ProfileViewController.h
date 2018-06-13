@@ -1,3 +1,4 @@
+//  Controller for Profile Screen (View)
 //
 //  ProfileViewController.h
 //  MobbieApp
