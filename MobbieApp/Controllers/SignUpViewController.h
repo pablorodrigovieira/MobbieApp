@@ -6,7 +6,6 @@
 //  Created by Pablo Vieira on 12/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
 
-#import <UIKit/UIKit.h>
 #import "../Customs/CustomTextField.h"
 #import "../Providers/DatabaseProvider.h"
 #import "../Alerts/AlertsViewController.h"
@@ -14,11 +13,10 @@
 
 @interface SignUpViewController : UIViewController
 
-@property (strong, nonatomic) FIRDatabaseReference *ref;
-
 - (IBAction)cancelButton:(id)sender;
 - (IBAction)confirmButton:(id)sender;
 
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (weak, nonatomic) IBOutlet UISwitch *termsAndConditionsSwitch;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivityIndicator;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;

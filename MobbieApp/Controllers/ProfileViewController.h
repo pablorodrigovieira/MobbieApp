@@ -5,14 +5,12 @@
 //
 //  Created by Pablo Vieira on 12/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
-#import "../ViewController.h"
 #import "../Customs/CustomTextField.h"
 #import "../Models/UserModel.h"
 #import "../Providers/DatabaseProvider.h"
 
-@interface ProfileViewController : ViewController
+@interface ProfileViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;

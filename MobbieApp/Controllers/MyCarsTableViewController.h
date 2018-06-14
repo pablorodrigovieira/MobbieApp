@@ -6,7 +6,6 @@
 //  Created by Pablo Vieira on 17/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
 
-#import <UIKit/UIKit.h>
 #import "../Models/CarModel.h"
 #import "../Customs/CustomTableViewCell.h"
 #import "DatabaseProvider.h"

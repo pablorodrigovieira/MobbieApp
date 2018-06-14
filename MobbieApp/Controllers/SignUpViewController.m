@@ -4,10 +4,8 @@
 //
 //  Created by Pablo Vieira on 12/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
 #import "SignUpViewController.h"
-@import Firebase;
 
 @interface SignUpViewController ()
 

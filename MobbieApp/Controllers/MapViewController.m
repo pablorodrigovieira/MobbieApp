@@ -22,7 +22,8 @@
 typedef NS_ENUM(NSInteger, map_view){
     map_view_enum_meters_conversion = 1000,
     map_view_enum_dispatch_time = 1,
-    map_view_enum_default_value = 4
+    map_view_enum_default_value = 4,
+    map_view_enum_default_slider = 1
 };
 
 @synthesize kmLabel, sliderRange, locationManager, mapView, loadingIndicator;
@@ -101,7 +102,7 @@ typedef NS_ENUM(NSInteger, map_view){
 -(void)loadMapSettings{
     @try{
         //As DEFAULT
-        rangeSlider = 1;
+        rangeSlider = map_view_enum_default_slider;
         
         //Objs
         DatabaseProvider *db = [[DatabaseProvider alloc] init];

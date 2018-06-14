@@ -5,11 +5,8 @@
 //
 //  Created by Pablo Vieira on 14/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
-#import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "CoreLocation/CoreLocation.h"
 #import "AlertsViewController.h"
 #import "DatabaseProvider.h"
 

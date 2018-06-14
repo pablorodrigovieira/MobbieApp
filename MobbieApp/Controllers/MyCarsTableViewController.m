@@ -133,7 +133,6 @@ NSString *const const_cell_identifier = @"carCell";
             AlertsViewController *alertError = [[AlertsViewController alloc] init];
             [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
         }];
-        
     }
     @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc]init];
@@ -146,6 +145,7 @@ NSString *const const_cell_identifier = @"carCell";
 }
 
 #pragma mark - UITableView
+
 /**
  *
  * Return number of Columns in the table view
