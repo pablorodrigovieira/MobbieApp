@@ -12,4 +12,6 @@
 
 @interface HomeViewController : ViewController
 - (IBAction)logoutButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+
 @end
