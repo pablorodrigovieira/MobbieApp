@@ -28,10 +28,6 @@ NSString *const const_login_segue = @"login_identifier_segue";
     @try{
         //Hide Activity Indicator
         loadingActivity.hidden = YES;
-        
-        //TODO remove it, only for testing
-        usernameTextField.text = @"pablovieira.com@gmail.com";
-        passwordTextField.text = @"123456";
     }
     @catch(NSException *ex){
         AlertsViewController *alertError = [[AlertsViewController alloc] init];
