@@ -16,11 +16,6 @@
 
 @implementation ProfileViewController
 
-NSString *const const_profile_alert_message = @"Enter a new password";
-NSString *const const_profile_alert_title = @"Change Password";
-NSString *const const_profile_alert_button = @"Confirm";
-NSString *const const_profile_alert_cancel_button = @"Cancel";
-
 @synthesize firstNameTextField, lastNameTextField, emailTextField, phoneNumberTextField, loadingActivity;
 
 /**
@@ -93,6 +88,12 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
     }
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Database
+
 /**
  *
  * Method to Load profile data from Firebase
@@ -113,7 +114,7 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
             //Get userID info from Authentication
             userID = [FIRAuth auth].currentUser.uid;
             
-            [[[[[db rootNode] child:@"users"] child:userID] child:@"profile"]
+            [[[[[db rootNode] child:const_database_node_users] child:userID] child:const_database_node_profile]
              observeSingleEventOfType:FIRDataEventTypeValue
              withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
                  
@@ -121,10 +122,10 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
                      NSDictionary *usersDict = snapshot.value;
                      
                      //Set UserModel with values
-                     [user setFirstName: [usersDict valueForKey:@"first_name"]];
-                     [user setLastName: [usersDict valueForKey:@"last_name"]];
-                     [user setEmail: [usersDict valueForKey:@"email"]];
-                     [user setPhoneNumber: [usersDict valueForKey:@"phone_number"]];
+                     [user setFirstName: [usersDict valueForKey:const_database_profile_key_first_name]];
+                     [user setLastName: [usersDict valueForKey:const_database_profile_key_last_name]];
+                     [user setEmail: [usersDict valueForKey:const_database_profile_key_email]];
+                     [user setPhoneNumber: [usersDict valueForKey:const_database_profile_key_phone_number]];
                      
                      self.firstNameTextField.text = user.firstName;
                      self.lastNameTextField.text = user.lastName;
@@ -152,10 +153,7 @@ NSString *const const_profile_alert_cancel_button = @"Cancel";
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
+#pragma mark - Buttons
 /**
  *
  * Perform change password

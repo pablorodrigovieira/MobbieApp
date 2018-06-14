@@ -4,7 +4,6 @@
 //
 //  Created by Pablo Vieira on 14/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
 #import "MapViewController.h"
 
@@ -19,70 +18,14 @@
 
 @implementation MapViewController
 
-@synthesize kmLabel, sliderRange, locationManager, mapView, loadingIndicator;
+//Class ENUMS
+typedef NS_ENUM(NSInteger, map_view){
+    map_view_enum_meters_conversion = 1000,
+    map_view_enum_dispatch_time = 1,
+    map_view_enum_default_value = 4
+};
 
-/**
- *
- * Load map settings from Firebase
- * @author Pablo Vieira
- *
- */
--(void)loadMapSettings{
-    @try{
-        //As DEFAULT
-        rangeSlider = 1;
-        
-        //Objs
-        DatabaseProvider *db = [[DatabaseProvider alloc] init];
-        MapModel *map = [[MapModel alloc]init];
-        
-        if([FIRAuth auth].currentUser != nil){            
-            userID = [FIRAuth auth].currentUser.uid;
-            
-            [[[[[db rootNode] child:@"users"] child:userID] child:@"map"]
-             observeSingleEventOfType:FIRDataEventTypeValue
-             withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-                 
-                 if(snapshot != nil){
-                     //Get result and hold in a NSDictinary
-                     NSDictionary *mapDisc = snapshot.value;
-                     [map setRangeDistance: [mapDisc valueForKey:@"range_distance"]];
-                     
-                     //Convert to float to add value to Slider
-                     if([map rangeDistance] != nil){
-                         self->rangeSlider = [[map rangeDistance] floatValue];
-                         //Convert to meters
-                         self->rangeSlider = self->rangeSlider*1000;
-                     }
-                     NSString *rangeLabel = [map rangeDistance];
-                     
-                     self.kmLabel.text = rangeLabel;
-                     
-                     //Set Slider Value
-                     [self.sliderRange setValue:self->rangeSlider animated:YES];
-                     [self createBoundaryWithRadius:self->rangeSlider];
-                     
-                     //Wait 1 seconds to stop loading activity
-                     //Give time to map and slider update
-                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 *NSEC_PER_SEC)),dispatch_get_main_queue(),
-                        ^{
-                             //Stop and hide Activity Indicator
-                             self.loadingIndicator.hidden = YES;
-                            [self.loadingIndicator stopAnimating];
-                        });
-                 }
-                 
-             } withCancelBlock:^(NSError * _Nonnull error) {
-                 AlertsViewController *alertError = [[AlertsViewController alloc] init];
-                 [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
-             }];
-        }
-    }
-    @catch(NSException *ex){
-        AlertsViewController *alertError = [[AlertsViewController alloc]init];
-        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
-    }
-}
+@synthesize kmLabel, sliderRange, locationManager, mapView, loadingIndicator;
 
 /**
  *
@@ -147,6 +90,71 @@
     }
 }
 
+#pragma mark - Map
+
+/**
+ *
+ * Load map settings from Firebase
+ * @author Pablo Vieira
+ *
+ */
+-(void)loadMapSettings{
+    @try{
+        //As DEFAULT
+        rangeSlider = 1;
+        
+        //Objs
+        DatabaseProvider *db = [[DatabaseProvider alloc] init];
+        MapModel *map = [[MapModel alloc]init];
+        
+        if([FIRAuth auth].currentUser != nil){
+            userID = [FIRAuth auth].currentUser.uid;
+            
+            [[[[[db rootNode] child:const_database_node_users] child:userID] child:const_database_node_map]
+             observeSingleEventOfType:FIRDataEventTypeValue
+             withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                 
+                 if(snapshot != nil){
+                     //Get result and hold in a NSDictinary
+                     NSDictionary *mapDisc = snapshot.value;
+                     [map setRangeDistance: [mapDisc valueForKey:const_database_range_distance_id]];
+                     
+                     //Convert to float to add value to Slider
+                     if([map rangeDistance] != nil){
+                         self->rangeSlider = [[map rangeDistance] floatValue];
+                         //Convert to meters
+                         self->rangeSlider = self->rangeSlider*map_view_enum_meters_conversion;
+                     }
+                     NSString *rangeLabel = [map rangeDistance];
+                     
+                     self.kmLabel.text = rangeLabel;
+                     
+                     //Set Slider Value
+                     [self.sliderRange setValue:self->rangeSlider animated:YES];
+                     [self createBoundaryWithRadius:self->rangeSlider];
+                     
+                     //Wait 1 seconds to stop loading activity
+                     //Give time to map and slider update
+                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(map_view_enum_dispatch_time *NSEC_PER_SEC)),dispatch_get_main_queue(),
+                                    ^{
+                                        //Stop and hide Activity Indicator
+                                        self.loadingIndicator.hidden = YES;
+                                        [self.loadingIndicator stopAnimating];
+                                    });
+                 }
+                 
+             } withCancelBlock:^(NSError * _Nonnull error) {
+                 AlertsViewController *alertError = [[AlertsViewController alloc] init];
+                 [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
+             }];
+        }
+    }
+    @catch(NSException *ex){
+        AlertsViewController *alertError = [[AlertsViewController alloc]init];
+        [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
+    }
+}
+
 /**
  *
  * Create boundary on Map with Radius
@@ -164,7 +172,7 @@
         //Add circle to mapview
         [self.mapView addOverlay:circle];
         
-        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(selectedCoord,radius*4, radius*4);
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(selectedCoord,radius*map_view_enum_default_value, radius*map_view_enum_default_value);
         [self.mapView setRegion:viewRegion animated:YES];
         
     }
@@ -214,7 +222,7 @@
         NSString *distance;
         
         if(sender == sliderRange){
-            distance = [NSString stringWithFormat:@"%0.fKM", sender.value/1000];
+            distance = [NSString stringWithFormat:@"%0.fKM", sender.value/map_view_enum_meters_conversion];
             [kmLabel setText:distance];
             
             if(selectedCoord.latitude != 0 && selectedCoord.longitude != 0)
@@ -226,6 +234,8 @@
         [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
     }
 }
+
+#pragma mark - Buttons
 
 /**
  *

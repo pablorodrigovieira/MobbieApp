@@ -4,7 +4,6 @@
 //
 //  Created by Pablo Vieira on 22/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
 #import "DatabaseProvider.h"
 
@@ -25,6 +24,17 @@ NSString *const const_database_car_key_seats = @"seats";
 NSString *const const_database_car_key_doors = @"doors";
 NSString *const const_database_car_key_model = @"model";
 NSString *const const_database_car_key_image_url = @"image-url";
+NSString *const const_database_profile_key_first_name = @"first_name";
+NSString *const const_database_profile_key_last_name = @"last_name";
+NSString *const const_database_profile_key_email = @"email";
+NSString *const const_database_profile_key_phone_number = @"phone_number";
+NSString *const const_database_node_users = @"users";
+NSString *const const_database_node_profile = @"profile";
+NSString *const const_database_node_cars = @"cars";
+NSString *const const_database_node_map = @"map";
+NSString *const const_database_range_distance_id = @"range_distance";
+NSString *const const_database_storage_reference = @"gs://mobbieapp.appspot.com";
+NSString *const const_image_type = @"image/jpeg";
 
 //Constructor
 -(id)init{
@@ -35,7 +45,7 @@ NSString *const const_database_car_key_image_url = @"image-url";
         {
             //Reference to Firebase
             self.rootNode = [[FIRDatabase database] reference];
-            self.usersNode = [rootNode child:@"users"];
+            self.usersNode = [rootNode child:const_database_node_users];
             
             //Get Current User ID
             if(USER_ID == nil){
@@ -66,10 +76,10 @@ NSString *const const_database_car_key_image_url = @"image-url";
         //Obj to parse into Firebase
         NSDictionary *postFirebase =
         @{
-          @"first_name": [user firstName],
-          @"last_name": [user lastName],
-          @"email": [user email],
-          @"phone_number": [user phoneNumber]
+          const_database_profile_key_first_name: [user firstName],
+          const_database_profile_key_last_name: [user lastName],
+          const_database_profile_key_email: [user email],
+          const_database_profile_key_phone_number: [user phoneNumber]
           };
         
         //Append User info to Obj
@@ -113,14 +123,14 @@ NSString *const const_database_car_key_image_url = @"image-url";
         
         //Create NSDictonary
         NSDictionary *userDic = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                  user.firstName, @"first_name",
-                                  user.lastName, @"last_name",
-                                  user.phoneNumber, @"phone_number",
-                                  user.email, @"email",nil];
+                                  user.firstName, const_database_profile_key_first_name,
+                                  user.lastName, const_database_profile_key_last_name,
+                                  user.phoneNumber, const_database_profile_key_phone_number,
+                                  user.email, const_database_profile_key_email,nil];
         [[[[rootNode
-            child:@"users"]
+            child:const_database_node_users]
             child:userID]
-            child:@"profile"]
+            child:const_database_node_profile]
          setValue:userDic
          withCompletionBlock:^(NSError * _Nullable error,
                                FIRDatabaseReference * _Nonnull ref)
@@ -181,7 +191,7 @@ NSString *const const_database_car_key_image_url = @"image-url";
         //Obj to parse into Firebase
         NSDictionary *postFirebase =
         @{
-          @"range_distance": [distance rangeDistance]
+          const_database_range_distance_id: [distance rangeDistance]
           };
         
         //Append map info to Obj
@@ -225,12 +235,12 @@ NSString *const const_database_car_key_image_url = @"image-url";
         
         //Create NSDictonary
         NSDictionary *mapDic = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                 map.rangeDistance, @"range_distance",nil];
+                                 map.rangeDistance, const_database_range_distance_id,nil];
         //Set value to DB
         [[[[rootNode
-            child:@"users"]
+            child:const_database_node_users]
            child:userId]
-          child:@"map"]
+          child:const_database_node_map]
          setValue:mapDic
          withCompletionBlock:^(NSError * _Nullable error,
                                FIRDatabaseReference * _Nonnull ref)
@@ -279,11 +289,11 @@ NSString *const const_database_car_key_image_url = @"image-url";
             
             //References
             FIRStorage *storage = [FIRStorage storage];
-            storageRef = [storage referenceForURL:@"gs://mobbieapp.appspot.com"];
+            storageRef = [storage referenceForURL:const_database_storage_reference];
             FIRStorageReference *imageRef = [storageRef child:imageName];
             FIRStorageMetadata *metadata = [[FIRStorageMetadata alloc]init];
             
-            metadata.contentType = @"image/jpeg";
+            metadata.contentType = const_image_type;
             NSData *imageData = UIImageJPEGRepresentation(image.image, compressionQuality);
             
             [imageRef putData:imageData metadata:metadata
@@ -330,7 +340,7 @@ NSString *const const_database_car_key_image_url = @"image-url";
     @try{
         
         NSString *userID = [FIRAuth auth].currentUser.uid;
-        NSString *CarPath = [NSString stringWithFormat:@"users/%@/cars", userID];
+        NSString *CarPath = [NSString stringWithFormat:@"%@/%@/%@", const_database_node_users, userID, const_database_node_cars];
         
         //Obj to be inserted into DB
         NSDictionary *carPost = @{
@@ -382,7 +392,7 @@ NSString *const const_database_car_key_image_url = @"image-url";
     @try{
         
         NSString *userID = [FIRAuth auth].currentUser.uid;
-        NSString *CarPath = [NSString stringWithFormat:@"users/%@/cars/%@", userID, car.plateNumber];
+        NSString *CarPath = [NSString stringWithFormat:@"%@/%@/%@/%@",const_database_node_users, userID, const_database_node_cars,car.plateNumber];
         
         //Image reference from storage
         FIRStorage *storage = [FIRStorage storage];

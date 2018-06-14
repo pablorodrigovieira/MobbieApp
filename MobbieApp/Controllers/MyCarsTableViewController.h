@@ -15,9 +15,9 @@
 @import Firebase;
 
 @interface MyCarsTableViewController : UITableViewController
+
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) NSMutableArray *carData;
-
 @property (nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 
 @end

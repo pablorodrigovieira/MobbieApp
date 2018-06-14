@@ -4,7 +4,6 @@
 //
 //  Created by Pablo Vieira on 17/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 

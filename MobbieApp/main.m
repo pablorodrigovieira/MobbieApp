@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "AlertsViewController.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
@@ -17,6 +18,8 @@ int main(int argc, char * argv[]) {
         }
         @catch (NSException *ex)
         {
+            AlertsViewController *alertError = [[AlertsViewController alloc] init];
+            [alertError displayAlertMessage: [NSString stringWithFormat:@"%@", [ex reason]]];
             NSLog(@"NAME: %@ , REASON: %@", [ex name], [ex reason]);
         }
     }

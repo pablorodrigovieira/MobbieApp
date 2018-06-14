@@ -15,6 +15,10 @@
 
 @implementation SignUpViewController
 
+//Class Constants
+NSString *const const_signup_segue = @"signup_identifier_segue";
+NSString *const const_minimum_range_distance = @"1KM";
+
 @synthesize firstNameTextField,lastNameTextField,emailTextField,phoneTextField,passwordTextField,confirmPasswordTextField, loadingActivityIndicator, termsAndConditionsSwitch, ref;
 
 /**
@@ -86,6 +90,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+#pragma mark - Buttons
 
 /**
  *
@@ -168,11 +174,11 @@
                                  
                                  //Insert Map Obj as Default 1km range
                                  MapModel *map = [[MapModel alloc] init];
-                                 map.rangeDistance = @"1KM";
+                                 map.rangeDistance = const_minimum_range_distance;
                                  [dbProvider insertUserMapSettings:map WithUserID:userID];
                                  
                                  //Go to Home screen
-                                 [self performSegueWithIdentifier:@"signup_identifier_segue" sender:self];
+                                 [self performSegueWithIdentifier:const_signup_segue sender:self];
                              }
                              else{
                                  //error
@@ -211,7 +217,7 @@
             [self.loadingActivityIndicator stopAnimating];
             //Display error input MSGs
             AlertsViewController *errAlert = [[AlertsViewController alloc] init];
-            [errAlert displayAlertMessage:@"Please accept the Ts and Cs"];
+            [errAlert displayAlertMessage:const_error_terms_and_conditions];
         }
     }
     @catch(NSException *ex){

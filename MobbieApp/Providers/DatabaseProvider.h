@@ -4,7 +4,6 @@
 //
 //  Created by Pablo Vieira on 22/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 #import "../Models/UserModel.h"
@@ -30,6 +29,15 @@ extern NSString *const const_database_car_key_seats;
 extern NSString *const const_database_car_key_doors;
 extern NSString *const const_database_car_key_model;
 extern NSString *const const_database_car_key_image_url;
+extern NSString *const const_database_profile_key_first_name;
+extern NSString *const const_database_profile_key_last_name;
+extern NSString *const const_database_profile_key_email;
+extern NSString *const const_database_profile_key_phone_number;
+extern NSString *const const_database_node_users;
+extern NSString *const const_database_node_profile;
+extern NSString *const const_database_node_cars;
+extern NSString *const const_database_node_map;
+extern NSString *const const_database_range_distance_id;
 
 //Properties
 @property (strong, nonatomic) FIRDatabaseReference *rootNode;

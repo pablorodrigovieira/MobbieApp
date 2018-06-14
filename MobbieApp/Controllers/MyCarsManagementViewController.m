@@ -4,7 +4,6 @@
 //
 //  Created by Pablo Vieira on 15/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
 #import "MyCarsManagementViewController.h"
 
@@ -15,6 +14,11 @@
 @end
 
 @implementation MyCarsManagementViewController
+
+//Class ENUMS
+typedef NS_ENUM(NSInteger, mycars_management_view_){
+    mycars_management_view_enum_first_item = 0
+};
 
 @synthesize carImage, loadingActivity, vinTextField,regoTextField,plateNumberTextField,yearTextField,makeTextField,modelTextField,bodyTypeTextField,transmissionTextField,colourTextField,fuelTypeTextField,seatsTextField,doorsTextField, carSegue;
 
@@ -128,6 +132,7 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - UITextField
 /**
  *
  * Set textfield with picker/array Info and Picker style
@@ -143,7 +148,7 @@
         pickerBodyType = [[UIPickerView alloc] initWithFrame:pickerFrame];
         [pickerBodyType setBackgroundColor:[UIColor lightTextColor]];
         
-        bodyTypeTextField.text = [bodyTypeArray objectAtIndex:0];
+        bodyTypeTextField.text = [bodyTypeArray objectAtIndex: mycars_management_view_enum_first_item];
         bodyTypeTextField.inputView = pickerBodyType;
         
         pickerBodyType.delegate = self;
@@ -292,7 +297,7 @@
         }
         else{
             AlertsViewController *alertError = [[AlertsViewController alloc]init];
-            [alertError displayAlertMessage: @"Your device has no camera."];
+            [alertError displayAlertMessage: const_error_device_no_camera];
         }
     }
     @catch(NSException *ex){

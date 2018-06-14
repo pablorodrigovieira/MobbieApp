@@ -4,7 +4,6 @@
 //
 //  Created by Pablo Vieira on 10/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
 #import "ViewController.h"
 @import Firebase;
@@ -14,6 +13,14 @@
 @end
 
 @implementation ViewController
+
+//Class ENUMS
+typedef NS_ENUM(NSInteger, login_view_){
+    login_view_enum_dispatch_time = 1
+};
+
+//Class Constants
+NSString *const const_login_segue = @"login_identifier_segue";
 
 @synthesize usernameTextField, passwordTextField, loadingActivity;
 
@@ -83,6 +90,8 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - Buttons
+
 /**
  *
  * Display About Alert
@@ -144,9 +153,9 @@
                  password:passwordTextField.text
                  completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
                      
-                     //Wait .5 seconds to stop loading activity,
+                     //Wait 1 second to stop loading activity,
                      //as the result from firebase may take time..
-                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)),
+                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(login_view_enum_dispatch_time * NSEC_PER_SEC)),
                                     dispatch_get_main_queue(),
                      ^{
                          //Stop and hide Activity Indicator
@@ -154,7 +163,7 @@
                          [self.loadingActivity stopAnimating];
                          
                          if(authResult){
-                             [self performSegueWithIdentifier:@"login_identifier_segue" sender:self];
+                             [self performSegueWithIdentifier:const_login_segue sender:self];
                          }
                          else{
                              //Enable button

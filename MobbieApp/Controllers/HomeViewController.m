@@ -4,7 +4,6 @@
 //
 //  Created by Pablo Vieira on 15/5/18.
 //  Copyright © 2018 Pablo Vieira. All rights reserved.
-//
 
 #import "HomeViewController.h"
 
@@ -13,6 +12,9 @@
 @end
 
 @implementation HomeViewController
+
+//Class Constants
+NSString *const const_logout_segue = @"logout_identifier_segue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,11 +38,11 @@
         
         if (!status) {
             AlertsViewController *alertError = [[AlertsViewController alloc]init];
-            [alertError displayAlertMessage: [NSString stringWithFormat:@"Error signing out: %@", signOutError]];
+            [alertError displayAlertMessage: [NSString stringWithFormat:@"%@ %@", const_error_sign_out, signOutError]];
             
             return;
         }else{
-            [self performSegueWithIdentifier:@"logout_identifier_segue" sender:nil];
+            [self performSegueWithIdentifier:const_logout_segue sender:nil];
         }
     }
     @catch(NSException *ex){
