@@ -1059,7 +1059,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="4wB-1H-zWA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bckground" translatesAutoresizingMaskIntoConstraints="NO" id="4wB-1H-zWA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="CNU-WY-zlM">
@@ -1151,7 +1151,7 @@
     </scenes>
     <resources>
         <image name="about-menu" width="24" height="24"/>
-        <image name="background" width="3272" height="1881"/>
+        <image name="bckground" width="4502" height="3001"/>
         <image name="cars-menu" width="24" height="24"/>
         <image name="help" width="22" height="22"/>
         <image name="home" width="24" height="24"/>
